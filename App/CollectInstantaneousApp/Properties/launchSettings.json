@@ -1,0 +1,17 @@
+{
+  "profiles": {
+    "CollectInstantaneousApp": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "MYSQL_PASSWORD": "123qwe",
+        "MYSQL_USERNAME": "power21",
+        "MYSQL_PORT": "3306",
+        "INFLUX_PASSWORD": "power211234/",
+        "MYSQL_HOST": "192.168.0.40",
+        "INFLUX_HOST": "http://192.168.0.40:8086",
+        "MYSQL_DATABASE": "peiuoperation",
+        "INFLUX_USERNAME": "power21"
+      }
+    }
+  }
+}

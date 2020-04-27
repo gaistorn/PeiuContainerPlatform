@@ -1,0 +1,71 @@
+{
+  "input": [
+    {
+      "function": 3,
+      "points": [
+        {
+          "offset": 100,
+          "type": "INT16",
+          "name": "activePower",
+          "scale": 10
+        },
+        {
+          "offset": 101,
+          "type": "INT16",
+          "name": "reactivePower",
+          "scale": 0,
+          "disable": true
+        },
+        {
+          "offset": 102,
+          "type": "FLOAT",
+          "name": "fault1",
+          "scale": 0.5,
+          "disable": true
+        },
+        {
+          "offset": 104,
+          "type": "INT32",
+          "name": "ivalue",
+          "scale": 0,
+          "disable": true
+        }
+      ]
+    }
+  ],
+  "output": [
+    {
+      "topic": "hubbub/6/pcs1/ctrl1",
+      "function": 3,
+      "point": {
+        "offset": 100,
+        "type": "INT16",
+        "name": "activePower",
+        "scale": 0
+      }
+
+    },
+    {
+      "topic": "hubbub/6/pcs1/ctrl2",
+      "function": 3,
+      "point": {
+        "offset": 102,
+        "type": "FLOAT",
+        "name": "activePowerPwr",
+        "scale": 0
+      }
+
+    },
+    {
+      "topic": "hubbub/6/pcs1/ctrl3",
+      "function": 3,
+      "point": {
+        "offset": 104,
+        "type": "INT32",
+        "name": "FAULT",
+        "scale": 0
+      }
+
+    }
+  ]
+}

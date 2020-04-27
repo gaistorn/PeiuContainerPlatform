@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Style the header */
+    header {
+        background-color: #666;
+        padding: 30px;
+        text-align: center;
+        font-size: 35px;
+        color: white;
+    }
+
+    /* Create two columns/boxes that floats next to each other */
+    nav {
+        float: left;
+        width: 30%;
+        height: 300px; /* only for demonstration, should be removed */
+        background: #ccc;
+        padding: 20px;
+    }
+
+        /* Style the list inside the menu */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+    article {
+        float: left;
+        padding: 20px;
+        width: 100%;
+        background-color: #f1f1f1;
+        height: 500px; /* only for demonstration, should be removed */
+    }
+
+    /* Clear floats after the columns */
+    section:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Style the footer */
+    #footer {
+    clear: both;
+    width: 990px;
+    margin: 0 auto;
+    height: 120px;
+}
+
+    div { text-align: center; }
+
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+        nav, article {
+            width: 100%;
+            height: auto;
+        }
+    }
+</style>
+<body>
+    <div>
+        <img src="http://www.power21.co.kr/2013/images/layout/header/logo.png" />
+    </div>
+
+    <header>~Name~ 님이 발전사업자 가입을 신청하셨습니다</header>
+    <h1>대상 어그리게이터 : ~Aggregator~</h1>
+    <article>
+        <h1>회사명</h1>
+        <p>~Company~</p>
+        <h1>이름</h1>
+        <p>~Name~</p>
+        <h1>이메일</h1>
+        <p>~Email~</p>
+        <h1>연락처</h1>
+        <p>~Phone~</p>
+        <h1>주소</h1>
+        <p>~Address~</p>
+    </article>
+    <footer>
+        <div class="address">
+            <address class="indent">대전광역시 유성구 테크노 3로 65 한신 S-MECA  609호   Tel : +82 - 42 - 336 - 7242    Fax : +82 - 42 - 336 - 7245</address>
+            <p class="indent">copyright(C) 2013 <strong>POWER21 Corp.</strong> All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

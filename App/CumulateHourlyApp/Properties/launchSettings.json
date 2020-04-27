@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CumulateHourlyApp": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

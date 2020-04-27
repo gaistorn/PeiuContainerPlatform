@@ -1,0 +1,94 @@
+{
+  "name": "PCS_BATTERY",
+  "interval": "00:00:01",
+  "items": [
+    {
+      "topic": "hubbub/6/BMS1/AI",
+      "qos": 0,
+      "template": {
+        "groupid": 2,
+        "groupname": "PCS_BATTERY",
+        "deviceId": "BMS1",
+        "normalizedeviceid": "BMS1",
+        "siteId": 6,
+        "rcc": 16,
+        "inJeju": 1,
+        "bms_soc": "$BSC#1.SOC",
+        "bms_soh": "$BSC#1.SOH",
+        "dcCellPwr": 0,
+        "dcCellVlt": "$BSC#1.CellAVGVoltageV",
+        "dcCellCrt": 0,
+        "dcCellTmpMx": "$BSC#1.MaxModuleTemp",
+        "dcCellTmpMn": "$BSC#1.MinModuleTemp",
+        "dcCellVltMx": "$BSC#1.CellVoltMax",
+        "dcCellVltMn": "$BSC#1.CellVoltMin"
+      }
+    },
+    {
+      "topic": "hubbub/6/BMS2/AI",
+      "qos": 0,
+      "template": {
+        "groupid": 2,
+        "groupname": "PCS_BATTERY",
+        "deviceId": "BMS2",
+        "normalizedeviceid": "BMS2",
+        "siteId": 6,
+        "rcc": 16,
+        "inJeju": 1,
+        "bms_soc": "$BSC#2.SOC",
+        "bms_soh": "$BSC#2.SOH",
+        "dcCellPwr": 0,
+        "dcCellVlt": "$BSC#2.CellAVGVoltageV",
+        "dcCellCrt": 0,
+        "dcCellTmpMx": "$BSC#2.MaxModuleTemp",
+        "dcCellTmpMn": "$BSC#2.MinModuleTemp",
+        "dcCellVltMx": "$BSC#2.CellVoltMax",
+        "dcCellVltMn": "$BSC#2.CellVoltMin"
+      }
+    },
+    {
+      "topic": "hubbub/6/BMS3/AI",
+      "qos": 0,
+      "template": {
+        "groupid": 2,
+        "groupname": "PCS_BATTERY",
+        "deviceId": "BMS3",
+        "normalizedeviceid": "BMS3",
+        "siteId": 6,
+        "rcc": 16,
+        "inJeju": 1,
+        "bms_soc": "$BSC#3.SOC",
+        "bms_soh": "$BSC#3.SOH",
+        "dcCellPwr": 0,
+        "dcCellVlt": "$BSC#3.CellAVGVoltageV",
+        "dcCellCrt": 0,
+        "dcCellTmpMx": "$BSC#3.MaxModuleTemp",
+        "dcCellTmpMn": "$BSC#3.MinModuleTemp",
+        "dcCellVltMx": "$BSC#3.CellVoltMax",
+        "dcCellVltMn": "$BSC#3.CellVoltMin"
+      }
+    },
+    {
+      "topic": "hubbub/6/BMS4/AI",
+      "qos": 0,
+      "template": {
+        "groupid": 2,
+        "groupname": "PCS_BATTERY",
+        "deviceId": "BMS4",
+        "normalizedeviceid": "BMS4",
+        "siteId": 6,
+        "rcc": 16,
+        "inJeju": 1,
+        "bms_soc": "$BSC#4.SOC",
+        "bms_soh": "$BSC#4.SOH",
+        "dcCellPwr": 0,
+        "dcCellVlt": "$BSC#4.CellAVGVoltageV",
+        "dcCellCrt": 0,
+        "dcCellTmpMx": "$BSC#4.MaxModuleTemp",
+        "dcCellTmpMn": "$BSC#4.MinModuleTemp",
+        "dcCellVltMx": "$BSC#4.CellVoltMax",
+        "dcCellVltMn": "$BSC#4.CellVoltMin"
+      }
+    }
+  ]
+}

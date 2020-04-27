@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiugrid" assembly="DatabaseModel" namespace="PeiuPlatform.Models.Mysql" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="CurrentWeather" table="CurrentWeather" schema="peiuoperation">
+    <composite-id>
+      <key-property name="Siteid" type="Int32">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+      <key-property name="Createts" type="DateTime">
+        <column name="createts" not-null="true" sql-type="DATETIME" />
+      </key-property>
+    </composite-id>
+    <property name="Code" type="Int32">
+      <column name="code" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Main" type="String">
+      <column name="main" not-null="true" length="45" sql-type="VARCHAR(45)" />
+    </property>
+    <property name="Icon" type="String">
+      <column name="icon" not-null="true" length="10" sql-type="VARCHAR(10)" />
+    </property>
+    <property name="Description" type="String">
+      <column name="description" not-null="true" length="128" sql-type="VARCHAR(128)" />
+    </property>
+    <property name="Lat" type="Double">
+      <column name="lat" not-null="true" sql-type="DOUBLE" />
+    </property>
+    <property name="Lng" type="Double">
+      <column name="lng" not-null="true" sql-type="DOUBLE" />
+    </property>
+    <property name="Temperature" type="Single">
+      <column name="temperature" not-null="true" sql-type="FLOAT" />
+    </property>
+    <property name="Pressure" type="Single">
+      <column name="pressure" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Humidity" type="Single">
+      <column name="humidity" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Lowtemperature" type="Single">
+      <column name="lowtemperature" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Hightemperature" type="Single">
+      <column name="hightemperature" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Clouds" type="Single">
+      <column name="clouds" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Sunrise" type="DateTime">
+      <column name="sunrise" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="Sunset" type="DateTime">
+      <column name="sunset" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="Cityname" type="String">
+      <column name="cityname" not-null="false" length="45" sql-type="VARCHAR(45)" />
+    </property>
+    <property name="Rain1h" type="Single">
+      <column name="rain1h" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Rain3h" type="Single">
+      <column name="rain3h" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Snow1h" type="Single">
+      <column name="snow1h" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Snow3h" type="Single">
+      <column name="snow3h" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Winddeg" type="Single">
+      <column name="winddeg" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Windspeed" type="Single">
+      <column name="windspeed" not-null="false" sql-type="FLOAT" />
+    </property>
+  </class>
+</hibernate-mapping>

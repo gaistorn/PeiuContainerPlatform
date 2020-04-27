@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DatabaseModel" namespace="PeiuPlatform.Models.Mysql" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="NoticeBoard" table="NoticeBoard" schema="peiu_account">
+    <id name="ID" type="Int32">
+      <column name="ID" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      <generator class="identity" />
+    </id>
+    <property name="Title" type="String">
+      <column name="Title" not-null="true" length="255" sql-type="VARCHAR(255)" />
+    </property>
+    <property name="Createts" type="DateTime">
+      <column name="Createts" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="ViewCount" type="Int32">
+      <column name="ViewCount" default="0" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="RegisterUserId" type="String">
+      <column name="RegisterUserId" not-null="true" length="255" sql-type="VARCHAR(255)" />
+    </property>
+    <property name="Contents" type="StringClob">
+      <column name="Contents" not-null="true" sql-type="LONGTEXT" />
+    </property>
+  </class>
+</hibernate-mapping>

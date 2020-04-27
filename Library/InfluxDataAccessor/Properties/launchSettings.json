@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "InfluxDataAccessor": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "INFLUX_PASSWORD": "power211234/",
+        "INFLUX_HOST": "http://192.168.0.40:8086",
+        "INFLUX_USERNAME": "power21"
+      }
+    }
+  }
+}

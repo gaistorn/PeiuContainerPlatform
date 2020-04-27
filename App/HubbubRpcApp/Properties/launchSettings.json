@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "HubbubRpcApp": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "MYSQL_PASSWORD": "123qwe",
+        "MYSQL_USERNAME": "power21",
+        "MYSQL_PORT": "3306",
+        "MYSQL_HOST": "192.168.0.40",
+        "MYSQL_DATABASE": "peiugrid"
+      },
+      "applicationUrl": "https://localhost"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true
+    }
+  }
+}

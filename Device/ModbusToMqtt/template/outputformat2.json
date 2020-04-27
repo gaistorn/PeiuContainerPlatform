@@ -1,0 +1,12 @@
+{
+  "msg": "$activePower",
+  "tt": "$fault1",
+  "siteid": 1,
+  "rcc": 12,
+  "timestamp" :  "@now:yyyy-MM-dd",
+  "deviceid": "%Siteid",
+  "device": {
+    "int32value": "$ivalue",
+    "topic": "sss"
+  }
+}

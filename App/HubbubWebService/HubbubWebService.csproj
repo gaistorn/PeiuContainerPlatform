@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>92fbb30e-53dc-479d-a4d2-ea5831ece297</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <RootNamespace>PeiuPlatform.App</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\redwi\source\repos\PeiuContainerPlatform\App\HubbubWebService\HubbubWebService.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="MQTTnet" Version="3.0.9" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.3.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\DatabaseModel\DatabaseModel.csproj" />
+    <ProjectReference Include="..\..\Library\IdentityModel\IdentityModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="www_peiu_co_kr.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+
+</Project>

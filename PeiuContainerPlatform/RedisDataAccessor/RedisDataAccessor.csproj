@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>PeiuPlatform.DataAccessor</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="5.5.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>PeiuPlatform.Lib</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FireworksFramework.NetStandard.Mqtt" Version="1.0.2" />
+    <PackageReference Include="LiteDB" Version="4.1.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventModel\EventModel.csproj" />
+    <ProjectReference Include="..\MqttDataAccessor\MqttDataAccessor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="EventPublisherWorker.properties">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-JeochoenHubbub-0931FC7B-6AD3-4FB4-B53F-38363D8DF3C2</UserSecretsId>
+    <RootNamespace>PeiuPlatform.Hubbub</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="nlog.config" />
+    <Content Remove="PushTemplate\BMSAlarmEventTemplate.json" />
+    <Content Remove="PushTemplate\PCSAlarmEventTemplate.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="PushTemplate\BMSAlarmEventTemplate.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="PushTemplate\PCSAlarmEventTemplate.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" />
+    <PackageReference Include="MQTTnet" Version="3.0.9" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.2" />
+    <PackageReference Include="NModbus" Version="3.0.61" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\HubbubCommonLib\HubbubCommonLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="modbusmap.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+</Project>

@@ -1,0 +1,18 @@
+{
+  "profiles": {
+    "CollectForecastWeatherApp": {
+      "commandName": "Docker",
+      "environmentVariables": {
+        "MYSQL_PASSWORD": "123qwe",
+        "MYSQL_USERNAME": "power21",
+        "MYSQL_PORT": "3306",
+        "ENV_OPENWEATHER_APP_KEY": "0e24126ab1639fb0301e58fb0f2a7009",
+        "MYSQL_HOST": "192.168.0.40",
+        "MYSQL_DATABASE": "peiugrid"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

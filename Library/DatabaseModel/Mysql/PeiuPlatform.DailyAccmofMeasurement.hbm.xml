@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiugrid" assembly="DatabaseModel" namespace="PeiuPlatform.Models.Mysql" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="DailyAccmofMeasurement" table="DailyAccmofMeasurements" schema="peiuoperation">
+    <composite-id>
+      <key-property name="Rcc" type="Int32">
+        <column name="rcc" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+      <key-property name="Siteid" type="Int32">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+      <key-property name="Createdt" type="DateTime">
+        <column name="createdt" not-null="true" sql-type="DATE" />
+      </key-property>
+    </composite-id>
+    <property name="Sumofcharge" type="Double">
+      <column name="sumofcharge" not-null="true" sql-type="DOUBLE" />
+    </property>
+    <property name="Sumofdischarge" type="Double">
+      <column name="sumofdischarge" not-null="true" sql-type="DOUBLE" />
+    </property>
+    <property name="Sumofpvgeneration" type="Double">
+      <column name="sumofpvgeneration" not-null="true" sql-type="DOUBLE" />
+    </property>
+    <property name="Avgofsoc" type="Double">
+      <column name="avgofsoc" default="0" not-null="true" sql-type="DOUBLE" />
+    </property>
+    <property name="Avgofsoh" type="Double">
+      <column name="avgofsoh" default="0" not-null="true" sql-type="DOUBLE" />
+    </property>
+  </class>
+</hibernate-mapping>

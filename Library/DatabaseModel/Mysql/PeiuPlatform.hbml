@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiugrid" assembly="DatabaseModel" namespace="PeiuPlatform.Models.Mysql" p1:Guid="87e65ea2-1d9f-4f80-9a31-44c21e05dd2e" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="CurrentWeather" table="CurrentWeather" schema="peiuoperation" p1:Guid="a3c1f15c-978d-4bbb-8886-70f9599b6da7">
+    <composite-id>
+      <key-property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="102837e7-4f87-4246-801d-d8ac9b157d02">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Createts" type="DateTime" p1:ValidateRequired="true" p1:Guid="66df1a75-130b-47c9-babd-ef7a2349250f">
+        <column name="createts" not-null="true" sql-type="datetime" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Code" type="Int32" p1:ValidateRequired="true" p1:Guid="4acdd767-871f-4f4b-b6a1-9349bd2e255d">
+      <column name="code" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Main" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="e257123e-f247-44ee-80f4-1d5140a2cdcb">
+      <column name="main" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Icon" type="String" p1:ValidateMaxLength="10" p1:ValidateRequired="true" p1:Guid="1653c985-d8ea-48e3-9ebb-ed2ad4a009f3">
+      <column name="icon" not-null="true" length="10" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Description" type="String" p1:ValidateMaxLength="128" p1:ValidateRequired="true" p1:Guid="6d26692d-b38a-4a67-805d-d6e75218f61e">
+      <column name="description" not-null="true" length="128" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Lat" type="Double" p1:ValidateRequired="true" p1:Guid="90149b79-6e56-455e-8822-5fcfa97c3699">
+      <column name="lat" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Lng" type="Double" p1:ValidateRequired="true" p1:Guid="7aa8087e-0f62-48d4-93cc-39c8fcd2d0bf">
+      <column name="lng" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Temperature" type="Single" p1:ValidateRequired="true" p1:Guid="27aab2aa-024b-4a2a-9656-5d1e22d7757f">
+      <column name="temperature" not-null="true" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Pressure" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="42e6f36f-8d99-4113-b56a-185b1bc38181">
+      <column name="pressure" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Humidity" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="da0009ce-b6ca-48d5-8d27-4b3321eacee3">
+      <column name="humidity" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Lowtemperature" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="96110b24-4c26-4b2d-814e-42c2e578a841">
+      <column name="lowtemperature" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Hightemperature" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="124bf81d-721c-4887-aa29-50e024fa81ea">
+      <column name="hightemperature" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Clouds" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="84fbc601-fd0d-43a8-ba2d-e6259c33ff96">
+      <column name="clouds" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Sunrise" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="f15d5386-e376-4f21-bf6c-44194f1f802b">
+      <column name="sunrise" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Sunset" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="0dff05dc-7e59-4774-b55a-7517c011a65b">
+      <column name="sunset" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Cityname" type="String" p1:nullable="true" p1:ValidateMaxLength="45" p1:ValidateRequired="false" p1:Guid="ebc9815e-a8c6-485b-b18c-5160b9ee95d1">
+      <column name="cityname" not-null="false" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Rain1h" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="78a109e4-33ed-4cb7-b0b6-aae6059038a4">
+      <column name="rain1h" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Rain3h" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="7cb0ccf3-81ca-484c-b96a-2361a4fc75c2">
+      <column name="rain3h" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Snow1h" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="0e709f8b-a648-4675-a33a-c2bc1b5fa2af">
+      <column name="snow1h" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Snow3h" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="0ec0c1c4-19d8-4674-8104-d8c79e8dc1ff">
+      <column name="snow3h" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Winddeg" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="c034f087-f2c4-414b-81f7-817965c6b16f">
+      <column name="winddeg" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Windspeed" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="e07c0caf-2200-4fb7-a33d-8d789c98997e">
+      <column name="windspeed" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="DailyActualRevenue" table="DailyActualRevenue" schema="peiuoperation" p1:Guid="330582d7-8339-474a-9f0a-8a19d7d6fd15">
+    <composite-id>
+      <key-property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="d0ebc56f-1656-4341-8d8c-870802d2e9e8">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Createdt" type="DateTime" p1:ValidateRequired="true" p1:Guid="92fc3e40-3f8e-4ea3-9f90-805a7dfb57c9">
+        <column name="createdt" not-null="true" sql-type="date" p1:unicode="false" />
+      </key-property>
+      <key-property name="Rcc" type="Int32" p1:ValidateRequired="true" p1:Guid="c0f79ba6-855f-4828-8f4e-3462340fae65">
+        <column name="rcc" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Revenue" type="Double" p1:ValidateRequired="true" p1:Guid="a95071e7-8c11-42ab-97ec-9b0fa83e6037">
+      <column name="revenue" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="ForecastWeather" table="ForecastWeather" schema="peiuoperation" p1:Guid="a3d78fd9-3bec-49e9-bfed-e43bc73f7ce6">
+    <id name="Forecastweatherindex" type="Int32" p1:ValidateRequired="true" p1:Guid="545e9796-c767-4bba-838e-7e753e51cf07">
+      <column name="forecastweatherindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      <generator class="identity" />
+    </id>
+    <property name="Main" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="2461ded1-0e41-4e9e-92d0-3db3750f236b">
+      <column name="main" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="b5e282d9-56f8-4cac-a0cc-88bbce4a6a18">
+      <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Description" type="String" p1:ValidateMaxLength="128" p1:ValidateRequired="true" p1:Guid="3f2eaaef-9ab1-454a-8bf5-d0eb04a1e3cf">
+      <column name="description" not-null="true" length="128" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Temperature" type="Single" p1:ValidateRequired="true" p1:Guid="1c72aab8-9c9c-4f59-a5fd-c5b6ba09f222">
+      <column name="temperature" not-null="true" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Pressure" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="ba7a2297-2ba2-4185-a4c9-917cc5ecc529">
+      <column name="pressure" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Humidity" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="d7e35015-5668-42d8-9738-ad020c3cc2bc">
+      <column name="humidity" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Lowtemperature" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="118e4951-3319-4e84-9da7-7586ec667e57">
+      <column name="lowtemperature" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Hightemperature" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="6d9a84ea-0176-471e-a34c-4a451c1b2f7f">
+      <column name="hightemperature" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Clouds" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="80974d45-5821-4186-a291-12bf141241a2">
+      <column name="clouds" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Createts" type="DateTime" p1:ValidateRequired="true" p1:Guid="d3f1aef9-f6e0-4e05-97bd-0b9841bbc0d0">
+      <column name="createts" not-null="true" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Rain1h" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="9b5e91f4-f8e7-490b-a8c3-69d0fe69e42a">
+      <column name="rain1h" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Rain3h" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="9887de2f-556c-40ba-8ced-8d38e92dea80">
+      <column name="rain3h" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Snow1h" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="8ce4599c-c945-4105-9d0a-7e4843d1b0e9">
+      <column name="snow1h" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Snow3h" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="a8e36945-f6d2-45c6-8b26-7816fddc040d">
+      <column name="snow3h" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Code" type="Int32" p1:ValidateRequired="true" p1:Guid="e8a95f4f-dbb6-4212-9e08-1a7d8f04a2ba">
+      <column name="code" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Winddeg" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="d9c90303-5e01-42cd-b4bf-84c3676001f6">
+      <column name="winddeg" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Windspeed" type="Single" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="0aa1cbcb-83ee-42e3-9302-bf6607311086">
+      <column name="windspeed" not-null="false" sql-type="float" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="HourlyActualRevenue" table="HourlyActualRevenue" schema="peiuoperation" p1:Guid="8e4f5da4-d189-4342-bb47-bfe187503c67">
+    <composite-id>
+      <key-property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="0375a03f-b285-4c30-8e80-38093501654c">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Createdt" type="DateTime" p1:ValidateRequired="true" p1:Guid="606e2db7-959d-4fde-a3f6-273e48c24a0f">
+        <column name="createdt" not-null="true" sql-type="date" p1:unicode="false" />
+      </key-property>
+      <key-property name="Hour" type="Int32" p1:ValidateRequired="true" p1:Guid="5bbd0fee-dde4-4759-bdc5-fbd550c4ffd4">
+        <column name="hour" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Inisland" type="Boolean" p1:ValidateRequired="true" p1:Guid="07aa77d7-636b-415c-be52-9c59814334ea">
+      <column name="inisland" not-null="true" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="Rcc" type="Int32" p1:ValidateRequired="true" p1:Guid="2553b442-c893-47cf-a7eb-aeb4fd56fe0b">
+      <column name="rcc" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Revenue" type="Double" p1:ValidateRequired="true" p1:Guid="a75d19aa-d334-43f3-b879-a5c59467877c">
+      <column name="revenue" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="DailyAccmofMeasurement" table="DailyAccmofMeasurements" schema="peiuoperation" p1:Guid="21977026-8a57-4073-a810-ab4310d8cb75">
+    <composite-id>
+      <key-property name="Rcc" type="Int32" p1:ValidateRequired="true" p1:Guid="14a55bdf-196b-456e-87b2-89245bfbb4b7">
+        <column name="rcc" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="0d3ddf7a-c9e6-4ab3-b64a-bbdac0876cdc">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Createdt" type="DateTime" p1:ValidateRequired="true" p1:Guid="2ba65fd8-9f4f-4f7b-88fe-9fe54f217334">
+        <column name="createdt" not-null="true" sql-type="date" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Sumofcharge" type="Double" p1:ValidateRequired="true" p1:Guid="cfcd78e5-0f13-4289-9e1b-38fb47852dcb">
+      <column name="sumofcharge" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Sumofdischarge" type="Double" p1:ValidateRequired="true" p1:Guid="54af8890-0867-4124-a95f-60f0470e2630">
+      <column name="sumofdischarge" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Sumofpvgeneration" type="Double" p1:ValidateRequired="true" p1:Guid="155f31f4-ab58-4f97-ad56-c16842e5c4ec">
+      <column name="sumofpvgeneration" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Avgofsoc" type="Double" p1:ValidateRequired="true" p1:Guid="23665d4e-621e-45dd-b619-4bbf811593f8">
+      <column name="avgofsoc" default="0" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Avgofsoh" type="Double" p1:ValidateRequired="true" p1:Guid="d24b8e3b-a359-410b-a698-db3ee2a919a7">
+      <column name="avgofsoh" default="0" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="HourlyAccmofMeasurement" table="HourlyAccmofMeasurements" schema="peiuoperation" p1:Guid="5308c5e5-86ca-4df6-8137-0658b8298133">
+    <composite-id>
+      <key-property name="Rcc" type="Int32" p1:ValidateRequired="true" p1:Guid="e6a0620b-3d20-49c5-9465-429f3750d1ec">
+        <column name="rcc" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="e853d77b-8a14-4016-ad9c-cc23d7827e66">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Createdt" type="DateTime" p1:ValidateRequired="true" p1:Guid="c1bafa6b-c393-477f-9009-7cbae363fb2f">
+        <column name="createdt" not-null="true" sql-type="date" p1:unicode="false" />
+      </key-property>
+      <key-property name="Hour" type="Int32" p1:ValidateRequired="true" p1:Guid="47f870e7-6d8c-4ca6-90a8-787be501f037">
+        <column name="hour" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Inisland" type="Boolean" p1:ValidateRequired="true" p1:Guid="13651141-b2bd-4200-a847-8c95b33ef033">
+      <column name="inisland" not-null="true" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="Sumofcharge" type="Double" p1:ValidateRequired="true" p1:Guid="3dcc1148-75e1-4a33-8bf2-a2e43aabd72c">
+      <column name="sumofcharge" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Sumofdischarge" type="Double" p1:ValidateRequired="true" p1:Guid="511750c3-d610-45dc-9e0f-6c31b3f8a4f5">
+      <column name="sumofdischarge" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Sumofpvgeneration" type="Double" p1:ValidateRequired="true" p1:Guid="5a570be0-44d5-4c34-8f68-4177224d8617">
+      <column name="sumofpvgeneration" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Avgofsoc" type="Double" p1:ValidateRequired="true" p1:Guid="b43dc688-34ef-4090-987c-d2242a2dda70">
+      <column name="avgofsoc" default="0" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Avgofsoh" type="Double" p1:ValidateRequired="true" p1:Guid="14aa5f74-42db-445c-a122-c2a03dd947b6">
+      <column name="avgofsoh" default="0" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="Vwcontractorsite" table="vwcontractorsites" schema="peiuoperation" p1:Guid="147064ce-16ad-434c-98db-4ae440eb9778">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <id name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="b833174d-d776-4b27-b8ba-d01efdc665ff">
+      <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </id>
+    <property name="Agggroupid" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="22d60907-5b87-4e83-96a4-5a0ddcbd1c98">
+      <column name="agggroupid" not-null="false" length="255" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Aggname" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="77bbc447-80fb-49cd-89eb-e0f6d45ccb32">
+      <column name="aggname" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Aggrepresentation" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="1e8f1d89-4e43-4cab-ac76-b16369611f11">
+      <column name="Aggrepresentation" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Email" type="String" p1:nullable="true" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="907463c4-b82a-4d8f-bad8-85f88bacec2d">
+      <column name="email" not-null="false" length="256" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Firstname" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="61f0da73-1564-482f-8d04-d7ca21908cf7">
+      <column name="firstname" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Lastname" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="d04e0515-7f26-4a05-b310-bfdb60cefb07">
+      <column name="lastname" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Company" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="40541667-84b9-4c13-ad42-7f7b8047fa34">
+      <column name="company" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Lng" type="Double" p1:ValidateRequired="true" p1:Guid="df84ae75-bd3e-49c2-914a-e857fdcf251f">
+      <column name="lng" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Lat" type="Double" p1:ValidateRequired="true" p1:Guid="8baf0436-1c7e-4eb2-afbb-de0543809b5b">
+      <column name="lat" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Rcc" type="Int32" p1:ValidateRequired="true" p1:Guid="8bd6e535-12e9-463c-9ca9-f0222421eb94">
+      <column name="rcc" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Devicegroupcode" type="Int32" p1:ValidateRequired="true" p1:Guid="0c6e55bb-a8e0-435b-a5af-2f5f885a8609">
+      <column name="devicegroupcode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Lawfirstcode" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="b3c08617-4dca-41ee-be0f-72160c825115">
+      <column name="lawfirstcode" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Lawmiddlecode" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="a6f18666-48b2-4be0-90d9-404c650f0e52">
+      <column name="lawmiddlecode" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Lawlastcode" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="2d7ddaea-1a20-4bd1-9f07-9acb77ce1149">
+      <column name="lawlastcode" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Address1" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="3cfddb47-0cee-4da1-9d9c-a3ba7e9b2430">
+      <column name="address1" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Address2" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="cc757396-a83f-4a0e-86e1-bb24319342c6">
+      <column name="address2" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Userid" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="9da6201a-47b7-492d-ad4d-bf9338b9968f">
+      <column name="userid" not-null="false" length="255" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Represenation" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="26367fb3-f32c-40ad-9020-b816b9c3fdec">
+      <column name="represenation" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Servicecode" type="Int32" p1:ValidateRequired="true" p1:Guid="48c22224-ff3a-49ee-889f-bb1559d0c56e">
+      <column name="servicecode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Comment" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="8ff28546-8b6d-4ba8-a5b3-7b57a0f9f397">
+      <column name="`comment`" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Restrictsite" type="Boolean" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="9cc2829b-bcff-415f-a465-8dab9f55b57c">
+      <column name="restrictsite" not-null="false" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="Inisland" type="Boolean" p1:ValidateRequired="true" p1:Guid="655b1e58-ce31-449b-97db-d447c548c9be">
+      <column name="inisland" not-null="true" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="Createts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="34947c3b-56b3-490a-bbca-cb19cf49d1b5">
+      <column name="createts" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Totalpcscapacity" type="Double" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="a5e7a8b1-83a2-4ad5-b6db-2f4396e6044b">
+      <column name="totalpcscapacity" not-null="false" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Pcscount" type="Decimal" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="4dc5fb7f-2694-4f45-bea3-5beffdbfacbe">
+      <column name="pcscount" not-null="false" precision="23" scale="0" sql-type="decimal" p1:unicode="false" />
+    </property>
+    <property name="Totalbmscapacity" type="Double" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="63feaeb2-f377-4d6c-af97-aca63adb2573">
+      <column name="totalbmscapacity" not-null="false" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Bmscount" type="Decimal" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="e536c004-fadf-4711-be7c-eda052ad0560">
+      <column name="bmscount" not-null="false" precision="23" scale="0" sql-type="decimal" p1:unicode="false" />
+    </property>
+    <property name="Totalpvcapacity" type="Double" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="e9e069ad-0044-4003-9e9a-655fac7e2023">
+      <column name="totalpvcapacity" not-null="false" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Pvcount" type="Decimal" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="4df2da48-f04c-4888-bccd-044b09b99b0b">
+      <column name="pvcount" not-null="false" precision="23" scale="0" sql-type="decimal" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="MinuteAccmofMeasurement" table="MinuteAccmofMeasurements" schema="peiuoperation" p1:Guid="931fde19-8815-4fe8-ba0b-4ffc4f9d29f5">
+    <composite-id>
+      <key-property name="Rcc" type="Int32" p1:ValidateRequired="true" p1:Guid="13f0d0ec-a0fa-432d-8f77-621e93114eca">
+        <column name="rcc" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="847660a5-5db3-4144-8c69-bc00eee67f96">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Createdt" type="DateTime" p1:ValidateRequired="true" p1:Guid="604f81a5-26f4-4aa4-9c99-bf5341eea00b">
+        <column name="createdt" not-null="true" sql-type="date" p1:unicode="false" />
+      </key-property>
+      <key-property name="Hour" type="Int32" p1:ValidateRequired="true" p1:Guid="ea33363e-fd5b-4b34-9576-cb44ff5b3e27">
+        <column name="hour" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Minute" type="Int32" p1:ValidateRequired="true" p1:Guid="58ac82b4-7864-4f62-87a7-816b0d4a2fbb">
+        <column name="minute" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Avgofsoc" type="Double" p1:ValidateRequired="true" p1:Guid="3b7e40f1-db01-4a8f-a656-9f1aafb50a30">
+      <column name="avgofsoc" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Avgofsoh" type="Double" p1:ValidateRequired="true" p1:Guid="f6a3e0df-65d4-4c8a-ad06-ce1e47144b58">
+      <column name="avgofsoh" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Sumofcharge" type="Double" p1:ValidateRequired="true" p1:Guid="4de199cc-a8c0-4e29-80f4-38e0c36281fe">
+      <column name="sumofcharge" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Sumofdischarge" type="Double" p1:ValidateRequired="true" p1:Guid="b0084840-da3f-4256-937d-f755c081df0d">
+      <column name="sumofdischarge" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Sumofpvgeneration" type="Double" p1:ValidateRequired="true" p1:Guid="f06bfd8a-11d5-4c79-83e4-5001a4ef53cc">
+      <column name="sumofpvgeneration" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="MinuteMeasurement" table="MinuteMeasurements" schema="peiuoperation" p1:Guid="1f008dd7-7e82-4a61-908e-5bce358cb769">
+    <composite-id>
+      <key-property name="Rcc" type="Int32" p1:ValidateRequired="true" p1:Guid="85fac64e-3793-4da7-8b30-149074a87fda">
+        <column name="rcc" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="7ae65279-4f34-41d6-ac35-1535bb319b83">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Createdt" type="DateTime" p1:ValidateRequired="true" p1:Guid="64d16dc6-1a17-4620-a107-a8bc220d4cf3">
+        <column name="createdt" not-null="true" sql-type="date" p1:unicode="false" />
+      </key-property>
+      <key-property name="Hour" type="Int32" p1:ValidateRequired="true" p1:Guid="d05a4d24-a13b-4370-af2d-655f9a6509b5">
+        <column name="hour" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Minute" type="Int32" p1:ValidateRequired="true" p1:Guid="cc91bacd-b43c-454b-b9a9-2d64a32596ef">
+        <column name="minute" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Inisland" type="Boolean" p1:ValidateRequired="true" p1:Guid="4b041301-68e8-4663-b429-902739366114">
+      <column name="inisland" not-null="true" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="Soc" type="Double" p1:ValidateRequired="true" p1:Guid="a4e7416c-ac60-4de8-a906-5c56a30487b2">
+      <column name="soc" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Soh" type="Double" p1:ValidateRequired="true" p1:Guid="c3410a76-45f9-4e7b-8c38-0253f5b86117">
+      <column name="soh" default="0" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Activepower" type="Double" p1:ValidateRequired="true" p1:Guid="a1a82d48-0151-480c-bd22-6634920edc06">
+      <column name="activepower" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Pvgeneration" type="Double" p1:ValidateRequired="true" p1:Guid="8836517f-87d3-42c2-b647-dc103aa0bbb6">
+      <column name="pvgeneration" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="VwEventRecord" table="vwEventRecord" schema="peiuoperation" p1:Guid="8371b286-5388-40cb-820a-826a950f092d">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <id name="EventRecordId" type="Int32" p1:ValidateRequired="true" p1:Guid="121336fc-469c-4f2d-a5ae-d299e4098fff">
+      <column name="EventRecordId" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </id>
+    <property name="Eventcode" type="Int32" p1:ValidateRequired="true" p1:Guid="d88442f3-dafa-4bc2-bc62-f0f012546e81">
+      <column name="eventcode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Createts" type="DateTime" p1:ValidateRequired="true" p1:Guid="4381cf9d-142d-4e28-b7c9-f43d4c53f6cb">
+      <column name="createts" not-null="true" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Recoveryts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="f3e2e865-5c38-4d47-b80a-7d8a7f7e6800">
+      <column name="Recoveryts" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Ackts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="31f88882-8e20-4176-89c7-6da236439ce2">
+      <column name="Ackts" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="AckUserName" type="String" p1:nullable="true" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="3cf3c490-c34d-4ed0-a4cd-61438e9329cd">
+      <column name="AckUserName" not-null="false" length="50" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="AckUserEmail" type="String" p1:nullable="true" p1:ValidateMaxLength="128" p1:ValidateRequired="false" p1:Guid="10ebbb7d-3c02-43d5-8d7c-d1ddc07f244f">
+      <column name="AckUserEmail" not-null="false" length="128" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="SiteId" type="Int32" p1:ValidateRequired="true" p1:Guid="02758f46-df4d-427a-8432-48a9dac30db6">
+      <column name="SiteId" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="AggName" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="a5c4ebbc-6201-4204-b85e-da68a9233e16">
+      <column name="AggName" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="AggGroupId" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="e1238c1c-a581-42d1-bb7d-c697e85d7e06">
+      <column name="AggGroupId" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="DeviceType" type="Int32" p1:ValidateRequired="true" p1:Guid="2ac71585-4d1b-43cc-b1f6-d20373659d98">
+      <Documentation>
+        <Summary>1 : PCS,
+2 : BMS
+3 : PV</Summary>
+      </Documentation>
+      <column name="DeviceType" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="DeviceIndex" type="Int32" p1:ValidateRequired="true" p1:Guid="6274ff7e-19f6-48c9-b721-c2b041b6dfd7">
+      <column name="DeviceIndex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Level" type="SByte" p1:ValidateRequired="true" p1:Guid="185c57ac-9702-4ebb-bd4c-3b1e09357243">
+      <Documentation>
+        <Summary>??? ??
+0 : ??
+1 ~ 3 : ??
+4 ~ : ??</Summary>
+      </Documentation>
+      <column name="Level" not-null="true" scale="0" sql-type="tinyint" p1:unicode="false" />
+    </property>
+    <property name="FactoryCode" type="Int32" p1:ValidateRequired="true" p1:Guid="baa78842-5aaa-48a8-bb5c-19b0f7c71837">
+      <column name="FactoryCode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="BitFlag" type="Int32" p1:ValidateRequired="true" p1:Guid="4245461f-81fd-4dfc-a971-3b424ac3af04">
+      <column name="BitFlag" not-null="true" length="9" sql-type="mediumint" p1:unicode="false" />
+    </property>
+    <property name="Name" type="String" p1:ValidateMaxLength="128" p1:ValidateRequired="true" p1:Guid="ef88ef2b-a36a-4b39-9748-04bba2dff03d">
+      <column name="Name" not-null="true" length="128" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="FaultDurationMin" type="Int64" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="b0ce9d5c-7664-45b2-8497-21448b18b6dd">
+      <column name="FaultDurationMin" not-null="false" precision="21" scale="0" sql-type="bigint" p1:unicode="false" />
+    </property>
+  </class>
+  <sql-query name="GetSmpPrice" p1:procedure="peiugrid.GetSmpPrice" callable="true" p1:Guid="cc92c6ac-2f46-4eab-af1b-9c05c234bd79">
+    <return-scalar column="return_value" type="Single" />
+    <query-param name="isjeju" p1:source="isjeju" p1:server-type="int" type="Int32" />
+    <query-param name="target_date" p1:source="target_date" p1:server-type="date" type="DateTime" />select peiugrid.GetSmpPrice(:isjeju, :target_date) as return_value</sql-query>
+  <sql-query name="GetRec" p1:procedure="peiugrid.GetRec" callable="true" p1:Guid="d448e825-79ed-4adf-be77-36a305fdab6c">
+    <return-scalar column="return_value" type="Int32" />
+    <query-param name="target_date" p1:source="target_date" p1:server-type="date" type="DateTime" />select peiugrid.GetRec(:target_date) as return_value</sql-query>
+</hibernate-mapping>

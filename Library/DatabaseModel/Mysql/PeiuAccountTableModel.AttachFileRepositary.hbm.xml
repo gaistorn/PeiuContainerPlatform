@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DatabaseModel" namespace="PeiuPlatform.Models.Mysql" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="AttachFileRepositary" table="AttachFileRepositary" schema="peiu_account">
+    <id name="Id" type="String">
+      <column name="id" not-null="true" length="255" sql-type="VARCHAR(255)" unique="true" />
+      <generator class="assigned" />
+    </id>
+    <property name="Filename" type="String">
+      <column name="filename" not-null="true" length="255" sql-type="VARCHAR(255)" />
+    </property>
+    <property name="Contents" type="BinaryBlob">
+      <column name="contents" not-null="true" sql-type="MEDIUMBLOB" />
+    </property>
+    <property name="Createdt" type="DateTime">
+      <column name="createdt" not-null="true" sql-type="DATE" />
+    </property>
+    <property name="Contentstype" type="String">
+      <column name="contentstype" not-null="false" length="45" sql-type="VARCHAR(45)" />
+    </property>
+    <property name="Grouptype" type="Int32">
+      <column name="grouptype" default="0" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Boardid" type="Int32">
+      <column name="boardid" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Downloadcount" type="Int32">
+      <column name="downloadcount" default="0" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+  </class>
+</hibernate-mapping>

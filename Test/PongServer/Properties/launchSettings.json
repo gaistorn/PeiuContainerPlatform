@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "PongServer": {
+      "commandName": "Project",
+      "commandLineArgs": "-l tcp://localhost:12346 -p 12345",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

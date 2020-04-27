@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+option csharp_namespace = "PeiuPlatform.Proto";
+
+package hubbub;
+
+// The greeting service definition.
+service HubbubService {
+  // Sends a greeting
+  rpc GetAllModbusHubbubsBySiteId (RequestSiteid) returns (ModbusHubbubReply);
+  rpc GetAllModbusDataPoints (RequestProtocolId) returns (ReplyModbusDataPoints);
+}
+
+message RequestSiteid {
+    int32 siteid = 1;
+}
+
+message RequestProtocolId {
+    int32 protocolid = 1;
+}
+
+message ReplyModbusDataPoints {
+    repeated ModbusAnalogDataPoint analogpoints = 1;
+    repeated ModbusDigitalInputPoint digitalinputpoints = 2;
+    repeated ModbusDigitalOutputPoint digitaloutputpoints = 3;
+}
+
+message ModbusHubbubReply {
+    repeated ModbusHubbubProto modbushubbubs = 1;
+}
+
+message ModbusAnalogDataPoint {
+    int32 protocolid = 1;
+    int32 functioncode = 2;
+    int32 offset = 3;
+    DeviceTypeEnum devicetypeid = 4;
+    DataTypeEnum datatypeid = 5;
+    int32 disable = 6;
+    string label = 7;
+    float scalefactor = 8;
+    string pointid = 9;
+	}
+
+message ModbusDigitalInputPoint {
+    int32 protocolid = 1;
+    int32 functioncode = 2;
+    int32 offset = 3;
+    DeviceTypeEnum devicetypeid = 4;
+    DataTypeEnum datatypeid = 5;
+    int32 disable = 6;
+     int32 bitflag = 7;
+     string name = 8;
+     int32 level = 9;
+	}
+
+ message ModbusDigitalOutputPoint {
+    int32 protocolid = 1;
+    int32 functioncode = 2;
+    int32 offset = 3;
+    DeviceTypeEnum devicetypeid = 4;
+    DataTypeEnum datatypeid = 5;
+    int32 disable = 6;
+     int32 bitflag = 7;
+     string name = 8;
+     int32 level = 9;
+     int32 commandcode = 10;
+     int32 order = 11;
+     int32 outputvalue = 12;
+     float scalefactor = 13;
+	}
+
+message ModbusDataPoint {
+    int32 protocolid = 1;
+    int32 functioncode = 2;
+    int32 offset = 3;
+    DeviceTypeEnum devicetypeid = 4;
+    DataTypeEnum datatypeid = 5;
+    int32 disable = 6;
+}
+
+enum DataTypeEnum {
+    UNKNOWN_DATATYPE = 0;
+    BYTE = 100;
+    INT16 = 101;
+    UINT16 = 102;
+    INT32 = 103;
+    UINT32 = 104;
+    FLOAT = 105;
+    INT64 = 106;
+    UINT64 = 107;
+
+}
+
+enum DeviceTypeEnum {
+    UNKNOWN_DEVICE = 0;
+    PCS = 1;
+    BMS = 2;
+    PV = 3;
+}
+
+message ModbusHubbubProto {
+    int32 siteid = 1;
+    int32 protocolid = 2;
+    int32 deviceindex = 3;
+    string label = 4;
+    string host = 5;
+    int32 port = 6;
+    int32 slaveid = 7;
+    string scheme = 8;
+    int32 timeoutms = 9;
+
+    repeated ModbusAnalogDataPoint analogpoints = 10;
+    repeated ModbusDigitalInputPoint digitalinputpoints = 11;
+    repeated ModbusDigitalOutputPoint digitaloutputpoints = 12;
+}

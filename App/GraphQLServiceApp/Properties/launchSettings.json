@@ -1,0 +1,40 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:56423",
+      "sslPort": 44324
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "GraphQLServiceApp": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5002"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "environmentVariables": {
+        "JWT_SECRET": "{101BA593-325E-458B-BC51-4B415FD14C64}",
+        "INFLUX_PASSWORD": "power211234/",
+        "INFLUX_HOST": "http://192.168.0.40:8086",
+        "INFLUX_USERNAME": "power21"
+      },
+      "publishAllPorts": true,
+      "useSSL": true
+    }
+  }
+}

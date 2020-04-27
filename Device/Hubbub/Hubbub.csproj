@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-Hubbub-8D3FF9FA-6F66-44A0-9E73-7D0B822EC84F</UserSecretsId>
+    <RootNamespace>PeiuPlatform.Hubbub</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Protos\hubbub.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\hubbub.proto" GrpcServices="Client" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="www_peiu_co_kr.crt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="www_peiu_co_kr.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

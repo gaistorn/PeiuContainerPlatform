@@ -1,0 +1,24 @@
+{
+  "profiles": {
+    "EventPullerApp": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ENV_MQTT_TOPIC": "hubbub/+/+/+/Event",
+        "MYSQL_PASSWORD": "123qwe",
+        "ENV_MQTT_PORT": "2084",
+        "MYSQL_USERNAME": "power21",
+        "DOTNET_ENVIRONMENT": "Development",
+        "MYSQL_PORT": "3306",
+        "ENV_MQTT_BINDADDRESS": "www.peiu.co.kr",
+        "MYSQL_HOST": "192.168.0.40",
+        "MYSQL_DATABASE": "peiuoperation"
+      }
+    }
+  }
+}

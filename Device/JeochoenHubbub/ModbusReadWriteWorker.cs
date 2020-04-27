@@ -1,0 +1,248 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
+using NModbus;
+using NModbus.Utility;
+
+namespace PeiuPlatform.Hubbub
+{
+    public class ModbusReadWriteWorker : BackgroundService
+    {
+        private readonly ILogger<ModbusReadWriteWorker> _logger;
+        private readonly IZKFactory zKFactory;
+        private readonly IHostApplicationLifetime hostApplicationLifetime;
+        private readonly IGlobalStorage globalStorage;
+        private readonly HubbubInformation hubbubInformation;
+        TcpClient client = null;
+
+        public ModbusReadWriteWorker(ILogger<ModbusReadWriteWorker> logger,
+            HubbubInformation hubbubInformation,
+            IZKFactory zKFactory, 
+            IHostApplicationLifetime hostApplicationLifetime,
+            IGlobalStorage globalStorage)
+        {
+            _logger = logger;
+            this.hubbubInformation = hubbubInformation;
+            this.zKFactory = zKFactory;
+            this.hostApplicationLifetime = hostApplicationLifetime;
+            this.globalStorage = globalStorage;
+        }
+
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            //CancellationToken cancelToken = hostApplicationLifetime.ApplicationStopping;
+            await this.zKFactory.WaitWorking(stoppingToken);
+            IEnumerable<DataPoint> pointList = null;
+
+            // Step 1. Reading modbusmap
+            try
+            {
+                using (MapReader reader = new MapReader("modbusmap.csv"))
+                    pointList = reader.ReadToEnd();
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+            }
+
+            var pointGroup = pointList.GroupBy(x => x.Category);
+            
+            // Step 2. Initialize modbus
+            var modbusFactory = new ModbusFactory();
+            IModbusMaster master = null;
+            //report = new StreamWriter("datareport.txt", false, Encoding.UTF8);
+            while (!stoppingToken.IsCancellationRequested)
+            {
+                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                try
+                {
+                    // Step 3. Connect to modbus
+                    if (client == null)
+                    {
+                        client = await TryConnecting(stoppingToken);
+                        if (client == null)
+                        {
+                            _logger.LogWarning("## MODBUS Monitor worker is break");
+                            return;
+                        }
+                        master = modbusFactory.CreateMaster(client);
+                    }
+
+
+                    // Step 4. Read holding register
+                    foreach (var row in pointGroup)
+                    {
+                        await ReadPointAsync(master, row, stoppingToken);
+                    }
+                }
+                catch (IOException ioex)
+                {
+                    if (ioex.Source == "System.Net.Sockets")
+                    {
+                        client.Dispose();
+                        client = null;
+                    }
+                    _logger.LogError(ioex, ioex.Message);
+                    await Task.Delay(hubbubInformation.TryConnectTimeMS, stoppingToken);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, ex.Message);
+                }
+                finally
+                {
+                    //if (report != null)
+                    //{
+                    //    report.Close();
+                    //    report = null;
+                    //}
+                    //StopReporting = true;
+                }
+                await Task.Delay(hubbubInformation.ScanRateMS, stoppingToken);
+            }
+        }
+
+        private async Task ReadPointAsync(IModbusMaster master, IGrouping<string, DataPoint> row, CancellationToken cancellationToken)
+        {
+            string category = row.Key;
+            ushort startAddress = row.Min(x => x.Address);
+            ushort lastOffset = row.Max(x => x.Address);
+            ushort numOfPoints = (ushort)(row.FirstOrDefault(x => x.Address == lastOffset).WordSize + (lastOffset - startAddress));
+            ushort[] dataOfPoints = await master.ReadHoldingRegistersAsync(1, startAddress, numOfPoints);
+
+            foreach(DataPoint point in row)
+            {
+                try
+                {
+                    int offset = point.Address - startAddress;
+
+                    ushort[] readData = new ushort[point.WordSize];
+                    Array.Copy(dataOfPoints, offset, readData, 0, point.WordSize);
+
+                    IComparable readValue = ParseReadData(readData, point.Type);
+                    if (point.Name == "OperationStatus")
+                    {
+                        UpdateStatus(point.Category, readValue);
+                    }
+
+                    if (point.IsDigit)
+                    {
+                        readValue = ReadDigit(readValue, point.Digit);
+                    }
+                    if (point.Scale != 0)
+                        readValue = (dynamic)readValue * point.Scale;
+
+                    
+
+                    globalStorage.SetValue(point.GetUniqueId(), readValue);
+                    //if (StopReporting == false)
+                    //    await report.WriteLineAsync($"{point.Category},{point.Name},{point.Address},{readValue}");
+                }
+                catch(Exception ex)
+                {
+                    _logger.LogError(ex, $"[{point.GetUniqueId()}] {ex.Message}");
+                }
+                
+            }
+        }
+
+        private byte ReadDigit(IComparable value, int digitNum)
+        {
+            byte[] buffers = BitConverter.GetBytes((dynamic)value);
+            return buffers[digitNum];
+        }
+
+        private void UpdateStatus(string category, IComparable value)
+        {
+            int run = BitWise(value, PcsOperationStatus.RunStop);
+            int stop = run == 1 ? 0 : 1;
+            int standby = BitWise(value, PcsOperationStatus.StandBy);
+            int fault = BitWise(value, PcsOperationStatus.Fault);
+            int charge = BitWise(value, PcsOperationStatus.Charge);
+            int discharge = BitWise(value, PcsOperationStatus.Discharge);
+            int ac_cb = BitWise(value, PcsOperationStatus.AC_CB);
+            int warning = BitWise(value, PcsOperationStatus.Warning);
+            int ac_mc = BitWise(value, PcsOperationStatus.AC_MC);
+            int dc_cb = BitWise(value, PcsOperationStatus.DC_CB);
+
+            globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.RUN}", run);
+            globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.STOP}", stop);
+            globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.STAND_BY}", standby);
+            globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.CHARGE}", charge);
+            globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.DISCHARGE}", discharge);
+            globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.EMERGENCY}", 0);
+            globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.AC_CB}", ac_cb);
+            globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.AC_MC}", ac_mc);
+            globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.DC_CB}", dc_cb);
+            globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.FAULT}", fault);
+            globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.WARNING}", warning);
+            
+        }
+
+        private int BitWise(IComparable value, ushort BitFlag)
+        {
+            bool result = (((dynamic)value & BitFlag) == BitFlag);
+            return result ? 1 : 0;
+        }
+
+        private IComparable ParseReadData(ushort[] readData, DataType type)
+        {
+            switch (type)
+            {
+                case DataType.I16:
+                    Int16 i16Value = (short)readData[0];
+                    return i16Value;
+                case DataType.I32:
+                    Int32 i32Value = (Int32)ModbusUtility.GetUInt32(readData[0], readData[1]);
+                    return i32Value;
+                case DataType.U32:
+                    UInt32 ui32Value = ModbusUtility.GetUInt32(readData[0], readData[1]);
+                    return ui32Value;
+                case DataType.SGL:
+                    float fValue = ModbusUtility.GetSingle(readData[0], readData[1]);
+                    return fValue;
+                default: // U16
+                    ushort u16Value = readData[0];
+                    return u16Value;
+            }
+        }
+        
+
+        private async Task<TcpClient> TryConnecting(CancellationToken stoppingToken)
+        {
+
+            while (stoppingToken.IsCancellationRequested == false)
+            {
+                try
+                {
+                    TcpClient client = new TcpClient(this.hubbubInformation.ModbusSlaveIp, this.hubbubInformation.ModbusSlavePort);
+                    _logger.LogWarning("### CONNECTED WITH MODBUS SERVER ###");
+                    globalStorage.SetValue($"PCS#1.Stat.COMM", 0);
+                    globalStorage.SetValue($"PCS#2.Stat.COMM", 0);
+                    globalStorage.SetValue($"PCS#3.Stat.COMM", 0);
+                    globalStorage.SetValue($"PCS#4.Stat.COMM", 0);
+                    return client;
+                }
+                catch (Exception ex)
+                {
+                    globalStorage.SetValue($"PCS#1.Stat.COMM", 1);
+                    globalStorage.SetValue($"PCS#2.Stat.COMM", 1);
+                    globalStorage.SetValue($"PCS#3.Stat.COMM", 1);
+                    globalStorage.SetValue($"PCS#4.Stat.COMM", 1);
+                    _logger.LogError("### RECONNECTING TO MODBUS SLAVE FAILED ###");
+                    _logger.LogInformation("TRY CONNECTING AFTER 5 SECONDS");
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
+            }
+            return null;
+        }
+    }
+}

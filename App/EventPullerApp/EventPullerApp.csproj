@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker;Microsoft.NET.Sdk.Publish">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-EventPullerApp-4C55C080-17B9-4791-82CC-14A0C0A8105D</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <RootNamespace>PeiuPlatform.App</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="nlog.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FireworksFramework.NetStandard.Mqtt" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="MQTTnet" Version="3.0.8" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\EventModel\EventModel.csproj" />
+    <ProjectReference Include="..\..\Library\MqttDataAccessor\MqttDataAccessor.csproj" />
+    <ProjectReference Include="..\..\Library\RedisDataAccessor\RedisDataAccessor.csproj" />
+  </ItemGroup>
+</Project>

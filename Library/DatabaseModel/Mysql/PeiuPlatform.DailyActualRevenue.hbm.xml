@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiugrid" assembly="DatabaseModel" namespace="PeiuPlatform.Models.Mysql" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="DailyActualRevenue" table="DailyActualRevenue" schema="peiuoperation">
+    <composite-id>
+      <key-property name="Siteid" type="Int32">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+      <key-property name="Createdt" type="DateTime">
+        <column name="createdt" not-null="true" sql-type="DATE" />
+      </key-property>
+      <key-property name="Rcc" type="Int32">
+        <column name="rcc" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+    </composite-id>
+    <property name="Revenue" type="Double">
+      <column name="revenue" not-null="true" sql-type="DOUBLE" />
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+{
+  "profiles": {
+    "TransferJejuPv": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ENV_MQTT_TOPIC": "hubbub/6/+/AI",
+        "ENV_MQTT_PORT": "2084",
+        "DOTNET_ENVIRONMENT": "Development",
+        "UDP_TARGET_IP": "192.168.0.21",
+        "ENV_MQTT_BINDADDRESS": "www.peiu.co.kr",
+        "UDP_TARGET_PORT": "11000"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

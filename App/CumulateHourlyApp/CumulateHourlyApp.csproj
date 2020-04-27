@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk;Microsoft.NET.Sdk.Publish">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <RootNamespace>PeiuPlatform.App</RootNamespace>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AdysTech.InfluxDB.Client.Net.Core" Version="0.9.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="NHibernate" Version="5.2.6" />
+    <PackageReference Include="NLog" Version="4.6.8" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\DatabaseModel\DatabaseModel.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

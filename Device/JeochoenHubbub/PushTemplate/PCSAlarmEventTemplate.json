@@ -1,0 +1,126 @@
+{
+  "name": "pcs alarm event push template",
+  "interval": "00:00:01",
+  "items": [
+    {
+      "Topic": "hubbub/6/0/1/di",
+      "Template": {
+        "ditype": 0,
+        "devicetype": 0,
+        "deviceindex": 1,
+        "500": "$PCS#1.Alarm1",
+        "501": "$PCS#1.Alarm2"
+      }
+    },
+    {
+      "Topic": "hubbub/6/0/2/di",
+      "Template": {
+        "ditype": 0,
+        "devicetype": 0,
+        "deviceindex": 2,
+        "500": "$PCS#2.Alarm1",
+        "501": "$PCS#2.Alarm2"
+      }
+    },
+    {
+      "Topic": "hubbub/6/0/3/di",
+      "Template": {
+        "ditype": 0,
+        "devicetype": 0,
+        "deviceindex": 3,
+        "500": "$PCS#3.Alarm1",
+        "501": "$PCS#3.Alarm2"
+      }
+    },
+    {
+      "Topic": "hubbub/6/0/4/di",
+      "Template": {
+        "ditype": 0,
+        "devicetype": 0,
+        "deviceindex": 4,
+        "500": "$PCS#4.Alarm1",
+        "501": "$PCS#4.Alarm2"
+      }
+    },
+    {
+      "Topic": "hubbub/6/0/1/stat",
+      "Template": {
+        "ditype": 1,
+        "devicetype": 0,
+        "deviceindex": 1,
+        "RUN": "$PCS#1.Stat.RUN",
+        "STOP": "$PCS#1.Stat.STOP",
+        "STAND_BY": "$PCS#1.Stat.STAND_BY",
+        "CHARGE": "$PCS#1.Stat.CHARGE",
+        "DISCHARGE": "$PCS#1.Stat.DISCHARGE",
+        "EMERGENCY": "$PCS#1.Stat.EMERGENCY",
+        "AC_CB": "$PCS#1.Stat.AC_CB",
+        "AC_MC": "$PCS#1.Stat.AC_MC",
+        "DC_CB": "$PCS#1.Stat.DC_CB",
+        "FAULT": "$PCS#1.Stat.FAULT",
+        "WARNING": "$PCS#1.Stat.WARNING",
+        "COMM": "$PCS#1.Stat.COMM"
+      }
+    },
+    {
+      "Topic": "hubbub/6/0/2/stat",
+      "Template": {
+        "ditype": 1,
+        "devicetype": 0,
+        "deviceindex": 2,
+        "RUN": "$PCS#2.Stat.RUN",
+        "STOP": "$PCS#2.Stat.STOP",
+        "STAND_BY": "$PCS#2.Stat.STAND_BY",
+        "CHARGE": "$PCS#2.Stat.CHARGE",
+        "DISCHARGE": "$PCS#2.Stat.DISCHARGE",
+        "EMERGENCY": "$PCS#2.Stat.EMERGENCY",
+        "AC_CB": "$PCS#2.Stat.AC_CB",
+        "AC_MC": "$PCS#2.Stat.AC_MC",
+        "DC_CB": "$PCS#2.Stat.DC_CB",
+        "FAULT": "$PCS#2.Stat.FAULT",
+        "WARNING": "$PCS#2.Stat.WARNING",
+        "COMM": "$PCS#2.Stat.COMM"
+      }
+    },
+    {
+      "Topic": "hubbub/6/0/3/stat",
+      "Template": {
+        "ditype": 1,
+        "devicetype": 0,
+        "deviceindex": 3,
+        "RUN": "$PCS#3.Stat.RUN",
+        "STOP": "$PCS#3.Stat.STOP",
+        "STAND_BY": "$PCS#3.Stat.STAND_BY",
+        "CHARGE": "$PCS#3.Stat.CHARGE",
+        "DISCHARGE": "$PCS#3.Stat.DISCHARGE",
+        "EMERGENCY": "$PCS#3.Stat.EMERGENCY",
+        "AC_CB": "$PCS#3.Stat.AC_CB",
+        "AC_MC": "$PCS#3.Stat.AC_MC",
+        "DC_CB": "$PCS#3.Stat.DC_CB",
+        "FAULT": "$PCS#3.Stat.FAULT",
+        "WARNING": "$PCS#3.Stat.WARNING",
+        "COMM": "$PCS#3.Stat.COMM"
+      }
+    },
+    {
+      "Topic": "hubbub/6/0/4/stat",
+      "Template": {
+        "ditype": 1,
+        "devicetype": 0,
+        "deviceindex": 4,
+        "RUN": "$PCS#4.Stat.RUN",
+        "STOP": "$PCS#4.Stat.STOP",
+        "STAND_BY": "$PCS#4.Stat.STAND_BY",
+        "CHARGE": "$PCS#4.Stat.CHARGE",
+        "DISCHARGE": "$PCS#4.Stat.DISCHARGE",
+        "EMERGENCY": "$PCS#4.Stat.EMERGENCY",
+        "AC_CB": "$PCS#4.Stat.AC_CB",
+        "AC_MC": "$PCS#4.Stat.AC_MC",
+        "DC_CB": "$PCS#4.Stat.DC_CB",
+        "FAULT": "$PCS#4.Stat.FAULT",
+        "WARNING": "$PCS#4.Stat.WARNING",
+        "COMM": "$PCS#4.Stat.COMM"
+      }
+    }
+  ]
+}

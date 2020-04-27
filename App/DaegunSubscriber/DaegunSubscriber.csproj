@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-DaegunSubscriber-C29DAEDD-477E-4787-8C48-824E29EDEC70</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <RootNamespace>PeiuPlatform.App</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="nlog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FireworksFramework.NetStandard.Mqtt" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="MQTTnet" Version="3.0.8" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\EventPublisher\EventPublisher.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DaegunSubscriberWorker.properties">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="EventPublisherWorker.properties">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="PeiuPublishWorker.properties">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="rcccode.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

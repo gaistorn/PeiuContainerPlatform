@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiugrid" assembly="DatabaseModel" namespace="PeiuPlatform.Models.Mysql" xmlns="urn:nhibernate-mapping-2.2">
+  <sql-query name="GetSmpPrice" callable="true">
+    <return-scalar column="return_value" type="Single" />
+    <query-param name="isjeju" type="Int32" />
+    <query-param name="target_date" type="DateTime" />select peiugrid.GetSmpPrice(:isjeju, :target_date) as return_value</sql-query>
+  <sql-query name="GetRec" callable="true">
+    <return-scalar column="return_value" type="Int32" />
+    <query-param name="target_date" type="DateTime" />select peiugrid.GetRec(:target_date) as return_value</sql-query>
+</hibernate-mapping>

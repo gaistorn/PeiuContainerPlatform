@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiugrid" assembly="DatabaseModel" namespace="PeiuPlatform.Models.Mysql" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="MinuteMeasurement" table="MinuteMeasurements" schema="peiuoperation">
+    <composite-id>
+      <key-property name="Rcc" type="Int32">
+        <column name="rcc" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+      <key-property name="Siteid" type="Int32">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+      <key-property name="Createdt" type="DateTime">
+        <column name="createdt" not-null="true" sql-type="DATE" />
+      </key-property>
+      <key-property name="Hour" type="Int32">
+        <column name="hour" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+      <key-property name="Minute" type="Int32">
+        <column name="minute" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+    </composite-id>
+    <property name="Inisland" type="Boolean">
+      <column name="inisland" not-null="true" precision="1" sql-type="BIT" />
+    </property>
+    <property name="Soc" type="Double">
+      <column name="soc" not-null="true" sql-type="DOUBLE" />
+    </property>
+    <property name="Soh" type="Double">
+      <column name="soh" default="0" not-null="true" sql-type="DOUBLE" />
+    </property>
+    <property name="Activepower" type="Double">
+      <column name="activepower" not-null="true" sql-type="DOUBLE" />
+    </property>
+    <property name="Pvgeneration" type="Double">
+      <column name="pvgeneration" not-null="true" sql-type="DOUBLE" />
+    </property>
+  </class>
+</hibernate-mapping>

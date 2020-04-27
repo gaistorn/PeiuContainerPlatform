@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>5af514cc-77be-4a4c-800b-45c80d948c0d</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <RootNamespace>PeiuPlatform.App</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DA\HistoricalMeasurementDataAccess.cs" />
+    <Compile Remove="Model\HistoricalMeasurement.cs" />
+    <Compile Remove="Model\HistoricalMeasurement.rcc.cs" />
+    <Compile Remove="Model\HistoricalMeasurement.Site.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="3.5.0-alpha0027" />
+    <PackageReference Include="GraphQL.Server.Ui.Playground" Version="3.5.0-alpha0027" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="5.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\DatabaseModel\DatabaseModel.csproj" />
+    <ProjectReference Include="..\..\Library\RedisDataAccessor\RedisDataAccessor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="www_peiu_co_kr.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

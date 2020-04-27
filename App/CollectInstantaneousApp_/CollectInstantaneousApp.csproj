@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-CollectInstantaneousApp-8B3D67FA-1845-4192-968E-20FB397AFBA2</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="nlog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\DatabaseModel\DatabaseModel.csproj" />
+    <ProjectReference Include="..\..\Library\InfluxDataAccessor\InfluxDataAccessor.csproj" />
+  </ItemGroup>
+</Project>

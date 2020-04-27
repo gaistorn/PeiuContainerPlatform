@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApiService</name>
+    </assembly>
+    <members>
+        <member name="F:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.localizer">
+            <summary> 
+            The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer`1"/>
+            used to localize the strings
+            </summary>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.#ctor(Microsoft.Extensions.Localization.IStringLocalizer{PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber"/> class.
+            </summary>
+            <param name="localizer">
+            The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer`1"/>
+            that we will use to localize the strings
+            </param>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.DefaultError">
+            <summary>
+            Returns the default <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" />.
+            </summary>
+            <returns>The default <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /></returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.ConcurrencyFailure">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a concurrency failure.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a concurrency failure.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordMismatch">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password mismatch.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password mismatch.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.InvalidToken">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating an invalid token.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating an invalid token.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating an external login is already associated with an account.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating an external login is already associated with an account.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.InvalidUserName(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified user <paramref name="userName" /> is invalid.
+            </summary>
+            <param name="userName">The user name that is invalid.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified user <paramref name="userName" /> is invalid.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.InvalidEmail(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="email" /> is invalid.
+            </summary>
+            <param name="email">The email that is invalid.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="email" /> is invalid.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.DuplicateUserName(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="userName" /> already exists.
+            </summary>
+            <param name="userName">The user name that already exists.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="userName" /> already exists.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.DuplicateEmail(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="email" /> is already associated with an account.
+            </summary>
+            <param name="email">The email that is already associated with an account.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="email" /> is already associated with an account.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.InvalidRoleName(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="role" /> name is invalid.
+            </summary>
+            <param name="role">The invalid role.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specific role <paramref name="role" /> name is invalid.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.DuplicateRoleName(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="role" /> name already exists.
+            </summary>
+            <param name="role">The duplicate role.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specific role <paramref name="role" /> name already exists.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user already has a password.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user already has a password.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating user lockout is not enabled.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating user lockout is not enabled..</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.UserLockoutEnabled">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating user lockout is enabled.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating user lockout is enabled..</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.UserAlreadyInRole(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user is already in the specified <paramref name="role" />.
+            </summary>
+            <param name="role">The duplicate role.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user is already in the specified <paramref name="role" />.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.UserNotInRole(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user is not in the specified <paramref name="role" />.
+            </summary>
+            <param name="role">The duplicate role.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user is not in the specified <paramref name="role" />.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordTooShort(System.Int32)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password of the specified <paramref name="length" /> does not meet the minimum length requirements.
+            </summary>
+            <param name="length">The length that is not long enough.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password of the specified <paramref name="length" /> does not meet the minimum length requirements.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a non-alphanumeric character, which is required by the password policy.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a non-alphanumeric character.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordRequiresDigit">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a numeric character, which is required by the password policy.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a numeric character.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordRequiresLower">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a lower case letter, which is required by the password policy.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a lower case letter.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordRequiresUpper">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain an upper case letter, which is required by the password policy.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain an upper case letter.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.GetErrorByCode(System.String)">
+            <summary>Returns a localized <see cref="T:Microsoft.AspNetCore.Identity.IdentityError"/> for the provided code.</summary>
+            <param name="code">The error's code.</param>
+            <returns>A localized <see cref="T:Microsoft.AspNetCore.Identity.IdentityError"/>.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.FormatErrorByCode(System.String,System.Object[])">
+            <summary>Formats a localized <see cref="T:Microsoft.AspNetCore.Identity.IdentityError"/> for the provided code.</summary>
+            <param name="code">The error's code.</param>
+            <param name="parameters">The parameters to format the string with.</param>
+            <returns>A localized <see cref="T:Microsoft.AspNetCore.Identity.IdentityError"/>.</returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetMinuteStatisticsBySiteId(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            분단위 통계 이력 (사이트 ID별)
+            </summary>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <param name="siteId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetStatisticsCurrentValueByRcc">
+            <summary>
+            RCC별 충/방전, PV 발전, SOC, PCS-PV-BMS 설치용량 요청 (실시간 데이터)
+            </summary>
+            <returns>충/방전, PV 발전, SOC, PCS-PV-BMS 설치용량</returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetMinuteStatisticsByAggId(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            분단위 통계 이력 (aggId 별)
+            </summary>
+            <param name="startdate"></param>
+            <param name="enddate"></param>
+            <param name="aggid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetMinuteStatisticsByRcc(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            분단위 통계 이력 (rcc별)
+            </summary>
+            <param name="startdate">시작날짜</param>
+            <param name="enddate">종료날짜</param>
+            <param name="rcc">rcc번호</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetHourlyStatisticsByRcc(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+             RCC별 시간당 누적데이터 이력 (충/방전, PV발전) / rcc별
+            </summary>
+            <param name="startdate">시작날짜</param>
+            <param name="enddate">종료날짜</param>
+            <param name="rcc">rcc 번호</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetHourlyStatisticsByAggId(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            RCC별 시간당 누적데이터 이력 (충/방전, PV발전) / AggId 별
+            </summary>
+            <param name="startdate"></param>
+            <param name="enddate"></param>
+            <param name="aggid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetSummaryEventCountByRcc">
+            <summary>
+            RCC별 전체 이벤트 갯수
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetHourlyStatisticsBySiteId(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+             SiteId별 시간당 누적데이터 이력 (충/방전, PV발전)
+            </summary>
+            <param name="startdate">시작날짜</param>
+            <param name="enddate">종료날짜</param>
+            <param name="siteId">사이트 아이디 (없을 경우 전체)</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetMonthlyAccumuActivePower">
+            <summary>
+            금월 충/방전, PV발전 누적 데이터
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GeHistoricalInAnHourActPower(System.Int32)">
+            <summary>
+            1시간 이전 분당 충/방전
+            </summary>
+            <param name="siteId">사이트 ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetMinuteHistoricalPvGroupRcc">
+            <summary>
+            현재 시간 RCC별 PV 출력값 가져오기
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GeHistoricalInAnHourPVPower(System.Int32)">
+            <summary>
+            1시간 이전 분당 발전데이터
+            </summary>
+            <param name="siteId">사이트 ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GeHistoricalInAnHourAvgSoc(System.Int32)">
+            <summary>
+            1시간 이전 분당 SOC 평균
+            </summary>
+            <param name="siteId">사이트 ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetPvPredictionBySiteId(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            PV 예측 및 실측값 가져오기 (1시간 단위) SiteId 조건
+            </summary>
+            <param name="startDate">시작날짜</param>
+            <param name="endDate">종료날짜</param>
+            <param name="siteId">사이트아이디</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetPvPredictionResult(System.DateTime)">
+            <summary>
+            PV 예측 (1시간 단위) 전체 가져오기 (rcc 그룹)
+            </summary>
+            <param name="date">요청날짜</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetPvPredictionByRcc(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            PV 예측 및 실측값 가져오기 (1시간 단위) rcc 조건
+            </summary>
+            <param name="startDate">시작날짜</param>
+            <param name="endDate">종료날짜</param>
+            <param name="rcc">rcc번호</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetPvPredictionByAggId(System.DateTime,System.DateTime,System.String)">
+            <summary>
+            PV 예측 및 실측값 가져오기 (1시간 단위) aggid 조건
+            </summary>
+            <param name="startDate">시작날짜</param>
+            <param name="endDate">종료날짜</param>
+            <param name="AggId">어그리게이터 ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetStatisticsCurrentValue(System.Int32)">
+            <summary>
+            법정동 레벨별 충/방전, PV 발전, SOC 요청 (실시간 데이터)
+            </summary>
+            <param name="lawcodelevel">법정동 코드 레벨</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetWeatherBySiteId(System.Int32)">
+            <summary>
+            사이트별 현재 날씨 가져오기
+            </summary>
+            <param name="siteId">사이트 ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetContractassetbyFindsiteid(System.Int32)">
+            <summary>
+            사이트별 현재 ActPwr, SOC, PV출력
+            </summary>
+            <param name="siteId">사이트 ID</param>
+            <returns>ActPwr, SOC, PV출력</returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetTodayAccumuActivePower">
+            <summary>
+            금일 충/방전, PV발전 누적데이터
+            </summary>
+            <returns>충/방전, PV발전량</returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetTodayRevenue">
+            <summary>
+            금일 실제 수익금 및 예상 수익금 (전체)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetDailyRevenueBySiteId(System.DateTime,System.Int32)">
+            <summary>
+            금일 실제 수익금 및 예상 수익금 및 고장발생 건수 (사이트별)
+            </summary>
+            <param name="date">날짜</param>
+            <param name="siteId">사이트 ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetMonthlyRevenueBySiteId(System.Int32)">
+            <summary>
+            금월 누적 수익금
+            </summary>
+            <param name="siteId">사이트 ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetMarketDataByAggId(System.String)">
+            <summary>
+            마켓 데이터 가져오기 (AGG그룹별)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetMarketData">
+            <summary>
+            마켓 데이터 가져오기 (RCC별)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiService.Controllers.StatisticsController.GetHourlyRevenueBySiteId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="siteId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

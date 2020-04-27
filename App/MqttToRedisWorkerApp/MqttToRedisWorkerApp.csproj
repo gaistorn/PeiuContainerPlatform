@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker;Microsoft.NET.Sdk.Publish">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-MqttToRedisWorkerApp-C9907BCF-0237-418F-AD1B-03C4E266FA8E</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="nlog.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.1" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="5.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\MqttDataAccessor\MqttDataAccessor.csproj" />
+    <ProjectReference Include="..\..\Library\RedisDataAccessor\RedisDataAccessor.csproj" />
+  </ItemGroup>
+</Project>

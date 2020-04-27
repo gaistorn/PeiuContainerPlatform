@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiuoperation" assembly="EventModel" namespace="PeiuPlatform.App" p1:Guid="b93b0438-48fb-41da-b778-eb33298f22ca" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="DeviceFactory" table="DeviceFactory" p1:Guid="49f43549-79f4-4def-9be4-d1fc3c511e6f">
+    <id name="Factorycode" type="Int32" p1:ValidateRequired="true" p1:Guid="114eec63-c774-43b8-974d-e4655e8bba88">
+      <column name="factorycode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      <generator class="identity" />
+    </id>
+    <property name="Name" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="ab59214b-1a3d-4858-ad3e-4ee39a75a654">
+      <column name="name" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Majorversion" type="SByte" p1:ValidateRequired="true" p1:Guid="0ce0973f-2b53-48b7-890f-ac0fbdd04d91">
+      <column name="majorversion" not-null="true" scale="0" sql-type="tinyint" p1:unicode="false" />
+    </property>
+    <property name="Minorversion" type="SByte" p1:ValidateRequired="true" p1:Guid="47bb0ffa-cf40-4464-a339-eaabb9dd5981">
+      <column name="minorversion" not-null="true" scale="0" sql-type="tinyint" p1:unicode="false" />
+    </property>
+    <property name="Description" type="String" p1:nullable="true" p1:ValidateMaxLength="128" p1:ValidateRequired="false" p1:Guid="7a01d4d5-525e-4ded-acf4-2eb93ba21777">
+      <column name="description" not-null="false" length="128" sql-type="varchar" p1:unicode="true" />
+    </property>
+  </class>
+  <class name="EventRecord" table="EventRecord" p1:Guid="a146e8aa-b2ce-463d-94a1-0d9a12267d84">
+    <id name="Eventrecordindex" type="Int32" p1:ValidateRequired="true" p1:Guid="c4e3f9ea-d9b1-4d0e-b033-9ee1e5084611">
+      <column name="eventrecordindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      <generator class="identity" />
+    </id>
+    <property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="f62580c7-6694-4e30-9079-9682e232ebea">
+      <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Eventcode" type="Int32" p1:ValidateRequired="true" p1:Guid="4e8a1065-f545-4652-b449-aedc8bdb8ba9">
+      <column name="eventcode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Createts" type="DateTime" p1:ValidateRequired="true" p1:Guid="1766f5a0-9589-47dd-866c-e27b028781d8">
+      <column name="createts" not-null="true" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Recoveryts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="8a4c9005-98ba-4929-9978-60624e29b8df">
+      <column name="recoveryts" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Ackts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="87f8dcf0-4387-4cc0-b98a-21337a2e9b86">
+      <column name="ackts" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Ackuser" type="String" p1:nullable="true" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="765402b3-974f-4d8b-9f26-09d49e791eee">
+      <column name="ackuser" not-null="false" length="50" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Devicetype" type="Int32" p1:ValidateRequired="true" p1:Guid="e966b748-e018-4158-8eed-c0584f812d93">
+      <Documentation>
+        <Summary>1 : PCS,
+2 : BMS
+3 : PV</Summary>
+      </Documentation>
+      <column name="devicetype" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Deviceindex" type="Int32" p1:ValidateRequired="true" p1:Guid="6c8c6d13-7c0a-4b12-ad8a-ebbad0ae2a38">
+      <column name="deviceindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Ackemail" type="String" p1:nullable="true" p1:ValidateMaxLength="128" p1:ValidateRequired="false" p1:Guid="e095f7f2-52f0-4621-b607-b7fe0edeefd0">
+      <column name="ackemail" not-null="false" length="128" sql-type="varchar" p1:unicode="true" />
+    </property>
+  </class>
+  <class name="EventMap" table="EventMap" p1:Guid="898e37e5-0ef6-4eec-8849-9e1fa1f215e6">
+    <id name="Eventcode" type="Int32" p1:ValidateRequired="true" p1:Guid="2eb1a4b1-3228-47a2-894d-394ebece0fd6">
+      <column name="eventcode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      <generator class="identity" />
+    </id>
+    <property name="Factorycode" type="Int32" p1:ValidateRequired="true" p1:Guid="e81acfe2-e3d2-4f49-b6b7-3b815a2a04ee">
+      <column name="factorycode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Bitflag" type="Int32" p1:ValidateRequired="true" p1:Guid="5410aed4-82b6-405b-bc59-4cc341699874">
+      <column name="bitflag" not-null="true" length="9" sql-type="mediumint" p1:unicode="false" />
+    </property>
+    <property name="Name" type="String" p1:ValidateMaxLength="128" p1:ValidateRequired="true" p1:Guid="318ae47c-3c57-4428-911b-1aa68663b2d2">
+      <column name="name" not-null="true" length="128" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Groupcode" type="Int32" p1:ValidateRequired="true" p1:Guid="bbcd3a94-1d8b-49fe-a667-c95df9220107">
+      <column name="groupcode" not-null="true" length="9" sql-type="mediumint" p1:unicode="false" />
+    </property>
+    <property name="Level" type="SByte" p1:ValidateRequired="true" p1:Guid="6894d403-2649-448e-aef0-59bb4f726f15">
+      <Documentation>
+        <Summary>??? ??
+0 : ??
+1 ~ 3 : ??
+4 ~ : ??</Summary>
+      </Documentation>
+      <column name="level" default="4" not-null="true" scale="0" sql-type="tinyint" p1:unicode="false" />
+    </property>
+    <property name="Devicetype" type="Int32" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="6f952a01-06f8-417b-85bc-cdd52b334d77">
+      <Documentation>
+        <Summary>1 : PCS
+2 : BMS
+3 : PV</Summary>
+      </Documentation>
+      <column name="devicetype" default="1" not-null="false" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+  </class>
+</hibernate-mapping>

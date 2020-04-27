@@ -1,0 +1,1804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDeveloperDiagram>
+  <Diagram Version="1.20.0.98">
+    <DiagramModel>
+      <Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="ContextVwModel">
+        <CustomProperties>
+          <OID>0</OID>
+          <BackgroundColor>Window</BackgroundColor>
+        </CustomProperties>
+        <Children>
+          <Model xsi:type="ClassVwModel">
+            <CustomProperties>
+              <OID>1</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Children>
+              <Model xsi:type="PropertiesVwModel">
+                <CustomProperties>
+                  <OID>2</OID>
+                  <Parent>1</Parent>
+                </CustomProperties>
+                <Children>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>3</OID>
+                      <Parent>2</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>0.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>9dcf8dcc-8fa3-4eee-83e0-832a3bbca700</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>4</OID>
+                      <Parent>2</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>18.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>01e7b28e-bc46-4526-b3ff-107743cf8e62</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>5</OID>
+                      <Parent>2</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>36.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>6cff9d32-ae34-4b8b-8bba-bff44a6df1c1</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                </Children>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>55 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>55 px</Height>
+                </MaxSize>
+              </Model>
+              <Model xsi:type="RelationPropertiesVwModel">
+                <CustomProperties>
+                  <OID>6</OID>
+                  <Parent>1</Parent>
+                </CustomProperties>
+                <Children />
+                <Location>
+                  <X>0 px</X>
+                  <Y>54 px</Y>
+                </Location>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>19 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>19 px</Height>
+                </MaxSize>
+                <Hidden>false</Hidden>
+              </Model>
+            </Children>
+            <Location>
+              <X>384 px</X>
+              <Y>288 px</Y>
+            </Location>
+            <Size>
+              <Width>150 px</Width>
+              <Height>122 px</Height>
+            </Size>
+            <MinSize>
+              <Width>100 px</Width>
+              <Height>122 px</Height>
+            </MinSize>
+            <MaxSize>
+              <Width>800 px</Width>
+              <Height>122 px</Height>
+            </MaxSize>
+            <Ports />
+            <Oid xsi:type="SchemaModelOID">
+              <Path>383d54c8-b0c9-4b8a-a90a-db732a18f086</Path>
+              <TypeName>EntityDeveloper.NHibernate.HibernateClass</TypeName>
+            </Oid>
+            <FixedHeight>22 px</FixedHeight>
+          </Model>
+          <Model xsi:type="ClassVwModel">
+            <CustomProperties>
+              <OID>7</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Children>
+              <Model xsi:type="PropertiesVwModel">
+                <CustomProperties>
+                  <OID>8</OID>
+                  <Parent>7</Parent>
+                </CustomProperties>
+                <Children>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>9</OID>
+                      <Parent>8</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>0.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>eea9a5dd-00c1-433e-94fc-b9f7ec0653d8</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>10</OID>
+                      <Parent>8</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>18.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>82376776-cec4-411e-b70e-b331cd697f83</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>11</OID>
+                      <Parent>8</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>36.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>4c0c38c2-3f35-4889-822b-8a61026a1ec1</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>12</OID>
+                      <Parent>8</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>54.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>9cf5cea2-5016-48e6-8906-2e4cdeff0a2b</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                </Children>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>73 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>73 px</Height>
+                </MaxSize>
+              </Model>
+              <Model xsi:type="RelationPropertiesVwModel">
+                <CustomProperties>
+                  <OID>13</OID>
+                  <Parent>7</Parent>
+                </CustomProperties>
+                <Children />
+                <Location>
+                  <X>0 px</X>
+                  <Y>72 px</Y>
+                </Location>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>19 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>19 px</Height>
+                </MaxSize>
+                <Hidden>false</Hidden>
+              </Model>
+            </Children>
+            <Location>
+              <X>192 px</X>
+              <Y>288 px</Y>
+            </Location>
+            <Size>
+              <Width>150 px</Width>
+              <Height>140 px</Height>
+            </Size>
+            <MinSize>
+              <Width>100 px</Width>
+              <Height>140 px</Height>
+            </MinSize>
+            <MaxSize>
+              <Width>800 px</Width>
+              <Height>140 px</Height>
+            </MaxSize>
+            <Ports />
+            <Oid xsi:type="SchemaModelOID">
+              <Path>46f5c45e-ba99-4300-9e83-3f56437341a0</Path>
+              <TypeName>EntityDeveloper.NHibernate.HibernateClass</TypeName>
+            </Oid>
+            <FixedHeight>22 px</FixedHeight>
+          </Model>
+          <Model xsi:type="ClassVwModel">
+            <CustomProperties>
+              <OID>14</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Children>
+              <Model xsi:type="PropertiesVwModel">
+                <CustomProperties>
+                  <OID>15</OID>
+                  <Parent>14</Parent>
+                </CustomProperties>
+                <Children>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>16</OID>
+                      <Parent>15</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>0.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>218d09a2-0019-4083-a546-e877bc145078</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>17</OID>
+                      <Parent>15</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>18.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>c0cd7b36-d002-4ce9-aaf4-f6dad5518b87</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                </Children>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>37 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>37 px</Height>
+                </MaxSize>
+              </Model>
+              <Model xsi:type="RelationPropertiesVwModel">
+                <CustomProperties>
+                  <OID>18</OID>
+                  <Parent>14</Parent>
+                </CustomProperties>
+                <Children />
+                <Location>
+                  <X>0 px</X>
+                  <Y>36 px</Y>
+                </Location>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>19 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>19 px</Height>
+                </MaxSize>
+                <Hidden>false</Hidden>
+              </Model>
+            </Children>
+            <Location>
+              <X>760 px</X>
+              <Y>288 px</Y>
+            </Location>
+            <Size>
+              <Width>150 px</Width>
+              <Height>104 px</Height>
+            </Size>
+            <MinSize>
+              <Width>100 px</Width>
+              <Height>104 px</Height>
+            </MinSize>
+            <MaxSize>
+              <Width>800 px</Width>
+              <Height>104 px</Height>
+            </MaxSize>
+            <Ports />
+            <Oid xsi:type="SchemaModelOID">
+              <Path>46ce0581-95b1-47ce-8464-860d1bba2eb4</Path>
+              <TypeName>EntityDeveloper.NHibernate.HibernateClass</TypeName>
+            </Oid>
+            <FixedHeight>22 px</FixedHeight>
+          </Model>
+          <Model xsi:type="ClassVwModel">
+            <CustomProperties>
+              <OID>19</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Children>
+              <Model xsi:type="PropertiesVwModel">
+                <CustomProperties>
+                  <OID>20</OID>
+                  <Parent>19</Parent>
+                </CustomProperties>
+                <Children>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>21</OID>
+                      <Parent>20</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>0.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>26a29683-9f23-4cf8-9d43-cc0099952720</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>22</OID>
+                      <Parent>20</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>18.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>2c783748-56d8-4ad1-8f7d-8e6e1776f21b</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>23</OID>
+                      <Parent>20</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>36.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>6e7618c9-6c1f-4e58-8de8-dc8d43f41af8</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>24</OID>
+                      <Parent>20</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>54.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>8df0b398-9c18-4dbd-bd98-bc5343f9ba45</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>25</OID>
+                      <Parent>20</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>72.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>4a8ff493-d781-4c64-8075-2c0580e8d458</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>26</OID>
+                      <Parent>20</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>90.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>25d54b0f-3786-4284-9bcc-87c1accae907</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>27</OID>
+                      <Parent>20</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>108.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>2ad9d910-f2a8-4168-b4f5-ebcb6f6e4d3a</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>28</OID>
+                      <Parent>20</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>126.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>649c6c34-3642-4d28-879f-ff77ef8acb38</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>29</OID>
+                      <Parent>20</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>144.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>9070a559-b362-4da4-a57e-ad0b21e471ff</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                </Children>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>163 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>163 px</Height>
+                </MaxSize>
+              </Model>
+              <Model xsi:type="RelationPropertiesVwModel">
+                <CustomProperties>
+                  <OID>30</OID>
+                  <Parent>19</Parent>
+                </CustomProperties>
+                <Children />
+                <Location>
+                  <X>0 px</X>
+                  <Y>162 px</Y>
+                </Location>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>19 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>19 px</Height>
+                </MaxSize>
+                <Hidden>false</Hidden>
+              </Model>
+            </Children>
+            <Location>
+              <X>384 px</X>
+              <Y>0 px</Y>
+            </Location>
+            <Size>
+              <Width>150 px</Width>
+              <Height>230 px</Height>
+            </Size>
+            <MinSize>
+              <Width>100 px</Width>
+              <Height>230 px</Height>
+            </MinSize>
+            <MaxSize>
+              <Width>800 px</Width>
+              <Height>230 px</Height>
+            </MaxSize>
+            <Ports />
+            <Oid xsi:type="SchemaModelOID">
+              <Path>71de941c-c27d-4dce-bb2a-72225247f7ce</Path>
+              <TypeName>EntityDeveloper.NHibernate.HibernateClass</TypeName>
+            </Oid>
+            <FixedHeight>22 px</FixedHeight>
+          </Model>
+          <Model xsi:type="ClassVwModel">
+            <CustomProperties>
+              <OID>31</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Children>
+              <Model xsi:type="PropertiesVwModel">
+                <CustomProperties>
+                  <OID>32</OID>
+                  <Parent>31</Parent>
+                </CustomProperties>
+                <Children>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>33</OID>
+                      <Parent>32</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>0.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>f0570f43-1c89-4aa2-b7b6-03537801256f</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>34</OID>
+                      <Parent>32</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>18.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>eb1eb575-7184-4e1c-b574-3c21a8418d53</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>35</OID>
+                      <Parent>32</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>36.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>c5fc587c-ff1c-4038-8977-67b9c69f74fe</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>36</OID>
+                      <Parent>32</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>54.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>c3c6f6c7-712e-42fe-b9e1-9b0fc252db39</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>37</OID>
+                      <Parent>32</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>72.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>2604aeab-3f61-4435-a26b-f799d80f6c65</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>38</OID>
+                      <Parent>32</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>90.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>585f04b7-efd0-4fff-8ddb-5abf869f8c0c</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>39</OID>
+                      <Parent>32</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>108.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>83d6ed84-0603-4705-b4b7-7a25af520262</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>40</OID>
+                      <Parent>32</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>126.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>9544d8ea-80b9-4698-b248-aa4ebfd56876</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>41</OID>
+                      <Parent>32</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>144.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>90535316-d7e7-4b29-b9c2-1a88f1d885ea</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                </Children>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>163 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>163 px</Height>
+                </MaxSize>
+              </Model>
+              <Model xsi:type="RelationPropertiesVwModel">
+                <CustomProperties>
+                  <OID>42</OID>
+                  <Parent>31</Parent>
+                </CustomProperties>
+                <Children />
+                <Location>
+                  <X>0 px</X>
+                  <Y>162 px</Y>
+                </Location>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>19 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>19 px</Height>
+                </MaxSize>
+                <Hidden>false</Hidden>
+              </Model>
+            </Children>
+            <Location>
+              <X>192 px</X>
+              <Y>0 px</Y>
+            </Location>
+            <Size>
+              <Width>150 px</Width>
+              <Height>230 px</Height>
+            </Size>
+            <MinSize>
+              <Width>100 px</Width>
+              <Height>230 px</Height>
+            </MinSize>
+            <MaxSize>
+              <Width>800 px</Width>
+              <Height>230 px</Height>
+            </MaxSize>
+            <Ports />
+            <Oid xsi:type="SchemaModelOID">
+              <Path>be00e0f7-6eb6-45f7-b459-410bd645cb7a</Path>
+              <TypeName>EntityDeveloper.NHibernate.HibernateClass</TypeName>
+            </Oid>
+            <FixedHeight>22 px</FixedHeight>
+          </Model>
+          <Model xsi:type="ClassVwModel">
+            <CustomProperties>
+              <OID>43</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Children>
+              <Model xsi:type="PropertiesVwModel">
+                <CustomProperties>
+                  <OID>44</OID>
+                  <Parent>43</Parent>
+                </CustomProperties>
+                <Children>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>45</OID>
+                      <Parent>44</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>0.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>6a687a40-ed98-41d9-b757-3b3d26dd4eff</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>46</OID>
+                      <Parent>44</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>18.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>c5a0cdd3-0523-4bc3-87f9-0f4cfca4ab6f</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>47</OID>
+                      <Parent>44</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>36.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>6d372243-3f94-4943-afa7-930f83aa37f2</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>48</OID>
+                      <Parent>44</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>54.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>851f5a4f-ad3d-4e26-bd0a-c99028352061</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>49</OID>
+                      <Parent>44</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>72.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>11411ea0-df3c-4a06-9662-9ccb473a6e8b</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>50</OID>
+                      <Parent>44</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>90.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>8674258f-b0af-4177-973f-7e5cae91a72c</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>51</OID>
+                      <Parent>44</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>108.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>074aab14-52fb-43e9-8a3e-2e32f5e264be</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>52</OID>
+                      <Parent>44</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>126.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>015f1f98-800f-40d9-8cac-6053bfe99f86</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>53</OID>
+                      <Parent>44</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>144.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>bb233a37-e6ff-48aa-aa9a-670062eda504</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>54</OID>
+                      <Parent>44</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>162.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>097929b4-15e6-47ee-aba0-6f57d5caf86f</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                </Children>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>181 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>181 px</Height>
+                </MaxSize>
+              </Model>
+              <Model xsi:type="RelationPropertiesVwModel">
+                <CustomProperties>
+                  <OID>55</OID>
+                  <Parent>43</Parent>
+                </CustomProperties>
+                <Children />
+                <Location>
+                  <X>0 px</X>
+                  <Y>180 px</Y>
+                </Location>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>19 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>19 px</Height>
+                </MaxSize>
+                <Hidden>false</Hidden>
+              </Model>
+            </Children>
+            <Size>
+              <Width>150 px</Width>
+              <Height>248 px</Height>
+            </Size>
+            <MinSize>
+              <Width>100 px</Width>
+              <Height>248 px</Height>
+            </MinSize>
+            <MaxSize>
+              <Width>800 px</Width>
+              <Height>248 px</Height>
+            </MaxSize>
+            <Ports />
+            <Oid xsi:type="SchemaModelOID">
+              <Path>456d27c8-ba57-4bb8-9943-595d34fe198a</Path>
+              <TypeName>EntityDeveloper.NHibernate.HibernateClass</TypeName>
+            </Oid>
+            <FixedHeight>22 px</FixedHeight>
+          </Model>
+          <Model xsi:type="ClassVwModel">
+            <CustomProperties>
+              <OID>56</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Children>
+              <Model xsi:type="PropertiesVwModel">
+                <CustomProperties>
+                  <OID>57</OID>
+                  <Parent>56</Parent>
+                </CustomProperties>
+                <Children>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>58</OID>
+                      <Parent>57</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>0.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>83462d74-d6f8-4e04-8c84-a85279d376d6</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>59</OID>
+                      <Parent>57</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>18.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>bf47431b-5a16-4fad-8213-cc4f3d6c7547</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>60</OID>
+                      <Parent>57</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>36.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>0d0a4103-ffe2-4801-bf0c-d2e58f49386b</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>61</OID>
+                      <Parent>57</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>54.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>1296b4a7-bdaf-49bc-87d1-30cfc2a58624</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>62</OID>
+                      <Parent>57</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>72.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>d903f6e4-e897-4d83-a6c0-21b32074b95b</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>63</OID>
+                      <Parent>57</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>90.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>e928ac29-b9c9-44a6-bc47-e9b2aa863280</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                </Children>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>109 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>109 px</Height>
+                </MaxSize>
+              </Model>
+              <Model xsi:type="RelationPropertiesVwModel">
+                <CustomProperties>
+                  <OID>64</OID>
+                  <Parent>56</Parent>
+                </CustomProperties>
+                <Children />
+                <Location>
+                  <X>0 px</X>
+                  <Y>108 px</Y>
+                </Location>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>19 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>19 px</Height>
+                </MaxSize>
+                <Hidden>false</Hidden>
+              </Model>
+            </Children>
+            <Location>
+              <X>0 px</X>
+              <Y>288 px</Y>
+            </Location>
+            <Size>
+              <Width>150 px</Width>
+              <Height>176 px</Height>
+            </Size>
+            <MinSize>
+              <Width>100 px</Width>
+              <Height>176 px</Height>
+            </MinSize>
+            <MaxSize>
+              <Width>800 px</Width>
+              <Height>176 px</Height>
+            </MaxSize>
+            <Ports />
+            <Oid xsi:type="SchemaModelOID">
+              <Path>0fc797eb-9e3a-46f7-8a08-63942e98ab75</Path>
+              <TypeName>EntityDeveloper.NHibernate.HibernateClass</TypeName>
+            </Oid>
+            <FixedHeight>22 px</FixedHeight>
+          </Model>
+          <Model xsi:type="ClassVwModel">
+            <CustomProperties>
+              <OID>65</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Children>
+              <Model xsi:type="PropertiesVwModel">
+                <CustomProperties>
+                  <OID>66</OID>
+                  <Parent>65</Parent>
+                </CustomProperties>
+                <Children>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>67</OID>
+                      <Parent>66</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>0.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>b9542c80-7317-4287-8c36-3620b7aaed22</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>68</OID>
+                      <Parent>66</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>18.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>763b204c-da28-4b56-a5be-25825c74e7e4</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                </Children>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>37 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>37 px</Height>
+                </MaxSize>
+              </Model>
+              <Model xsi:type="RelationPropertiesVwModel">
+                <CustomProperties>
+                  <OID>69</OID>
+                  <Parent>65</Parent>
+                </CustomProperties>
+                <Children />
+                <Location>
+                  <X>0 px</X>
+                  <Y>36 px</Y>
+                </Location>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>19 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>19 px</Height>
+                </MaxSize>
+                <Hidden>false</Hidden>
+              </Model>
+            </Children>
+            <Location>
+              <X>576 px</X>
+              <Y>288 px</Y>
+            </Location>
+            <Size>
+              <Width>150 px</Width>
+              <Height>104 px</Height>
+            </Size>
+            <MinSize>
+              <Width>100 px</Width>
+              <Height>104 px</Height>
+            </MinSize>
+            <MaxSize>
+              <Width>800 px</Width>
+              <Height>104 px</Height>
+            </MaxSize>
+            <Ports />
+            <Oid xsi:type="SchemaModelOID">
+              <Path>9562a161-b693-4a15-9836-568c3833971a</Path>
+              <TypeName>EntityDeveloper.NHibernate.HibernateClass</TypeName>
+            </Oid>
+            <FixedHeight>22 px</FixedHeight>
+          </Model>
+          <Model xsi:type="ClassVwModel">
+            <CustomProperties>
+              <OID>70</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Children>
+              <Model xsi:type="PropertiesVwModel">
+                <CustomProperties>
+                  <OID>71</OID>
+                  <Parent>70</Parent>
+                </CustomProperties>
+                <Children>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>72</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>0.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>0173de70-4051-42ed-812d-2b7ec3869dfa</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>73</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>18.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>ec1d6d76-48be-4346-b04f-8a74ded0ee09</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>74</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>36.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>629bf2c9-d93f-498c-840e-967573028f64</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>75</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>54.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>c55b872b-097f-414a-8781-ec6e9550c7f9</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>76</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>72.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>e89955e3-c644-49f7-8488-3384457d4ba6</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>77</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>90.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>220016ed-7cac-4b5d-b114-f39ef26dd6d0</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>78</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>108.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>102575d3-6ddd-4a73-a6f7-2c9df8fe654b</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>79</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>126.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>356da598-6d3b-4009-98f9-3554c17480a6</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>80</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>144.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>edf044e1-3baa-4518-8bbc-bffe7d3ba27b</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>81</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>162.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>59216f0b-fca6-4b69-9fc7-509b6ab9c4a1</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>82</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>180.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>87902776-885b-45e5-9f65-30187b561200</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>83</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>198.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>b81e1518-80af-4393-87a0-dada30cf152b</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>84</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>216.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>62138a7e-b3a6-4439-b513-b50f1d269ec8</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>85</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>234.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>e2552930-6da0-4f72-a7fe-3e67f8e7b764</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>86</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>252.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>c8d94a28-5d50-4126-a0dc-cfb986009fe5</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                  <Model xsi:type="PropertyVwModel">
+                    <CustomProperties>
+                      <OID>87</OID>
+                      <Parent>71</Parent>
+                    </CustomProperties>
+                    <Children />
+                    <Location>
+                      <X>0.5 px</X>
+                      <Y>270.5 px</Y>
+                    </Location>
+                    <Size>
+                      <Width>144 px</Width>
+                      <Height>18 px</Height>
+                    </Size>
+                    <Oid xsi:type="SchemaModelOID">
+                      <Path>f131fa42-c415-4be9-8d2f-bcc0aedf251c</Path>
+                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
+                    </Oid>
+                  </Model>
+                </Children>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>289 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>289 px</Height>
+                </MaxSize>
+              </Model>
+              <Model xsi:type="RelationPropertiesVwModel">
+                <CustomProperties>
+                  <OID>88</OID>
+                  <Parent>70</Parent>
+                </CustomProperties>
+                <Children />
+                <Location>
+                  <X>0 px</X>
+                  <Y>288 px</Y>
+                </Location>
+                <Size>
+                  <Width>145 px</Width>
+                  <Height>19 px</Height>
+                </Size>
+                <MaxSize>
+                  <Width>0 px</Width>
+                  <Height>19 px</Height>
+                </MaxSize>
+                <Hidden>false</Hidden>
+              </Model>
+            </Children>
+            <Location>
+              <X>576 px</X>
+              <Y>432 px</Y>
+            </Location>
+            <Size>
+              <Width>150 px</Width>
+              <Height>356 px</Height>
+            </Size>
+            <MinSize>
+              <Width>100 px</Width>
+              <Height>356 px</Height>
+            </MinSize>
+            <MaxSize>
+              <Width>800 px</Width>
+              <Height>356 px</Height>
+            </MaxSize>
+            <Ports />
+            <Oid xsi:type="SchemaModelOID">
+              <Path>cce65db4-9974-47e1-8295-ceddb643eb98</Path>
+              <TypeName>EntityDeveloper.NHibernate.HibernateClass</TypeName>
+            </Oid>
+            <FixedHeight>22 px</FixedHeight>
+          </Model>
+        </Children>
+        <GridSize>8 px</GridSize>
+        <ViewPort>
+          <ScaleMode>Free</ScaleMode>
+          <Scale>1</Scale>
+          <Location>
+            <X>-243 px</X>
+            <Y>131 px</Y>
+          </Location>
+        </ViewPort>
+        <Oid xsi:type="SchemaModelOID">
+          <Path>71d11414-4496-40fc-8243-511f2de676d1</Path>
+          <TypeName>EntityDeveloper.NHibernate.HibernateContextModel</TypeName>
+        </Oid>
+      </Model>
+    </DiagramModel>
+  </Diagram>
+  <DiagramOptions Version="v2.0">
+    <Options xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="PageOptions">
+      <TopLeftMargins>
+        <Width>39.3700787401575 in/100</Width>
+        <Height>39.3700787401575 in/100</Height>
+      </TopLeftMargins>
+      <BottomRightMargins>
+        <Width>39.3700787401575 in/100</Width>
+        <Height>39.3700787401575 in/100</Height>
+      </BottomRightMargins>
+      <PaperSize>
+        <Width>827 in/100</Width>
+        <Height>1169 in/100</Height>
+      </PaperSize>
+    </Options>
+    <Options xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="PrintOptions" />
+    <Options xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="ViewOptions">
+      <ShadowOffset>
+        <X>4 px</X>
+        <Y>4 px</Y>
+      </ShadowOffset>
+      <CustomProperties />
+    </Options>
+    <EdDiagramOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <CustomProperties />
+    </EdDiagramOptions>
+  </DiagramOptions>
+</EntityDeveloperDiagram>

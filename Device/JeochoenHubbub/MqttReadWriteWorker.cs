@@ -5,6 +5,7 @@ using MQTTnet.Client;
 using MQTTnet.Client.Connecting;
 using MQTTnet.Client.Disconnecting;
 using MQTTnet.Client.Options;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -78,13 +79,79 @@ namespace PeiuPlatform.Hubbub
             }
         }
 
+        private void TranslateCommand(PcsControlModel model)
+        {
+            ushort startAddress = (ushort)(600 + ((model.deviceindex - 1) * 200));
+            ushort pcscommand = 0;
+            if(model.StopRun.HasValue && model.StopRun == true)
+            {
+                pcscommand = (ushort)(pcscommand | 1);
+            }
+            if(model.FaultReset.HasValue && model.FaultReset == true)
+            {
+                pcscommand = (ushort)(pcscommand | 2);
+            }
+            if(model.EmergencyStop.HasValue && model.EmergencyStop == true)
+            {
+                pcscommand = (ushort)(pcscommand | 4);
+            }
+            if(model.ManualAuto.HasValue && model.ManualAuto == true)
+            {
+                pcscommand = (ushort)(pcscommand | 8);
+            }
+
+            if(pcscommand != 0 || model.StopRun.HasValue)
+            {
+                ModbusWriteCommand command = new ModbusWriteCommand();
+                command.StartAddress = startAddress;
+                command.WriteValues = new ushort[] { pcscommand };
+                globalStorage.SetWriteValues(command);
+            }
+
+            if(model.ActivePower.HasValue)
+            {
+                ModbusWriteCommand command = new ModbusWriteCommand();
+                command.StartAddress = (ushort)(startAddress + 1);
+                ushort value = model.ActivePower.Value != 0 ? (ushort)(model.ActivePower.Value * 10) : (ushort)0;
+                command.WriteValues = new ushort[] { (ushort)(model.ActivePower.Value * 10) };
+                globalStorage.SetWriteValues(command);
+            }
+
+            if(model.SOCUpper.HasValue)
+            {
+                ModbusWriteCommand command = new ModbusWriteCommand();
+                command.StartAddress = (ushort)(startAddress + 3);
+                command.WriteValues = new ushort[] { (ushort)(model.SOCUpper.Value) };
+                globalStorage.SetWriteValues(command);
+            }
+
+            if (model.SOCLower.HasValue)
+            {
+                ModbusWriteCommand command = new ModbusWriteCommand();
+                command.StartAddress = (ushort)(startAddress + 4);
+                command.WriteValues = new ushort[] { (ushort)(model.SOCLower.Value) };
+                globalStorage.SetWriteValues(command);
+            }
+        }
+
         public Task HandleApplicationMessageReceivedAsync(MqttApplicationMessageReceivedEventArgs e)
         {
+            string payload = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
             logger.LogInformation("### RECEIVED APPLICATION MESSAGE ###");
             logger.LogInformation($"+ Topic = {e.ApplicationMessage.Topic}");
-            logger.LogInformation($"+ Payload = {Encoding.UTF8.GetString(e.ApplicationMessage.Payload)}");
+            logger.LogInformation($"+ Payload = {payload}");
             logger.LogInformation($"+ QoS = {e.ApplicationMessage.QualityOfServiceLevel}");
             logger.LogInformation($"+ Retain = {e.ApplicationMessage.Retain}");
+
+            JObject model = JObject.Parse(payload);
+
+            PcsControlModel pcsControlModel = JsonConvert.DeserializeObject<PcsControlModel>(payload);
+            if(pcsControlModel.siteid != 6)
+            {
+                return Task.CompletedTask;
+            }
+
+            TranslateCommand(pcsControlModel);
 
             //template.PushModels
 
@@ -102,9 +169,17 @@ namespace PeiuPlatform.Hubbub
         public async Task HandleConnectedAsync(MqttClientConnectedEventArgs eventArgs)
         {
             logger.LogInformation("### CONNECTED WITH MQTT BROKER SERVER ###");
-            //await client.SubscribeAsync(GetTopicFilter());
+            await client.SubscribeAsync(CreateTopicFilter());
             logger.LogInformation("### SUBSCRIBED ###");
         }
+
+        protected virtual TopicFilter CreateTopicFilter()
+        {
+            return new TopicFilterBuilder()
+                 .WithQualityOfServiceLevel((MQTTnet.Protocol.MqttQualityOfServiceLevel)2)
+                 .WithTopic("hubbub/6/+/+/control").Build();
+        }
+
 
         //public override Task StartAsync(CancellationToken cancellationToken)
         //{
@@ -127,6 +202,38 @@ namespace PeiuPlatform.Hubbub
             await TryConnecting(this.hostApplicationLifetime.ApplicationStopping);
         }
 
+        private async Task PushEventModel(EventModel evt, CancellationToken cancellationToken)
+        {
+            try
+            {
+                evt.UnixTimestamp = DateTimeOffset.Now.ToUniversalTime().ToUnixTimeSeconds();
+                JObject obj = JObject.FromObject(evt);
+                //string message = JsonConvert.SerializeObject(evt);
+
+                string topic = "";
+                
+
+                MqttApplicationMessage message = CreateMessage($"hubbub/6/{evt.DeviceType}/{evt.DeviceIndex}/Event", 2, obj);
+                await client.PublishAsync(message, cancellationToken);
+            }
+            catch(Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+            }
+            //EventModel record = new EventModel();
+            //record.UnixTimestamp = DateTimeOffset.Now.ToUniversalTime().ToUnixTimeSeconds();
+            //record.DeviceType = DeviceType;
+            //record.DeviceIndex = DeviceIndex;
+            //this._deviceId = $"{DeviceType}/{DeviceIndex}";
+            //record.SiteId = this._siteId = SiteId;
+            //record.Status = status;
+            //record.BitFlag = Value;
+            //record.FactoryCode = FactoryCode;
+            //record.GroupCode = GroupCode;
+            //string message = JsonConvert.SerializeObject(record);
+            //await base.PublishMessageAsync(message, token);
+        }
+
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             await zKFactory.Waiting(stoppingToken);
@@ -135,10 +242,19 @@ namespace PeiuPlatform.Hubbub
             {
                 try
                 {
+                    //first event model push
+                    var evt = await globalStorage.GetEventModels(stoppingToken);
+                    foreach (EventModel evtModel in evt)
+                    {
+                        await PushEventModel(evtModel, stoppingToken);
+                    }
+
                     foreach (var pushModel in template.PushModels)
                     {
                         if (pushModel.LastReadTime < DateTime.Now)
                         {
+                            if (pushModel.Items == null)
+                                continue;
                             foreach (var msg in pushModel.Items)
                             {
                                 JObject obj = await globalStorage.BindingAndCopy(msg.Template, stoppingToken);
@@ -149,7 +265,7 @@ namespace PeiuPlatform.Hubbub
                             pushModel.LastReadTime = DateTime.Now.Add(pushModel.Interval);
                         }
                     }
-                    logger.LogInformation("Mqtt Worker running at: {time}", DateTimeOffset.Now);
+                    //logger.LogInformation("Mqtt Worker running at: {time}", DateTimeOffset.Now);
                     await Task.Delay(500, stoppingToken);
                 }
                 catch(Exception ex)

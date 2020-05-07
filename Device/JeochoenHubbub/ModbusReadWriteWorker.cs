@@ -6,11 +6,13 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using FireworksFramework.Mqtt;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using NModbus;
 using NModbus.Utility;
+using PeiuPlatform.Lib;
 
 namespace PeiuPlatform.Hubbub
 {
@@ -34,6 +36,10 @@ namespace PeiuPlatform.Hubbub
             this.zKFactory = zKFactory;
             this.hostApplicationLifetime = hostApplicationLifetime;
             this.globalStorage = globalStorage;
+
+            //AbsMqttBase.SetDefaultLoggerName("nlog.config", true);
+            //EventPublisherWorker worker = new EventPublisherWorker(1);
+            //worker.Initialize();
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -61,7 +67,7 @@ namespace PeiuPlatform.Hubbub
             //report = new StreamWriter("datareport.txt", false, Encoding.UTF8);
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                //_logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 try
                 {
                     // Step 3. Connect to modbus
@@ -76,6 +82,16 @@ namespace PeiuPlatform.Hubbub
                         master = modbusFactory.CreateMaster(client);
                     }
 
+                    var writeCommandList = await globalStorage.GetWriteValues(stoppingToken);
+                    foreach(ModbusWriteCommand command in writeCommandList)
+                    {
+                        switch(command.FunctionCode)
+                        {
+                            case 3:
+                                await master.WriteMultipleRegistersAsync(1, command.StartAddress, command.WriteValues);
+                                break;
+                        }
+                    }
 
                     // Step 4. Read holding register
                     foreach (var row in pointGroup)
@@ -110,6 +126,66 @@ namespace PeiuPlatform.Hubbub
             }
         }
 
+        private EventModel CreateEventModel(int DeviceType, int DeviceIndex, int GroupCode, ushort Value)
+        {
+            EventModel record = new EventModel();
+            record.UnixTimestamp = DateTimeOffset.Now.ToUniversalTime().ToUnixTimeSeconds();
+            record.DeviceType = DeviceType;
+            record.DeviceIndex = DeviceIndex;
+            record.SiteId = 6;
+            record.Status = EventStatus.New;
+            record.GroupCode = GroupCode;
+            record.BitFlag = Value;
+            record.FactoryCode = 1;
+            return record;
+        }
+
+        private void AlarmCheck(string category, string pointname, ushort value)
+        {
+            int factorycode = 1;
+            EventModel model = null;
+            if(category.StartsWith("PCS#") && pointname.StartsWith("Alarm"))
+            {
+                int deviceidx = int.Parse(category.TrimStart("PCS#".ToCharArray()));
+                int devicetype = 0;
+                int groupcode = 0;
+                if(pointname == "Alarm1")
+                {
+                    model = CreateEventModel(0, deviceidx, 500, value);
+                }
+                else if(pointname == "Alarm2")
+                {
+                    model = CreateEventModel(0, deviceidx, 501, value);
+                }
+                
+            }
+            else if (category.StartsWith("BSC#") && pointname.StartsWith("Event"))
+            {
+                int deviceidx = int.Parse(category.TrimStart("BSC#".ToCharArray()));
+                int devicetype = 0;
+                int groupcode = 0;
+                if (pointname == "Event1")
+                {
+                    model = CreateEventModel(1, deviceidx, 600, value);
+                }
+                else if (pointname == "Event2")
+                {
+                    model = CreateEventModel(1, deviceidx, 601, value);
+                }
+                else if (pointname == "Event3")
+                {
+                    model = CreateEventModel(1, deviceidx, 602, value);
+                }
+                else if (pointname == "Event4")
+                {
+                    model = CreateEventModel(1, deviceidx, 603, value);
+                }
+
+            }
+
+            if (model != null)
+                globalStorage.SetEventValues(model);
+        }
         private async Task ReadPointAsync(IModbusMaster master, IGrouping<string, DataPoint> row, CancellationToken cancellationToken)
         {
             string category = row.Key;
@@ -133,6 +209,8 @@ namespace PeiuPlatform.Hubbub
                         UpdateStatus(point.Category, readValue);
                     }
 
+                    
+
                     if (point.IsDigit)
                     {
                         readValue = ReadDigit(readValue, point.Digit);
@@ -140,7 +218,11 @@ namespace PeiuPlatform.Hubbub
                     if (point.Scale != 0)
                         readValue = (dynamic)readValue * point.Scale;
 
-                    
+
+                    if (point.Name.StartsWith("Alarm") || point.Name.StartsWith("Event"))
+                    {
+                        AlarmCheck(row.Key, point.Name, Convert.ToUInt16(readValue));
+                    }
 
                     globalStorage.SetValue(point.GetUniqueId(), readValue);
                     //if (StopReporting == false)

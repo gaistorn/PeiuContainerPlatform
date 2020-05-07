@@ -13,12 +13,23 @@ namespace PeiuPlatform.Hubbub
         void SetValue(string Key, IComparable Value);
         Task<IComparable> GetValue(string key, CancellationToken cancellationToken);
         Task<JObject> BindingAndCopy(JObject obj, CancellationToken cancellationToken);
+
+        Task<IEnumerable< ModbusWriteCommand>> GetWriteValues(CancellationToken cancellationToken);
+        void SetWriteValues(ModbusWriteCommand command);
+
+        Task<IEnumerable<EventModel>> GetEventModels(CancellationToken cancellationToken);
+        void SetEventValues(EventModel model);
     }
 
     public class GlobalStorage : IGlobalStorage
     {
         private ConcurrentDictionary<string, IComparable> _valueMaps =
             new ConcurrentDictionary<string, IComparable>();
+
+        private ConcurrentQueue<ModbusWriteCommand> _writeQueue = new ConcurrentQueue<ModbusWriteCommand>();
+
+        private ConcurrentQueue<EventModel> _eventModels = new ConcurrentQueue<EventModel>();
+
         private SemaphoreSlim _signal = new SemaphoreSlim(0);
 
         public GlobalStorage()
@@ -58,6 +69,10 @@ namespace PeiuPlatform.Hubbub
             if (fieldName.StartsWith('$'))
             {
                 string variable_name = fieldName.TrimStart('$');
+                if(variable_name == "PCS#3.ActivePower")
+                {
+
+                }
                 IComparable v = await this.GetValue(variable_name, cancellationToken);
                 field.Replace((dynamic)v);
             }
@@ -77,6 +92,36 @@ namespace PeiuPlatform.Hubbub
                     await ValidateAndBinding(token, cancellationToken);
                 }
             }
+        }
+
+        public async Task<IEnumerable<ModbusWriteCommand>> GetWriteValues(CancellationToken cancellationToken)
+        {
+            await _signal.WaitAsync(cancellationToken);
+            List<ModbusWriteCommand> commands = new List<ModbusWriteCommand>();
+            while (_writeQueue.TryDequeue(out ModbusWriteCommand modbusWriteCommand))
+                commands.Add(modbusWriteCommand);
+            return commands;
+        }
+
+        public void SetWriteValues(ModbusWriteCommand command)
+        {
+            _writeQueue.Enqueue(command);
+            _signal.Release();
+        }
+
+        public async Task<IEnumerable<EventModel>> GetEventModels(CancellationToken cancellationToken)
+        {
+            await _signal.WaitAsync(cancellationToken);
+            List<EventModel> evtmodels = new List<EventModel>();
+            while (_eventModels.TryDequeue(out EventModel model))
+                evtmodels.Add(model);
+            return evtmodels;
+        }
+
+        public void SetEventValues(EventModel model)
+        {
+            _eventModels.Enqueue(model);
+            _signal.Release();
         }
     }
 }

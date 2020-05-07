@@ -22,7 +22,14 @@
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "JWT_SECRET": "{101BA593-325E-458B-BC51-4B415FD14C64}",
+        "MQTT_PORT": "2084",
+        "MYSQL_PASSWORD": "123qwe",
+        "MYSQL_USERNAME": "power21",
+        "MYSQL_PORT": "3306",
+        "MQTT_HOST": "www.peiu.co.kr",
+        "MYSQL_HOST": "192.168.0.40"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
     },

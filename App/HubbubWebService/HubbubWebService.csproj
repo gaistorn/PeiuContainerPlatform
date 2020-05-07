@@ -6,10 +6,11 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
     <RootNamespace>PeiuPlatform.App</RootNamespace>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\redwi\source\repos\PeiuContainerPlatform\App\HubbubWebService\HubbubWebService.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\redwine-note\OneDrive\문서\GitHub\PeiuContainerPlatform\App\HubbubWebService\HubbubWebService.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

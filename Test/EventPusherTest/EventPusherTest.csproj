@@ -1,13 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Configurations>Debug;Release;EventRelease</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FireworksFramework.NetStandard.Mqtt" Version="1.0.2" />
     <PackageReference Include="NLog" Version="4.6.8" />
+    <PackageReference Include="System.IO.Ports" Version="4.7.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiuhubbub" assembly="HubhubSharedLib" namespace="Hubbub" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ModbusConnectionInfo" table="ModbusConnectionInfo">
+    <id name="Id" type="Int32">
+      <column name="id" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      <generator class="identity" />
+    </id>
+    <property name="Host" type="String">
+      <column name="host" default="'127.0.0.1'" not-null="true" length="45" sql-type="VARCHAR(45)" />
+    </property>
+    <property name="Port" type="Int32">
+      <column name="port" default="502" not-null="false" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Protocolid" type="Int32">
+      <column name="protocolid" default="1000" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Baudrate" type="Int32">
+      <column name="baudrate" default="9600" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Databits" type="Int32">
+      <column name="databits" default="8" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Parity" type="String">
+      <column name="parity" default="'None'" not-null="true" length="45" sql-type="VARCHAR(45)" />
+    </property>
+    <property name="Stopbits" type="String">
+      <column name="stopbits" default="'One'" not-null="true" length="45" sql-type="VARCHAR(45)" />
+    </property>
+    <property name="Slaveid" type="Int32">
+      <column name="slaveid" default="1" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+  </class>
+</hibernate-mapping>

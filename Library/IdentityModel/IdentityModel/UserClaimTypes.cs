@@ -10,6 +10,8 @@ namespace PeiuPlatform.Model.IdentityModel
         public const string AggregatorGroupIdentifier = CommonTypes.IDENTITY_NAMESPACE_URI + "/claims/aggregatorgroupidentifier";
         public const string AggregatorGroupName = CommonTypes.IDENTITY_NAMESPACE_URI + "/claims/aggregatorgroupname";
         public const string SiteIdsByRcc = CommonTypes.IDENTITY_NAMESPACE_URI + "/claims/siteidsbyrcc";
+        public const string SiteIdsByRccClaim = "SiteIdsByRcc";
+        public const string EnableControlBySites = CommonTypes.IDENTITY_NAMESPACE_URI + "/claims/enablecontrolbysites";
         //public const string UPDATE_CUSTOMER_INFO_CLAIM = "https://www.peiu.co.kr/claims/2019/08/update/customer_info";
         //public const string DELETE_CUSTOMER_INFO_CLAIM = "https://www.peiu.co.kr/claims/2019/08/delete/customer_info";
     }

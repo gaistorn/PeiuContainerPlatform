@@ -6,6 +6,7 @@
     <DockerfileContext>..\..</DockerfileContext>
     <RootNamespace>Power21.Device</RootNamespace>
     <AssemblyName>ModbusToMqtt</AssemblyName>
+    <Configurations>Debug;Release;EventRelease</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

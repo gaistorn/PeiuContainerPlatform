@@ -8,29 +8,34 @@ using System.Threading.Tasks;
 
 namespace PeiuPlatform.Hubbub
 {
-    public interface IGlobalStorage
+    public interface IAsyncDataAccessor
     {
         void SetValue(string Key, IComparable Value);
         Task<IComparable> GetValue(string key, CancellationToken cancellationToken);
+        Task<IComparable> GetValue(string key);
+        bool ContainKey(string Key);
+    }
+    public interface IGlobalStorage<TEventModel> : IAsyncDataAccessor
+    {
         Task<JObject> BindingAndCopy(JObject obj, CancellationToken cancellationToken);
 
         Task<IEnumerable< ModbusWriteCommand>> GetWriteValues(CancellationToken cancellationToken);
         void SetWriteValues(ModbusWriteCommand command);
 
-        Task<IEnumerable<EventModel>> GetEventModels(CancellationToken cancellationToken);
-        void SetEventValues(EventModel model);
+        Task<IEnumerable<TEventModel>> GetEventModels(CancellationToken cancellationToken);
+        void SetEventValues(TEventModel model);
     }
 
-    public class GlobalStorage : IGlobalStorage
+    public class GlobalStorage<TEventModel> : IGlobalStorage<TEventModel>
     {
         private ConcurrentDictionary<string, IComparable> _valueMaps =
             new ConcurrentDictionary<string, IComparable>();
 
         private ConcurrentQueue<ModbusWriteCommand> _writeQueue = new ConcurrentQueue<ModbusWriteCommand>();
 
-        private ConcurrentQueue<EventModel> _eventModels = new ConcurrentQueue<EventModel>();
+        private ConcurrentQueue<TEventModel> _eventModels = new ConcurrentQueue<TEventModel>();
 
-        private SemaphoreSlim _signal = new SemaphoreSlim(0);
+        protected SemaphoreSlim Semaphore = new SemaphoreSlim(0);
 
         public GlobalStorage()
         {
@@ -43,24 +48,42 @@ namespace PeiuPlatform.Hubbub
             JObject cpyObj = template.DeepClone() as JObject;
             if(cpyObj.ContainsKey("timestamp") == false)
             {
-                string timestamp = DateTimeOffset.UtcNow.ToString("yyyyMMddHHmmss");
+                string timestamp = DateTimeOffset.Now.ToString("yyyyMMddHHmmss");
                 cpyObj.Add("timestamp", timestamp);
+                timestamp = DateTimeOffset.UtcNow.ToString("yyyyMMddHHmmss");
+                cpyObj.Add("utctimestamp", timestamp);
                 //cpyObj.Add()
+            }
+            else
+            {
+                cpyObj["timestamp"] = DateTimeOffset.Now.ToString("yyyyMMddHHmmss");
+                cpyObj["utctimestamp"] = DateTimeOffset.UtcNow.ToString("yyyyMMddHHmmss");
             }
             await UpdateToken(cpyObj, cancellationToken);
             return cpyObj;
         }
 
-        public async Task<IComparable> GetValue(string key, CancellationToken cancellationToken)
+        public bool ContainKey(string Key)
         {
-            await _signal.WaitAsync(cancellationToken);
+            return _valueMaps.ContainsKey(Key);
+        }
+
+        public virtual async Task<IComparable> GetValue(string key)
+        {
+            await Semaphore.WaitAsync();
             return _valueMaps.GetValueOrDefault(key);
         }
 
-        public void SetValue(string Key, IComparable Value)
+        public virtual async Task<IComparable> GetValue(string key, CancellationToken cancellationToken)
+        {
+            await Semaphore.WaitAsync(cancellationToken);
+            return _valueMaps.GetValueOrDefault(key);
+        }
+
+        public virtual void SetValue(string Key, IComparable Value)
         {
             _valueMaps[Key] = Value;
-            _signal.Release();
+            Semaphore.Release();
         }
 
         private async Task ValidateAndBinding(JToken field, CancellationToken cancellationToken)
@@ -96,7 +119,7 @@ namespace PeiuPlatform.Hubbub
 
         public async Task<IEnumerable<ModbusWriteCommand>> GetWriteValues(CancellationToken cancellationToken)
         {
-            await _signal.WaitAsync(cancellationToken);
+            await Semaphore.WaitAsync(cancellationToken);
             List<ModbusWriteCommand> commands = new List<ModbusWriteCommand>();
             while (_writeQueue.TryDequeue(out ModbusWriteCommand modbusWriteCommand))
                 commands.Add(modbusWriteCommand);
@@ -106,22 +129,23 @@ namespace PeiuPlatform.Hubbub
         public void SetWriteValues(ModbusWriteCommand command)
         {
             _writeQueue.Enqueue(command);
-            _signal.Release();
+            Semaphore.Release();
         }
 
-        public async Task<IEnumerable<EventModel>> GetEventModels(CancellationToken cancellationToken)
+        public async Task<IEnumerable<TEventModel>> GetEventModels(CancellationToken cancellationToken)
         {
-            await _signal.WaitAsync(cancellationToken);
-            List<EventModel> evtmodels = new List<EventModel>();
-            while (_eventModels.TryDequeue(out EventModel model))
-                evtmodels.Add(model);
-            return evtmodels;
+            //await Semaphore.WaitAsync(cancellationToken);
+            //List<EventModel> evtmodels = new List<EventModel>();
+            //while (_eventModels.TryDequeue(out EventModel model))
+            //    evtmodels.Add(model);
+            //return evtmodels;
+            return _eventModels;
         }
 
-        public void SetEventValues(EventModel model)
+        public void SetEventValues(TEventModel model)
         {
             _eventModels.Enqueue(model);
-            _signal.Release();
+            //Semaphore.Release();
         }
     }
 }

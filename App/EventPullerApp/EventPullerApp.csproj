@@ -5,6 +5,7 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
     <RootNamespace>PeiuPlatform.App</RootNamespace>
+    <Configurations>Debug;Release;EventRelease</Configurations>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="nlog.config" />

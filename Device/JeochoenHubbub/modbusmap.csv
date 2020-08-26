@@ -17,6 +17,7 @@ GIPAM#2,88,2,R,TotalForwardActiveEnergyHigh,-1,송전 전력량 상위 (발전�
 GIPAM#2,90,2,R,TotalForwardActiveEnergyLow,-1,송전 전력량 하위 (발전용량),SGL,1
 GIPAM#2,92,2,R,TotalReverseActiveEnergyHigh,-1,수전 전력량 상위 (사용량),SGL,1
 GIPAM#2,94,2,R,TotalReverseActiveEnergyLow,-1,수전 전력량 하위 (사용량),SGL,1
+PCS#COMMON,499,1,R,LocalRemote,-1,Local Remote,U16,1
 PCS#1,502,2,R,DCPower,-1,BAT Power,U32,0.1
 PCS#1,504,2,R,DCVoltagePcs,-1,DC Voltage of PCS Side,U32,0.1
 PCS#1,506,2,R,DCCurrent,-1,BAT Current,I32,1
@@ -51,6 +52,9 @@ PCS#1,570,1,R,Day,-1,Day,U16,1
 PCS#1,571,1,R,Hour,-1,Hour,U16,1
 PCS#1,572,1,R,Minute,-1,Minute,U16,1
 PCS#1,573,1,R,Second,-1,Second,U16,1
+PCS#1,603,1,R,SocMax,-1,SocMax,U16,1
+PCS#1,604,1,R,SocMin,-1,SocMin,U16,1
+PCS#1,605,1,R,ManualAuto,-1,Manual/Auto,U16,1
 PCS#2,700,2,R,MODBUSCounter,-1,MODBUS Counter,U32,1
 PCS#2,702,2,R,BATPower,-1,BAT Power,U32,0.1
 PCS#2,704,2,R,DCVoltageofPCSSide,-1,DC Voltage of PCS Side,U32,0.1
@@ -90,6 +94,9 @@ PCS#2,770,1,R,Day,-1,Day,U16,1
 PCS#2,771,1,R,Hour,-1,Hour,U16,1
 PCS#2,772,1,R,Minute,-1,Minute,U16,1
 PCS#2,773,1,R,Second,-1,Second,U16,1
+PCS#2,803,1,R,SocMax,-1,SocMax,U16,1
+PCS#2,804,1,R,SocMin,-1,SocMin,U16,1
+PCS#2,805,1,R,ManualAuto,-1,Manual/Auto,U16,1
 PCS#3,900,2,R,MODBUSCounter,-1,MODBUS Counter,U32,1
 PCS#3,902,2,R,BATPower,-1,BAT Power,U32,0.1
 PCS#3,904,2,R,DCVoltageofPCSSide,-1,DC Voltage of PCS Side,U32,0.1
@@ -129,6 +136,9 @@ PCS#3,970,1,R,Day,-1,Day,U16,1
 PCS#3,971,1,R,Hour,-1,Hour,U16,1
 PCS#3,972,1,R,Minute,-1,Minute,U16,1
 PCS#3,973,1,R,Second,-1,Second,U16,1
+PCS#3,1003,1,R,SocMax,-1,SocMax,U16,1
+PCS#3,1004,1,R,SocMin,-1,SocMin,U16,1
+PCS#3,1005,1,R,ManualAuto,-1,Manual/Auto,U16,1
 PCS#4,1100,2,R,MODBUSCounter,-1,MODBUS Counter,U32,1
 PCS#4,1102,2,R,BATPower,-1,BAT Power,U32,0.1
 PCS#4,1104,2,R,DCVoltageofPCSSide,-1,DC Voltage of PCS Side,U32,0.1
@@ -168,6 +178,9 @@ PCS#4,1170,1,R,Day,-1,Day,U16,1
 PCS#4,1171,1,R,Hour,-1,Hour,U16,1
 PCS#4,1172,1,R,Minute,-1,Minute,U16,1
 PCS#4,1173,1,R,Second,-1,Second,U16,1
+PCS#4,1203,1,R,SocMax,-1,SocMax,U16,1
+PCS#4,1204,1,R,SocMin,-1,SocMin,U16,1
+PCS#4,1205,1,R,ManualAuto,-1,Manual/Auto,U16,1
 BSC#1,1503,1,R,SOC,0,,U16,0.5
 BSC#1,1504,1,R,ChargeablePowerLimitOnlineRack,-1,Chargeable Power Limit (Online Rack) ,U16,1
 BSC#1,1505,1,R,DischargeablePowerLimitOnlineRack,-1,Dischargeable Power Limit (Online Rack),U16,1

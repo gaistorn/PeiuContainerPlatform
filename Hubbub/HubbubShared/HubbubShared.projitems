@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>ca42651e-9b2f-4d1e-ad27-e6907b705843</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>HubbubShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Custom.ModbusDigitalStatusPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\Custom.VwModbusInputPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.CommandCode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.DataType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.DeviceType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ModbusConnectionInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ModbusDigitalOutputPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ModbusDigitalStatusPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ModbusHubbub.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ModbusInputPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ProtocolType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.StandardAnalogPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.StandardPcsStatusPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwDigitalOutputPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwDigitalStatusPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwModbusInputPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwStandardAnalogPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwStandardPcsStatusPoint.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.CommandCode.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.DataType.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.DeviceType.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ModbusConnectionInfo.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ModbusDigitalOutputPoint.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ModbusDigitalStatusPoint.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ModbusHubbub.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ModbusInputPoint.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.ProtocolType.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.StandardAnalogPoint.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.StandardPcsStatusPoint.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwDigitalOutputPoint.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwDigitalStatusPoint.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwModbusInputPoint.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwStandardAnalogPoint.hbm.xml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwStandardPcsStatusPoint.hbm.xml" />
+  </ItemGroup>
+</Project>

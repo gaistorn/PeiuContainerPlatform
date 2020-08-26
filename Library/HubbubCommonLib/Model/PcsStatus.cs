@@ -16,6 +16,7 @@ namespace PeiuPlatform.Hubbub.Model
         AC_MC = 128,
         DC_CB = 256,
         FAULT = 512,
-        WARNING = 1024
+        WARNING = 1024,
+        MANUALAUTO = 2048
     }
 }

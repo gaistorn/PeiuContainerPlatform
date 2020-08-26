@@ -18,7 +18,7 @@ namespace PeiuPlatform.App
 
         public string Name { get; set; }
 
-        public int FactoryCode { get; set; }
+        //public int FactoryCode { get; set; }
         public int GroupCode { get; set; }
         public ushort BitFlag { get; set; }
         public DateTime TimeStamp
@@ -28,6 +28,11 @@ namespace PeiuPlatform.App
 
                 return new DateTime(1970, 1, 1).AddSeconds(UnixTimestamp).ToLocalTime();
             }
+        }
+
+        public string GetTopicName()
+        {
+            return $"hubbub/{SiteId}/{DeviceType}/{DeviceIndex}/Event";
         }
 
         public bool Value { get; set; }

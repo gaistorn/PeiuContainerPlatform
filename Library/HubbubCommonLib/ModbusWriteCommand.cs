@@ -7,7 +7,7 @@ namespace PeiuPlatform.Hubbub
     public class ModbusWriteCommand
     {
         public ushort StartAddress { get; set; }
-        public ushort[] WriteValues { get; set; }
+        public ushort WriteValue { get; set; }
 
         public int FunctionCode { get; set; } = 3;
     }

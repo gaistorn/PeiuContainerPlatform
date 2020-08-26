@@ -59,7 +59,9 @@
         "DC_CB": "$PCS#1.Stat.DC_CB",
         "FAULT": "$PCS#1.Stat.FAULT",
         "WARNING": "$PCS#1.Stat.WARNING",
-        "COMM": "$PCS#1.Stat.COMM"
+        "COMM": "$PCS#1.Stat.COMM",
+        "LOCALREMOTE": "$PCS#COMMON.LocalRemote",
+        "MANUALAUTO": "$PCS#1.Stat.MANUALAUTO"
       }
     },
     {
@@ -79,7 +81,9 @@
         "DC_CB": "$PCS#2.Stat.DC_CB",
         "FAULT": "$PCS#2.Stat.FAULT",
         "WARNING": "$PCS#2.Stat.WARNING",
-        "COMM": "$PCS#2.Stat.COMM"
+        "COMM": "$PCS#2.Stat.COMM",
+        "LOCALREMOTE": "$PCS#COMMON.LocalRemote",
+        "MANUALAUTO": "$PCS#2.Stat.MANUALAUTO"
       }
     },
     {
@@ -99,7 +103,9 @@
         "DC_CB": "$PCS#3.Stat.DC_CB",
         "FAULT": "$PCS#3.Stat.FAULT",
         "WARNING": "$PCS#3.Stat.WARNING",
-        "COMM": "$PCS#3.Stat.COMM"
+        "COMM": "$PCS#3.Stat.COMM",
+        "LOCALREMOTE": "$PCS#COMMON.LocalRemote",
+        "MANUALAUTO": "$PCS#3.Stat.MANUALAUTO"
       }
     },
     {
@@ -119,7 +125,9 @@
         "DC_CB": "$PCS#4.Stat.DC_CB",
         "FAULT": "$PCS#4.Stat.FAULT",
         "WARNING": "$PCS#4.Stat.WARNING",
-        "COMM": "$PCS#4.Stat.COMM"
+        "COMM": "$PCS#4.Stat.COMM",
+        "LOCALREMOTE": "$PCS#COMMON.LocalRemote",
+        "MANUALAUTO": "$PCS#4.Stat.MANUALAUTO"
       }
     }
   ]

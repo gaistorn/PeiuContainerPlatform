@@ -7,6 +7,7 @@ using MQTTnet.Client.Disconnecting;
 using MQTTnet.Client.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using PeiuPlatform.App;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,9 +23,8 @@ namespace PeiuPlatform.Hubbub
         MQTTnet.Client.Receiving.IMqttApplicationMessageReceivedHandler
     {
         private readonly ILogger<MqttReadWriteWorker> logger;
-        private readonly IZKFactory zKFactory;
         private readonly IHostApplicationLifetime hostApplicationLifetime;
-        private readonly IGlobalStorage globalStorage;
+        private readonly IGlobalStorage<EventModel> globalStorage;
         private readonly HubbubInformation hubbubInformation;
         private readonly IMqttClient client;
         private readonly MqttClientOptions mqttClientOptions;
@@ -32,15 +32,13 @@ namespace PeiuPlatform.Hubbub
 
         public MqttReadWriteWorker(ILogger<MqttReadWriteWorker> logger,
             HubbubInformation hubbubInformation,
-            IZKFactory zKFactory,
             IHostApplicationLifetime hostApplicationLifetime,
-            IGlobalStorage globalStorage,
+            IGlobalStorage<EventModel> globalStorage,
             MqttClientTcpOptions mqttClientTcpOptions,
             Model.TemplateRoot template)
         {
             this.logger = logger;
             this.hubbubInformation = hubbubInformation;
-            this.zKFactory = zKFactory;
             this.hostApplicationLifetime = hostApplicationLifetime;
             this.globalStorage = globalStorage;
             this.template = template;
@@ -49,7 +47,8 @@ namespace PeiuPlatform.Hubbub
             this.client = factory.CreateMqttClient();
             mqttClientOptions = new MqttClientOptions
             {
-                ChannelOptions = mqttClientTcpOptions
+                ChannelOptions = mqttClientTcpOptions,
+                
             };
             //SendingQueueInterval = config.GetSection("SendingQueueInterval").Get<TimeSpan>();
             //PushTemplates = config.GetSection("SendingQueue").Get<PushTemplate[]>();
@@ -79,8 +78,17 @@ namespace PeiuPlatform.Hubbub
             }
         }
 
-        private void TranslateCommand(PcsControlModel model)
+        private async void TranslateCommand(PcsControlModel model)
         {
+            if(model.LocalRemote.HasValue)
+            {
+                ModbusWriteCommand command = new ModbusWriteCommand();
+                command.StartAddress = 499;
+                ushort value = model.LocalRemote.Value ? (ushort)3 : (ushort)0;
+                command.WriteValue = value;
+                globalStorage.SetWriteValues(command);
+            }
+
             ushort startAddress = (ushort)(600 + ((model.deviceindex - 1) * 200));
             ushort pcscommand = 0;
             if(model.StopRun.HasValue && model.StopRun == true)
@@ -95,25 +103,39 @@ namespace PeiuPlatform.Hubbub
             {
                 pcscommand = (ushort)(pcscommand | 4);
             }
-            if(model.ManualAuto.HasValue && model.ManualAuto == true)
+            //if(model.ManualAuto.HasValue && model.ManualAuto == true)
+            //{
+            //    pcscommand = (ushort)(pcscommand | 8);
+            //}
+            if (model.StopRun.HasValue || pcscommand != 0)
             {
-                pcscommand = (ushort)(pcscommand | 8);
+                ModbusWriteCommand ccommand = new ModbusWriteCommand();
+                ccommand.StartAddress = startAddress;
+                ccommand.WriteValue = pcscommand;
+                globalStorage.SetWriteValues(ccommand);
             }
+            //ushort localRemoteValue = (ushort)await globalStorage.GetValue("PCS#COMMON.LocalRemote");
+            //if (localRemoteValue == 0)
+            //{
+            //    logger.LogWarning("현재 PMS에 제어권이 없습니다. 제어가 실패했습니다");
+            //    return;
+            //}
 
-            if(pcscommand != 0 || model.StopRun.HasValue)
+            if (model.ManualAuto.HasValue)
             {
                 ModbusWriteCommand command = new ModbusWriteCommand();
-                command.StartAddress = startAddress;
-                command.WriteValues = new ushort[] { pcscommand };
+                command.StartAddress = (ushort)(startAddress + 5);
+                ushort value = model.ManualAuto.Value ? (ushort)1 : (ushort)0;
+                command.WriteValue = value;
                 globalStorage.SetWriteValues(command);
             }
-
+           
             if(model.ActivePower.HasValue)
             {
                 ModbusWriteCommand command = new ModbusWriteCommand();
                 command.StartAddress = (ushort)(startAddress + 1);
                 ushort value = model.ActivePower.Value != 0 ? (ushort)(model.ActivePower.Value * 10) : (ushort)0;
-                command.WriteValues = new ushort[] { (ushort)(model.ActivePower.Value * 10) };
+                command.WriteValue = (ushort)(model.ActivePower.Value * 10);
                 globalStorage.SetWriteValues(command);
             }
 
@@ -121,7 +143,7 @@ namespace PeiuPlatform.Hubbub
             {
                 ModbusWriteCommand command = new ModbusWriteCommand();
                 command.StartAddress = (ushort)(startAddress + 3);
-                command.WriteValues = new ushort[] { (ushort)(model.SOCUpper.Value) };
+                command.WriteValue = (ushort)(model.SOCUpper.Value);
                 globalStorage.SetWriteValues(command);
             }
 
@@ -129,7 +151,7 @@ namespace PeiuPlatform.Hubbub
             {
                 ModbusWriteCommand command = new ModbusWriteCommand();
                 command.StartAddress = (ushort)(startAddress + 4);
-                command.WriteValues = new ushort[] { (ushort)(model.SOCLower.Value) };
+                command.WriteValue = (ushort)(model.SOCLower.Value);
                 globalStorage.SetWriteValues(command);
             }
         }
@@ -169,8 +191,11 @@ namespace PeiuPlatform.Hubbub
         public async Task HandleConnectedAsync(MqttClientConnectedEventArgs eventArgs)
         {
             logger.LogInformation("### CONNECTED WITH MQTT BROKER SERVER ###");
+#if !EVENT
             await client.SubscribeAsync(CreateTopicFilter());
+
             logger.LogInformation("### SUBSCRIBED ###");
+#endif
         }
 
         protected virtual TopicFilter CreateTopicFilter()
@@ -211,10 +236,8 @@ namespace PeiuPlatform.Hubbub
                 //string message = JsonConvert.SerializeObject(evt);
 
                 string topic = "";
-                
-
                 MqttApplicationMessage message = CreateMessage($"hubbub/6/{evt.DeviceType}/{evt.DeviceIndex}/Event", 2, obj);
-                await client.PublishAsync(message, cancellationToken);
+                await PublishQueue(message);
             }
             catch(Exception ex)
             {
@@ -234,39 +257,72 @@ namespace PeiuPlatform.Hubbub
             //await base.PublishMessageAsync(message, token);
         }
 
+        private async Task PublishQueue(MqttApplicationMessage queues)
+        {
+            if (client.IsConnected)
+            {
+                System.Diagnostics.Stopwatch sw = System.Diagnostics.Stopwatch.StartNew();
+                await client.PublishAsync(queues);
+                Console.WriteLine($"{queues.Topic} {sw.ElapsedMilliseconds} ms / {queues.Payload.Length} bytes");
+            }
+        }
+
+
+        private async Task PublishQueue(IEnumerable<MqttApplicationMessage> queues)
+        {
+            if (client.IsConnected)
+                await client.PublishAsync(queues);
+        }
+
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            await zKFactory.Waiting(stoppingToken);
             await InitializeMqtt(stoppingToken);
             while (!stoppingToken.IsCancellationRequested)
             {
                 try
                 {
                     //first event model push
+#if EVENT
                     var evt = await globalStorage.GetEventModels(stoppingToken);
                     foreach (EventModel evtModel in evt)
                     {
                         await PushEventModel(evtModel, stoppingToken);
                     }
-
+#else
+                    //List<MqttApplicationMessage> messages = new List<MqttApplicationMessage>();
                     foreach (var pushModel in template.PushModels)
                     {
                         if (pushModel.LastReadTime < DateTime.Now)
                         {
                             if (pushModel.Items == null)
                                 continue;
+                            
                             foreach (var msg in pushModel.Items)
                             {
                                 JObject obj = await globalStorage.BindingAndCopy(msg.Template, stoppingToken);
                                 MqttApplicationMessage message = CreateMessage(msg.Topic, msg.Qos, obj);
-                                await client.PublishAsync(message, stoppingToken);
-
+                                //if (obj.ContainsKey("deviceId"))
+                                //{
+                                //    Console.WriteLine($"{msg.Topic} QOS:{msg.Qos} {obj["deviceId"]} {obj["timestamp"]}");
+                                //}
+                                //messages.Add(message);
+                                await PublishQueue(message);
+                                //await client.PublishAsync(message, stoppingToken);
                             }
+
+                            
                             pushModel.LastReadTime = DateTime.Now.Add(pushModel.Interval);
                         }
                     }
+#endif
+                    //await PublishQueue(messages);
                     //logger.LogInformation("Mqtt Worker running at: {time}", DateTimeOffset.Now);
-                    await Task.Delay(500, stoppingToken);
+                    await Task.Delay(100, stoppingToken);
+                }
+                catch(MQTTnet.Exceptions.MqttCommunicationException mqttex)
+                {
+                    logger.LogError(mqttex, mqttex.Message);
+                    await Task.Delay(5000, stoppingToken);
                 }
                 catch(Exception ex)
                 {

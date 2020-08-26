@@ -43,27 +43,34 @@ namespace MqttToRedisWorkerApp
             int.TryParse(target_port, out portNum);
             while (!stoppingToken.IsCancellationRequested)
             {
-                //_logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                JObject jObj = await packetQueue.DequeueAsync(stoppingToken);
-                int groupId = jObj["groupid"].Value<int>();
-                int siteId = jObj["siteId"].Value<int>();
-                string deviceId = jObj["normalizedeviceid"].Value<string>();
+                try
+                {
+                    //_logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                    JObject jObj = await packetQueue.DequeueAsync(stoppingToken);
+                    int groupId = jObj["groupid"].Value<int>();
+                    int siteId = jObj["siteId"].Value<int>();
+                    string deviceId = jObj["normalizedeviceid"].Value<string>();
 
-                //if (groupId == 4 && siteId == 6)
-                //{
-                //    PvPacket packet = ConvertPacket(jObj);
-                //    int packSize = packet.GetSize();
-                //    var pack = packet.ToByteArray();
-                //    int packLength = pack.Length;
-                //    int sendpackets = udpClient.Send(pack, packLength, target_ip, portNum);
-                //    _logger.LogInformation("SENDING PACKET ({0} bytes)", sendpackets);
-                //}
+                    //if (groupId == 4 && siteId == 6)
+                    //{
+                    //    PvPacket packet = ConvertPacket(jObj);
+                    //    int packSize = packet.GetSize();
+                    //    var pack = packet.ToByteArray();
+                    //    int packLength = pack.Length;
+                    //    int sendpackets = udpClient.Send(pack, packLength, target_ip, portNum);
+                    //    _logger.LogInformation("SENDING PACKET ({0} bytes)", sendpackets);
+                    //}
 
 
-                string redisKey = CreateRedisKey(siteId, groupId, deviceId);
-                HashEntry[] hashValues = CreateHashEntry(jObj);
-                await db.HashSetAsync(redisKey, hashValues);
-                await Task.Delay(100, stoppingToken);
+                    string redisKey = CreateRedisKey(siteId, groupId, deviceId);
+                    HashEntry[] hashValues = CreateHashEntry(jObj);
+                    await db.HashSetAsync(redisKey, hashValues);
+                    await Task.Delay(100, stoppingToken);
+                }
+                catch(Exception ex)
+                {
+                    _logger.LogError(ex, ex.Message);
+                }
             }
         }
 

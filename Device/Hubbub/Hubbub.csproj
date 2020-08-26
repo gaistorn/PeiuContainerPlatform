@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>dotnet-Hubbub-8D3FF9FA-6F66-44A0-9E73-7D0B822EC84F</UserSecretsId>
     <RootNamespace>PeiuPlatform.Hubbub</RootNamespace>
+    <Configurations>Debug;Release;EventRelease</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

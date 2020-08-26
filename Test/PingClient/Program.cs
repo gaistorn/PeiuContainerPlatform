@@ -10,7 +10,7 @@ namespace PingClient
             = new[] { "TopicA", "TopicB", "All" };
         static void Main(string[] args)
         {
-
+            string st = GetStat(6306);
             Console.WriteLine(Environment.OSVersion);
             string topic = "Topic";
             Console.WriteLine("Subscriber started for Topic : {0}", topic);
@@ -28,6 +28,30 @@ namespace PingClient
                     int idx = BitConverter.ToInt32(buffer, 0);                    
                     Console.WriteLine($"[{receivedTopic}] {idx}");
                 }
+            }
+        }
+
+        private static string GetStat(int stat)
+        {
+            if ((stat & 2) == 2)
+            {
+                // Running
+                if ((stat & 32) == 32)
+                {
+                    return "충전중";
+                }
+                else if ((stat & 64) == 64)
+                {
+                    return "방전중";
+                }
+                else
+                {
+                    return "대기";
+                }
+            }
+            else
+            {
+                return "정지";
             }
         }
     }

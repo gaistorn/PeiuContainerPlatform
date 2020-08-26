@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDeveloper Version="6.6.872.0">
+  <ModelSettings xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ConnectionStringInAppConfig="False" DetectTPTInheritance="True">
+    <Connection ConnectionString="User Id=power21;Password=123qwe;Host=192.168.0.40;Database=peiuhubbub;Persist Security Info=True" Provider="Devart.Data.MySql" />
+    <Generation>
+      <GeneratedFiles>
+        <File Name="HubbubModel.StandardPcsStatusPoint.cs" />
+        <File Name="HubbubModel.StandardAnalogPoint.cs" />
+        <File Name="HubbubModel.ProtocolType.cs" />
+        <File Name="HubbubModel.ModbusHubbub.cs" />
+        <File Name="HubbubModel.ModbusConnectionInfo.cs" />
+        <File Name="HubbubModel.DeviceType.cs" />
+        <File Name="HubbubModel.DataType.cs" />
+        <File Name="HubbubModel.CommandCode.cs" />
+        <File Name="HubbubModel.ModbusDigitalStatusPoint.cs" />
+        <File Name="HubbubModel.VwDigitalStatusPoint.cs" />
+        <File Name="HubbubModel.ModbusInputPoint.cs" />
+        <File Name="HubbubModel.VwModbusInputPoint.cs" />
+        <File Name="HubbubModel.VwStandardAnalogPoint.cs" />
+        <File Name="HubbubModel.VwStandardPcsStatusPoint.cs" />
+        <File Name="HubbubModel.VwDigitalOutputPoint.cs" />
+        <File Name="HubbubModel.ModbusDigitalOutputPoint.cs" />
+        <File Name="HubbubModel.StandardPcsStatusPoint.hbm.xml" />
+        <File Name="HubbubModel.StandardAnalogPoint.hbm.xml" />
+        <File Name="HubbubModel.ProtocolType.hbm.xml" />
+        <File Name="HubbubModel.ModbusHubbub.hbm.xml" />
+        <File Name="HubbubModel.ModbusConnectionInfo.hbm.xml" />
+        <File Name="HubbubModel.DeviceType.hbm.xml" />
+        <File Name="HubbubModel.DataType.hbm.xml" />
+        <File Name="HubbubModel.CommandCode.hbm.xml" />
+        <File Name="HubbubModel.ModbusDigitalStatusPoint.hbm.xml" />
+        <File Name="HubbubModel.VwDigitalStatusPoint.hbm.xml" />
+        <File Name="HubbubModel.ModbusInputPoint.hbm.xml" />
+        <File Name="HubbubModel.VwModbusInputPoint.hbm.xml" />
+        <File Name="HubbubModel.VwStandardAnalogPoint.hbm.xml" />
+        <File Name="HubbubModel.VwStandardPcsStatusPoint.hbm.xml" />
+        <File Name="HubbubModel.VwDigitalOutputPoint.hbm.xml" />
+        <File Name="HubbubModel.ModbusDigitalOutputPoint.hbm.xml" />
+      </GeneratedFiles>
+    </Generation>
+    <generator class="assigned" />
+    <DatabaseFirstNamingRules>
+      <EntitySet PluralizationName="Pluralize" />
+      <Class UseSchemaAsPrefix="False" PluralizeCollectionNavigationPropertyName="True" AddConstraintColumnsToNavigationPropertyName="False" RemoveUnderscores="True" AddUnderscores="False" RemoveInvalidCharacters="True" CodeCase="FirstLetterUppercase" AddPrefix="" AddSuffix="" RemovePrefixes="" RemoveSuffixes="" PluralizationName="Singularize" />
+      <Property RemoveUnderscores="True" AddUnderscores="False" RemoveInvalidCharacters="True" CodeCase="FirstLetterUppercase" AddPrefix="" AddSuffix="" RemovePrefixes="" RemoveSuffixes="" PluralizationName="Unchanged" />
+    </DatabaseFirstNamingRules>
+    <ModelFirst StorageSynchronizationEnabled="False" TargetSchema="peiuhubbub" TargetProviderName="Devart.Data.MySql">
+      <TargetServer Server="MySQL" ServerVersion="5.5" />
+      <ModelFirstNamingRules>
+        <Table RemoveUnderscores="False" AddUnderscores="False" RemoveInvalidCharacters="True" CodeCase="Unchanged" AddPrefix="" AddSuffix="" RemovePrefixes="" RemoveSuffixes="" PluralizationName="Pluralize" />
+        <Column RemoveUnderscores="False" AddUnderscores="False" RemoveInvalidCharacters="True" CodeCase="Unchanged" AddPrefix="" AddSuffix="" RemovePrefixes="" RemoveSuffixes="" PluralizationName="Unchanged" />
+      </ModelFirstNamingRules>
+    </ModelFirst>
+    <Diagrams>
+      <Diagram Name="Diagram1" DefaultDiagram="True" />
+    </Diagrams>
+    <Templates>
+      <Template Name="NHibernate" Description="Use this template to generate classes and xml mappings for an NHibernate model." Enabled="True" PredefinedTemplateName="NHibernate C#">
+        <ed:Property Name="ValidationFramework" Type="EntityDeveloper.TemplateEngine.ValidationFramework, EntityDeveloper.Common, Version=6.6.872.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+          <ValidationFramework>None</ValidationFramework>
+        </ed:Property>
+        <ed:Property Name="ValidationErrorMessages" Type="EntityDeveloper.TemplateEngine.ValidationErrorMessages, EntityDeveloper.Common, Version=6.6.872.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+          <ValidationErrorMessages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+        </ed:Property>
+        <ed:Property Name="FilePerClass" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>true</boolean>
+        </ed:Property>
+        <ed:Property Name="ModelNameAsFilesPrefix" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>true</boolean>
+        </ed:Property>
+        <ed:Property Name="HeaderTimestampVersionControlTag" Type="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <string d6p1:nil="true" xmlns:d6p1="http://www.w3.org/2001/XMLSchema-instance" />
+        </ed:Property>
+        <ed:Property Name="EntitiesOutput" Type="EntityDeveloper.TemplateEngine.OutputInfo, EntityDeveloper.Common, Version=6.6.872.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+          <OutputInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <Project />
+            <ProjectFolder />
+            <DestinationFolder />
+          </OutputInfo>
+        </ed:Property>
+        <ed:Property Name="NHibernateV3Compatible" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>false</boolean>
+        </ed:Property>
+        <ed:Property Name="PropertyChangeNotifiers" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>false</boolean>
+        </ed:Property>
+        <ed:Property Name="PropertyChangePartialMethods" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>false</boolean>
+        </ed:Property>
+        <ed:Property Name="ImplementValidatable" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>false</boolean>
+        </ed:Property>
+        <ed:Property Name="ImplementEquals" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>false</boolean>
+        </ed:Property>
+        <ed:Property Name="ImplementCloneable" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>false</boolean>
+        </ed:Property>
+        <ed:Property Name="GeneratePartialClass" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>false</boolean>
+        </ed:Property>
+        <ed:Property Name="GenerateDataContracts" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>false</boolean>
+        </ed:Property>
+        <ed:Property Name="GenerateDummyComments" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>true</boolean>
+        </ed:Property>
+        <ed:Property Name="GenerateSerializableAttributes" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>false</boolean>
+        </ed:Property>
+        <ed:Property Name="XmlMappingOutput" Type="EntityDeveloper.TemplateEngine.OutputInfo, EntityDeveloper.Common, Version=6.6.872.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+          <OutputInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <Project />
+            <ProjectFolder />
+            <DestinationFolder />
+          </OutputInfo>
+        </ed:Property>
+        <ed:Property Name="XmlMappingAction" Type="EntityDeveloper.MetadataArtifactProcessing, EntityDeveloper.Orm.Common, Version=6.6.872.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+          <MetadataArtifactProcessing>CopyToOutputDirectory</MetadataArtifactProcessing>
+        </ed:Property>
+        <ed:Property Name="XmlMappingFilePerClass" Type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <boolean>true</boolean>
+        </ed:Property>
+      </Template>
+    </Templates>
+    <AttributeAssemblies />
+    <Configuration SeparateConfigFile="False" />
+    <UpdateFromDatabaseExcludes>
+      <Exclude Name="hubbubid" Table="peiuhubbub.vwDigitalStatusPoints" Type="Column" />
+      <Exclude Name="deviceindex" Table="peiuhubbub.vwDigitalStatusPoints" Type="Column" />
+      <Exclude Name="functioncode" Table="peiuhubbub.vwDigitalStatusPoints" Type="Column" />
+      <Exclude Name="offset" Table="peiuhubbub.vwDigitalStatusPoints" Type="Column" />
+      <Exclude Name="bitflag" Table="peiuhubbub.vwDigitalStatusPoints" Type="Column" />
+      <Exclude Name="match" Table="peiuhubbub.vwDigitalStatusPoints" Type="Column" />
+      <Exclude Name="pcsstatusid" Table="peiuhubbub.vwDigitalStatusPoints" Type="Column" />
+      <Exclude Name="pcsstatusname" Table="peiuhubbub.vwDigitalStatusPoints" Type="Column" />
+      <Exclude Name="pcsstatusdesc" Table="peiuhubbub.vwDigitalStatusPoints" Type="Column" />
+      <Exclude Name="hubbubid" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="deviceindex" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="functioncode" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="offset" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="aigroupid" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="pointtypeid" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="name" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="deviceid" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="datatypeid" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="sizebyword" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="scalefactor" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="byteindex" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="disable" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="defaultvalue" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="PK_vwdigitalstatuspoints" Table="peiuhubbub.vwdigitalstatuspoints" Type="Constraint" />
+      <Exclude Name="pointtypeid" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="PK_vwmodbusinputpoints" Table="peiuhubbub.vwmodbusinputpoints" Type="Constraint" />
+    </UpdateFromDatabaseExcludes>
+  </ModelSettings>
+</EntityDeveloper>

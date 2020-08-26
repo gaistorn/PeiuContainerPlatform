@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PeiuAccountWebApiService</name>
+    </assembly>
+    <members>
+        <member name="M:PeiuPlatform.App.App.Controllers.HubbubController.InsertDigitalOutputPoint(Hubbub.ModbusDigitalOutputPoint)">
+            <summary>
+            DIGITAL OUTPUT 포인트를 추가/변경 합니다.
+            ID값이 기존에 있는 경우에는 변경, 없는 경우 추가가 됩니다.
+            </summary>
+            <param name="model">DIGITAL OUTPUT 포인트</param>
+            <returns></returns>
+        </member>
+        <member name="M:PeiuPlatform.App.App.Controllers.HubbubController.InsertDigitalStatusPoint(Hubbub.ModbusDigitalStatusPoint)">
+            <summary>
+            DIGITAL STATUS 포인트를 추가/변경 합니다.
+            ID값이 기존에 있는 경우에는 변경, 없는 경우 추가가 됩니다.
+            </summary>
+            <param name="model">DIGITAL STATUS 포인트</param>
+            <returns></returns>
+        </member>
+        <member name="M:PeiuPlatform.App.App.Controllers.HubbubController.InsertHubbub(Hubbub.ModbusHubbub)">
+            <summary>
+            HUBBUB 정보를 추가/변경 합니다.
+            ID를 포함하지 않는 경우 추가, 있는 경우 해당 ID의 HUBBUB의 정보를 변경합니다.
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PeiuPlatform.App.App.Controllers.HubbubController.InsertConnectionInfo(Hubbub.ModbusConnectionInfo)">
+            <summary>
+            접속 정보를 추가/변경 합니다.
+            ID를 포함하지 않는 경우 추가, 있는 경우 해당 ID의 정보를 변경합니다.
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PeiuPlatform.App.App.Controllers.HubbubController.RemoveConnectionInfo(System.Int32)">
+            <summary>
+            전력수집장치의 Connection 정보를 삭제합니다.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PeiuPlatform.App.App.Controllers.HubbubController.RemoveHubbub(System.Int32)">
+            <summary>
+            HUBBUB 정보를 삭제합니다.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PeiuPlatform.App.App.Controllers.HubbubController.ExportInputPoints(System.Int32)">
+            <summary>
+            특정 그룹의 MODBUS INPUT 포인트들을 CSV파일로 다운로드 받는다
+            </summary>
+            <param name="groupid">포인트 그룹 ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:PeiuPlatform.App.App.Controllers.HubbubController.ExportDigitalOutputPoints(System.Int32)">
+            <summary>
+            특정 그룹의 DIGITAL OUTPUT 포인트들을 CSV 파일로 다운로드 받는다.
+            </summary>
+            <param name="groupid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PeiuPlatform.App.App.Controllers.HubbubController.ExportDigitalStatusPoints(System.Int32)">
+            <summary>
+            특정 그룹의 DIGITAL STATUS 포인트들을 CSV 파일로 다운로드 받는다.
+            </summary>
+            <param name="groupid"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:PeiuPlatform.App.App.Controllers.HubbubController.GetHubbubInformation(System.Int32,System.Boolean)" -->
+        <member name="M:PeiuPlatform.App.App.Controllers.HubbubController.pcs_localremote(System.Int32,System.Int32,System.UInt16)">
+            <summary>
+            
+            </summary>
+            <param name="siteid"></param>
+            <param name="deviceindex"></param>
+            <param name="localremote">0:Local, 1:Remote</param>
+            <returns></returns>
+        </member>
+        <member name="M:PeiuPlatform.App.App.Controllers.HubbubController.pcs_activepower(System.Int32,System.Int32,System.Single)">
+            <summary>
+            ActivePower 제어
+            </summary>
+            <param name="siteid"></param>
+            <param name="deviceindex"></param>
+            <param name="power">음수값(-)일 경우 방전, 양수값(+)일 경우 충전, 0일 경우 STOP 명령</param>
+            <returns></returns>
+        </member>
+        <member name="F:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.localizer">
+            <summary> 
+            The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer`1"/>
+            used to localize the strings
+            </summary>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.#ctor(Microsoft.Extensions.Localization.IStringLocalizer{PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber})">
+            <summary>
+            Initializes a new instance of the <see cref="T:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber"/> class.
+            </summary>
+            <param name="localizer">
+            The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer`1"/>
+            that we will use to localize the strings
+            </param>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.DefaultError">
+            <summary>
+            Returns the default <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" />.
+            </summary>
+            <returns>The default <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /></returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.ConcurrencyFailure">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a concurrency failure.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a concurrency failure.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordMismatch">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password mismatch.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password mismatch.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.InvalidToken">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating an invalid token.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating an invalid token.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.LoginAlreadyAssociated">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating an external login is already associated with an account.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating an external login is already associated with an account.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.InvalidUserName(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified user <paramref name="userName" /> is invalid.
+            </summary>
+            <param name="userName">The user name that is invalid.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified user <paramref name="userName" /> is invalid.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.InvalidEmail(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="email" /> is invalid.
+            </summary>
+            <param name="email">The email that is invalid.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="email" /> is invalid.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.DuplicateUserName(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="userName" /> already exists.
+            </summary>
+            <param name="userName">The user name that already exists.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="userName" /> already exists.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.DuplicateEmail(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="email" /> is already associated with an account.
+            </summary>
+            <param name="email">The email that is already associated with an account.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="email" /> is already associated with an account.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.InvalidRoleName(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="role" /> name is invalid.
+            </summary>
+            <param name="role">The invalid role.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specific role <paramref name="role" /> name is invalid.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.DuplicateRoleName(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specified <paramref name="role" /> name already exists.
+            </summary>
+            <param name="role">The duplicate role.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating the specific role <paramref name="role" /> name already exists.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.UserAlreadyHasPassword">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user already has a password.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user already has a password.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.UserLockoutNotEnabled">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating user lockout is not enabled.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating user lockout is not enabled..</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.UserLockoutEnabled">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating user lockout is enabled.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating user lockout is enabled..</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.UserAlreadyInRole(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user is already in the specified <paramref name="role" />.
+            </summary>
+            <param name="role">The duplicate role.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user is already in the specified <paramref name="role" />.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.UserNotInRole(System.String)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user is not in the specified <paramref name="role" />.
+            </summary>
+            <param name="role">The duplicate role.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a user is not in the specified <paramref name="role" />.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordTooShort(System.Int32)">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password of the specified <paramref name="length" /> does not meet the minimum length requirements.
+            </summary>
+            <param name="length">The length that is not long enough.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password of the specified <paramref name="length" /> does not meet the minimum length requirements.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordRequiresNonAlphanumeric">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a non-alphanumeric character, which is required by the password policy.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a non-alphanumeric character.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordRequiresDigit">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a numeric character, which is required by the password policy.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a numeric character.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordRequiresLower">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a lower case letter, which is required by the password policy.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain a lower case letter.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.PasswordRequiresUpper">
+            <summary>
+            Returns an <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain an upper case letter, which is required by the password policy.
+            </summary>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Identity.IdentityError" /> indicating a password entered does not contain an upper case letter.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.GetErrorByCode(System.String)">
+            <summary>Returns a localized <see cref="T:Microsoft.AspNetCore.Identity.IdentityError"/> for the provided code.</summary>
+            <param name="code">The error's code.</param>
+            <returns>A localized <see cref="T:Microsoft.AspNetCore.Identity.IdentityError"/>.</returns>
+        </member>
+        <member name="M:PeiuPlatform.App.Localization.LocalizedIdentityErrorDescriber.FormatErrorByCode(System.String,System.Object[])">
+            <summary>Formats a localized <see cref="T:Microsoft.AspNetCore.Identity.IdentityError"/> for the provided code.</summary>
+            <param name="code">The error's code.</param>
+            <param name="parameters">The parameters to format the string with.</param>
+            <returns>A localized <see cref="T:Microsoft.AspNetCore.Identity.IdentityError"/>.</returns>
+        </member>
+    </members>
+</doc>

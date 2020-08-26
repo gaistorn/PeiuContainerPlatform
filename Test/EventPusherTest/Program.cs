@@ -2,8 +2,12 @@
 using PeiuPlatform.App;
 using PeiuPlatform.Lib;
 using System;
+using System.IO.Ports;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Collections.Concurrent;
 
 namespace EventPusherTest
 {
@@ -12,6 +16,30 @@ namespace EventPusherTest
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            ConcurrentDictionary<int, int> keyValuePairs = new ConcurrentDictionary<int, int>();
+            keyValuePairs.AddOrUpdate(3, 10, (newValue, oldValue) =>
+            {
+                return oldValue;
+            });
+            int nValue = 20;
+            bool IsChanged = false;
+            int rValue = keyValuePairs.AddOrUpdate(3, nValue, (key, oldValue) =>
+            {
+                IsChanged = true;
+                return nValue;
+            });
+
+            string jobStr = "{Name} {id} job for admin";
+            var d = new { Id = 1, Name = "Todo", Description = "Nothing" };
+            string id = "1234";
+            var result = jobStr.Interpolate(x => d.Name, x=> id);
+
+            string sdf = "WdR";
+            int ascii = Convert.ToInt32(sdf[0]);
+            ascii = ascii + 32;
+            Char c = Convert.ToChar(ascii);
+
             AbsMqttBase.SetDefaultLoggerName("nlog.config", true);
             EventPublisherWorker worker = new EventPublisherWorker(1);
             worker.Initialize();
@@ -26,6 +54,26 @@ namespace EventPusherTest
                     t.Wait();
                 }
             }
+        }
+
+       
+    }
+
+    public static class StringExtension
+    {
+        public static string Interpolate(this string template, params Expression<Func<object, string>>[] values)
+        {
+            string result = template;
+            values.ToList().ForEach(x =>
+            {
+                MemberExpression member = x.Body as MemberExpression;
+                string oldValue = $"{{{member.Member.Name}}}";
+                string newValue = x.Compile().Invoke(null).ToString();
+                result = result.Replace(oldValue, newValue);
+            }
+
+                );
+            return result;
         }
     }
 }

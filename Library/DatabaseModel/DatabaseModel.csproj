@@ -4,23 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>PeiuPlatform.DataAccessor</RootNamespace>
     <Platforms>AnyCPU;x64</Platforms>
+    <Configurations>Debug;Release;EventRelease</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Hubbub\HubbubConfigurationModel.CommandCode.hbm.xml" />
-    <None Remove="Hubbub\HubbubConfigurationModel.Configuration.hbm.xml" />
-    <None Remove="Hubbub\HubbubConfigurationModel.DataType.hbm.xml" />
-    <None Remove="Hubbub\HubbubConfigurationModel.DeviceType.hbm.xml" />
-    <None Remove="Hubbub\HubbubConfigurationModel.Diagram1.view" />
-    <None Remove="Hubbub\HubbubConfigurationModel.edps" />
-    <None Remove="Hubbub\HubbubConfigurationModel.hbml" />
-    <None Remove="Hubbub\HubbubConfigurationModel.Hubbub.hbm.xml" />
-    <None Remove="Hubbub\HubbubConfigurationModel.ModbusAnalogPoint.hbm.xml" />
-    <None Remove="Hubbub\HubbubConfigurationModel.ModbusDigitalInputPoint.hbm.xml" />
-    <None Remove="Hubbub\HubbubConfigurationModel.ModbusDigitalOutputPoint.hbm.xml" />
-    <None Remove="Hubbub\HubbubConfigurationModel.ModbusHubbub.hbm.xml" />
-    <None Remove="Hubbub\HubbubConfigurationModel.Protocol.hbm.xml" />
-    <None Remove="Hubbub\HubbubConfigurationModel.ProtocolType.hbm.xml" />
     <None Remove="Mysql\PeiuAccountTableModel.AttachFileRepositary.hbm.xml" />
     <None Remove="Mysql\PeiuAccountTableModel.NoticeBoard.hbm.xml" />
     <None Remove="Mysql\PeiuPlatform.CompareAccmOfMeasurement.hbm.xml" />
@@ -47,15 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Hubbub\HubbubConfigurationModel.CommandCode.hbm.xml" />
-    <EmbeddedResource Include="Hubbub\HubbubConfigurationModel.DataType.hbm.xml" />
-    <EmbeddedResource Include="Hubbub\HubbubConfigurationModel.DeviceType.hbm.xml" />
-    <EmbeddedResource Include="Hubbub\HubbubConfigurationModel.ModbusAnalogPoint.hbm.xml" />
-    <EmbeddedResource Include="Hubbub\HubbubConfigurationModel.ModbusDigitalInputPoint.hbm.xml" />
-    <EmbeddedResource Include="Hubbub\HubbubConfigurationModel.ModbusDigitalOutputPoint.hbm.xml" />
-    <EmbeddedResource Include="Hubbub\HubbubConfigurationModel.ModbusHubbub.hbm.xml" />
-    <EmbeddedResource Include="Hubbub\HubbubConfigurationModel.Protocol.hbm.xml" />
-    <EmbeddedResource Include="Hubbub\HubbubConfigurationModel.ProtocolType.hbm.xml" />
     <EmbeddedResource Include="Mysql\PeiuAccountTableModel.AttachFileRepositary.hbm.xml" />
     <EmbeddedResource Include="Mysql\PeiuAccountTableModel.NoticeBoard.hbm.xml" />
     <EmbeddedResource Include="Mysql\PeiuPlatform.CompareAccmOfMeasurement.hbm.xml" />

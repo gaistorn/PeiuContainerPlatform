@@ -77,41 +77,48 @@ namespace CollectInstantaneousApp
                 CreateRedisKeys(sites, ref pcsKeys, ref bmsKeys, ref pvKeys);
                 foreach(var x in sites)
                 {
-                    double soc_men = await MeanAsync(bmsKeys[x.Siteid], "bms_soc");
-                    double soh_men = await MeanAsync(bmsKeys[x.Siteid], "bms_soh");
-                    double act_sum = await SumAsync(pcsKeys[x.Siteid], "actPwrKw");
-                    double pv_sum = await SumAsync(pvKeys[x.Siteid], "TotalActivePower");
+                    try
+                    {
+                        double soc_men = await MeanAsync(bmsKeys[x.Siteid], "bms_soc");
+                        double soh_men = await MeanAsync(bmsKeys[x.Siteid], "bms_soh");
+                        double act_sum = await SumAsync(pcsKeys[x.Siteid], "actPwrKw");
+                        double pv_sum = await SumAsync(pvKeys[x.Siteid], "TotalActivePower");
 
-                    double sumOfCharge = await influxDataAccess.Sum("peiudb", "pcs_data", "actPwrKw", x.Siteid, startDt, endDt, "actPwrKw < 0");
-                    double sumOfDischarge = await influxDataAccess.Sum("peiudb", "pcs_data", "actPwrKw", x.Siteid, startDt, endDt, "actPwrKw > 0");
-                    double avgOfSoc = await influxDataAccess.Average("peiudb", "bms_data", "bms_soc", x.Siteid, startDt, endDt);
-                    double avgOfSoh = await influxDataAccess.Average("peiudb", "bms_data", "bms_soh", x.Siteid, startDt, endDt);
-                    double sumofpvgeneration = await influxDataAccess.Sum("peiudb", "pv_data", "TotalActivePower", x.Siteid, startDt, endDt);
-                    MinuteMeasurement instantaneous = new MinuteMeasurement();
-                    instantaneous.Rcc = x.Rcc;
-                    instantaneous.Siteid = x.Siteid;
-                    instantaneous.Createdt = stampDate.Date;
-                    instantaneous.Hour = stampDate.Hour;
-                    instantaneous.Minute = stampDate.Minute;
-                    instantaneous.Inisland = x.Inisland;
-                    instantaneous.Soc = soc_men;
-                    instantaneous.Soh = soh_men;
-                    instantaneous.Activepower = act_sum;
-                    instantaneous.Pvgeneration = pv_sum;
-                    await session.SaveOrUpdateAsync(instantaneous);
+                        double sumOfCharge = await influxDataAccess.Sum("peiudb", "pcs_data", "actPwrKw", x.Siteid, startDt, endDt, "actPwrKw < 0");
+                        double sumOfDischarge = await influxDataAccess.Sum("peiudb", "pcs_data", "actPwrKw", x.Siteid, startDt, endDt, "actPwrKw > 0");
+                        double avgOfSoc = await influxDataAccess.Average("peiudb", "bms_data", "bms_soc", x.Siteid, startDt, endDt);
+                        double avgOfSoh = await influxDataAccess.Average("peiudb", "bms_data", "bms_soh", x.Siteid, startDt, endDt);
+                        double sumofpvgeneration = await influxDataAccess.Sum("peiudb", "pv_data", "TotalActivePower", x.Siteid, startDt, endDt);
+                        MinuteMeasurement instantaneous = new MinuteMeasurement();
+                        instantaneous.Rcc = x.Rcc;
+                        instantaneous.Siteid = x.Siteid;
+                        instantaneous.Createdt = stampDate.Date;
+                        instantaneous.Hour = stampDate.Hour;
+                        instantaneous.Minute = stampDate.Minute;
+                        instantaneous.Inisland = x.Inisland;
+                        instantaneous.Soc = soc_men;
+                        instantaneous.Soh = soh_men;
+                        instantaneous.Activepower = act_sum;
+                        instantaneous.Pvgeneration = pv_sum;
+                        await session.SaveOrUpdateAsync(instantaneous);
 
-                    MinuteAccmofMeasurement accum = new MinuteAccmofMeasurement();
-                    accum.Rcc = x.Rcc;
-                    accum.Siteid = x.Siteid;
-                    accum.Createdt = accum_date.Date;
-                    accum.Hour = accum_date.Hour;
-                    accum.Minute = accum_date.Minute;
-                    accum.Avgofsoc = avgOfSoc;
-                    accum.Avgofsoh = avgOfSoh;
-                    accum.Sumofcharge = sumOfCharge / 3600;
-                    accum.Sumofdischarge = sumOfDischarge / 3600;
-                    accum.Sumofpvgeneration = sumofpvgeneration / 3600;
-                    await session.SaveOrUpdateAsync(accum);
+                        MinuteAccmofMeasurement accum = new MinuteAccmofMeasurement();
+                        accum.Rcc = x.Rcc;
+                        accum.Siteid = x.Siteid;
+                        accum.Createdt = accum_date.Date;
+                        accum.Hour = accum_date.Hour;
+                        accum.Minute = accum_date.Minute;
+                        accum.Avgofsoc = avgOfSoc;
+                        accum.Avgofsoh = avgOfSoh;
+                        accum.Sumofcharge = sumOfCharge / 3600;
+                        accum.Sumofdischarge = sumOfDischarge / 3600;
+                        accum.Sumofpvgeneration = sumofpvgeneration / 3600;
+                        await session.SaveOrUpdateAsync(accum);
+                    }
+                    catch(Exception ex)
+                    {
+
+                    }
                 }
                 logger.Info("End calculate Minute Measurement");
                 logger.Info("Start calculate Minute Accumulate");

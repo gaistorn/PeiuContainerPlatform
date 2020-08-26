@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "ModbusMaster": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "environmentVariables": {
+        "ZK_HOST": "www.peiu.co.kr:3090"
+      }
+    }
+  }
+}

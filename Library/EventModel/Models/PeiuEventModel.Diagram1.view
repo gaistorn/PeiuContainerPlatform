@@ -551,44 +551,25 @@
                       <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
                     </Oid>
                   </Model>
-                  <Model xsi:type="PropertyVwModel">
-                    <CustomProperties>
-                      <OID>30</OID>
-                      <Parent>23</Parent>
-                    </CustomProperties>
-                    <Children />
-                    <Location>
-                      <X>0.5 px</X>
-                      <Y>108.5 px</Y>
-                    </Location>
-                    <Size>
-                      <Width>144 px</Width>
-                      <Height>18 px</Height>
-                    </Size>
-                    <Oid xsi:type="SchemaModelOID">
-                      <Path>6f952a01-06f8-417b-85bc-cdd52b334d77</Path>
-                      <TypeName>EntityDeveloper.NHibernate.HibernateProperty</TypeName>
-                    </Oid>
-                  </Model>
                 </Children>
                 <Size>
                   <Width>145 px</Width>
-                  <Height>127 px</Height>
+                  <Height>109 px</Height>
                 </Size>
                 <MaxSize>
                   <Width>0 px</Width>
-                  <Height>127 px</Height>
+                  <Height>109 px</Height>
                 </MaxSize>
               </Model>
               <Model xsi:type="RelationPropertiesVwModel">
                 <CustomProperties>
-                  <OID>31</OID>
+                  <OID>30</OID>
                   <Parent>22</Parent>
                 </CustomProperties>
                 <Children />
                 <Location>
                   <X>0 px</X>
-                  <Y>126 px</Y>
+                  <Y>108 px</Y>
                 </Location>
                 <Size>
                   <Width>145 px</Width>
@@ -607,15 +588,15 @@
             </Location>
             <Size>
               <Width>150 px</Width>
-              <Height>194 px</Height>
+              <Height>176 px</Height>
             </Size>
             <MinSize>
               <Width>100 px</Width>
-              <Height>194 px</Height>
+              <Height>176 px</Height>
             </MinSize>
             <MaxSize>
               <Width>800 px</Width>
-              <Height>194 px</Height>
+              <Height>176 px</Height>
             </MaxSize>
             <Ports />
             <Oid xsi:type="SchemaModelOID">

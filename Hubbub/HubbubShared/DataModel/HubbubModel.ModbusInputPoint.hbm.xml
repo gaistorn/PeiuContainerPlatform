@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiuhubbub" assembly="HubhubSharedLib" namespace="Hubbub" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ModbusInputPoint" table="ModbusInputPoints">
+    <composite-id>
+      <key-property name="Hubbubid" type="Int32">
+        <column name="hubbubid" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+      <key-property name="Deviceindex" type="Int32">
+        <column name="deviceindex" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+      <key-property name="Functioncode" type="Int32">
+        <column name="functioncode" default="3" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+      <key-property name="Offset" type="Int32">
+        <column name="`offset`" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      </key-property>
+    </composite-id>
+    <property name="Pointtypeid" type="Int32">
+      <column name="pointtypeid" default="0" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Deviceid" type="Int32">
+      <column name="deviceid" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Aigroupid" type="Int32">
+      <column name="aigroupid" default="-1" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Datatypeid" type="Int32">
+      <column name="datatypeid" default="102" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Scalefactor" type="Single">
+      <column name="scalefactor" default="1" not-null="true" sql-type="FLOAT" />
+    </property>
+    <property name="Byteindex" type="Int32">
+      <column name="byteindex" default="-1" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Name" type="String">
+      <column name="name" not-null="true" length="45" sql-type="VARCHAR(45)" />
+    </property>
+    <property name="Disable" type="Boolean">
+      <column name="disable" not-null="true" precision="1" sql-type="BIT" />
+    </property>
+    <property name="Defaultvalue" type="Single">
+      <column name="defaultvalue" default="0" not-null="true" sql-type="FLOAT" />
+    </property>
+  </class>
+</hibernate-mapping>

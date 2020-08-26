@@ -17,10 +17,28 @@ namespace PeiuPlatform.DataAccessor
         private ISessionFactory sessionFactory;
         public ISessionFactory SessionFactory => sessionFactory ?? (sessionFactory = GetSessionFactory());
 
+        public ISessionFactory GetSessionFactoryWithAssemblies(params Assembly[] assemblies)
+        {
+            return GetSessionFactory(assemblies);
+        }
+
+        public static string CreateConnectionString(string dbname)
+        {
+            string mysqlHost = System.Environment.GetEnvironmentVariable(ENV_MYSQL_HOST);
+            string mysqlPort = System.Environment.GetEnvironmentVariable(ENV_MYSQL_PORT);
+            string mysqluser = System.Environment.GetEnvironmentVariable(ENV_MYSQL_USERNAME);
+            string mysqlPass = System.Environment.GetEnvironmentVariable(ENV_MYSQL_PASSWORD);
+            return CreateConnectionString(mysqlHost, mysqlPort, dbname, mysqluser, mysqlPass);
+        }
+
         public static string CreateConnectionString(string host, string port, string username, string password)
             => $"server={host};port={port};userid={username};password={password};CharSet=utf8;";
 
-        protected abstract  ISessionFactory GetSessionFactory();
+        public static string CreateConnectionString(string host, string port, string dbname, string username, string password)
+            => $"server={host};port={port};userid={username};database={dbname};password={password};CharSet=utf8;";
+
+        protected abstract  ISessionFactory GetSessionFactory(Assembly[] assemblies);
+        protected abstract ISessionFactory GetSessionFactory();
 
         public string ConnectionSting { get; }
 
@@ -36,6 +54,7 @@ namespace PeiuPlatform.DataAccessor
 
     public class MysqlDataAccessor : DataAccessorBase
     {
+        
         public static MysqlDataAccessor CreateDataAccessFromEnvironment()
         {
             string mysqlHost = System.Environment.GetEnvironmentVariable(ENV_MYSQL_HOST);
@@ -51,6 +70,11 @@ namespace PeiuPlatform.DataAccessor
         public MysqlDataAccessor(string connectionString) : base(connectionString) { }
         protected override ISessionFactory GetSessionFactory()
         {
+            return GetSessionFactory(null);
+        }
+        protected override ISessionFactory GetSessionFactory(Assembly[] assemblies)
+        {
+            
             var config = new NHibernate.Cfg.Configuration()
                         .AddProperties(new Dictionary<string, string> {
                     {NHibernate.Cfg.Environment.ConnectionDriver, typeof (NHibernate.Driver.MySqlDataDriver).FullName},
@@ -68,10 +92,15 @@ namespace PeiuPlatform.DataAccessor
 #endif
 
                         })
+                    
+                    //.AddAssembly()
                     .AddAssembly(Assembly.GetExecutingAssembly());
 
-            //foreach (Assembly assembly in assemblies)
-            //    config.AddAssembly(assembly);
+            if (assemblies != null)
+            {
+                foreach (Assembly assembly in assemblies)
+                    config.AddAssembly(assembly);
+            }
             return config.BuildSessionFactory();
         }
     }

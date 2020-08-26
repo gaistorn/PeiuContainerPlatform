@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using NModbus;
 using NModbus.Utility;
+using PeiuPlatform.App;
 using PeiuPlatform.Lib;
 
 namespace PeiuPlatform.Hubbub
@@ -19,21 +20,18 @@ namespace PeiuPlatform.Hubbub
     public class ModbusReadWriteWorker : BackgroundService
     {
         private readonly ILogger<ModbusReadWriteWorker> _logger;
-        private readonly IZKFactory zKFactory;
         private readonly IHostApplicationLifetime hostApplicationLifetime;
-        private readonly IGlobalStorage globalStorage;
+        private readonly IGlobalStorage<EventModel> globalStorage;
         private readonly HubbubInformation hubbubInformation;
         TcpClient client = null;
 
         public ModbusReadWriteWorker(ILogger<ModbusReadWriteWorker> logger,
             HubbubInformation hubbubInformation,
-            IZKFactory zKFactory, 
             IHostApplicationLifetime hostApplicationLifetime,
-            IGlobalStorage globalStorage)
+            IGlobalStorage<EventModel> globalStorage)
         {
             _logger = logger;
             this.hubbubInformation = hubbubInformation;
-            this.zKFactory = zKFactory;
             this.hostApplicationLifetime = hostApplicationLifetime;
             this.globalStorage = globalStorage;
 
@@ -45,7 +43,6 @@ namespace PeiuPlatform.Hubbub
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             //CancellationToken cancelToken = hostApplicationLifetime.ApplicationStopping;
-            await this.zKFactory.WaitWorking(stoppingToken);
             IEnumerable<DataPoint> pointList = null;
 
             // Step 1. Reading modbusmap
@@ -79,6 +76,8 @@ namespace PeiuPlatform.Hubbub
                             _logger.LogWarning("## MODBUS Monitor worker is break");
                             return;
                         }
+                        
+                        
                         master = modbusFactory.CreateMaster(client);
                     }
 
@@ -88,7 +87,22 @@ namespace PeiuPlatform.Hubbub
                         switch(command.FunctionCode)
                         {
                             case 3:
-                                await master.WriteMultipleRegistersAsync(1, command.StartAddress, command.WriteValues);
+                                await master.WriteSingleRegisterAsync(1, command.StartAddress, command.WriteValue);
+                                _logger.LogInformation($"Write Modbus: {command.StartAddress} : {command.WriteValue}");
+
+                                if(command.StartAddress == 499 ||
+                                    command.StartAddress == 605 ||
+                                    command.StartAddress == 805 ||
+                                    command.StartAddress == 1005 ||
+                                    command.StartAddress == 1205) 
+                                {
+                                    // 만약 Local 에서 Remote로 변경할 경우 2초후에 ActivePower값을 전부 0으로 준다
+                                    await Task.Delay(TimeSpan.FromSeconds(2));
+                                    await master.WriteSingleRegisterAsync(1, 601, 0);
+                                    await master.WriteSingleRegisterAsync(1, 801, 0);
+                                    await master.WriteSingleRegisterAsync(1, 1001, 0);
+                                    await master.WriteSingleRegisterAsync(1, 1201, 0);
+                                }
                                 break;
                         }
                     }
@@ -136,19 +150,16 @@ namespace PeiuPlatform.Hubbub
             record.Status = EventStatus.New;
             record.GroupCode = GroupCode;
             record.BitFlag = Value;
-            record.FactoryCode = 1;
+            //record.FactoryCode = 1;
             return record;
         }
 
         private void AlarmCheck(string category, string pointname, ushort value)
         {
-            int factorycode = 1;
             EventModel model = null;
             if(category.StartsWith("PCS#") && pointname.StartsWith("Alarm"))
             {
                 int deviceidx = int.Parse(category.TrimStart("PCS#".ToCharArray()));
-                int devicetype = 0;
-                int groupcode = 0;
                 if(pointname == "Alarm1")
                 {
                     model = CreateEventModel(0, deviceidx, 500, value);
@@ -162,8 +173,6 @@ namespace PeiuPlatform.Hubbub
             else if (category.StartsWith("BSC#") && pointname.StartsWith("Event"))
             {
                 int deviceidx = int.Parse(category.TrimStart("BSC#".ToCharArray()));
-                int devicetype = 0;
-                int groupcode = 0;
                 if (pointname == "Event1")
                 {
                     model = CreateEventModel(1, deviceidx, 600, value);
@@ -208,8 +217,16 @@ namespace PeiuPlatform.Hubbub
                     {
                         UpdateStatus(point.Category, readValue);
                     }
+                    else if(point.Name == "ManualAuto")
+                    {
+                        globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.MANUALAUTO}", readValue);
+                    }
 
-                    
+                    if(point.Name == "LocalRemote")
+                    {
+                        globalStorage.SetValue($"{category}.LocalRemote", (ushort)readValue == 3 ? 1 : 0);
+                        continue;
+                    }
 
                     if (point.IsDigit)
                     {
@@ -218,11 +235,12 @@ namespace PeiuPlatform.Hubbub
                     if (point.Scale != 0)
                         readValue = (dynamic)readValue * point.Scale;
 
-
+#if EVENT
                     if (point.Name.StartsWith("Alarm") || point.Name.StartsWith("Event"))
                     {
                         AlarmCheck(row.Key, point.Name, Convert.ToUInt16(readValue));
                     }
+#endif
 
                     globalStorage.SetValue(point.GetUniqueId(), readValue);
                     //if (StopReporting == false)
@@ -267,6 +285,7 @@ namespace PeiuPlatform.Hubbub
             globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.FAULT}", fault);
             globalStorage.SetValue($"{category}.Stat.{Model.PcsStatus.WARNING}", warning);
             
+            
         }
 
         private int BitWise(IComparable value, ushort BitFlag)
@@ -289,7 +308,7 @@ namespace PeiuPlatform.Hubbub
                     UInt32 ui32Value = ModbusUtility.GetUInt32(readData[0], readData[1]);
                     return ui32Value;
                 case DataType.SGL:
-                    float fValue = ModbusUtility.GetSingle(readData[0], readData[1]);
+                    float fValue = ModbusUtility.GetSingle(readData[1], readData[0]);
                     return fValue;
                 default: // U16
                     ushort u16Value = readData[0];

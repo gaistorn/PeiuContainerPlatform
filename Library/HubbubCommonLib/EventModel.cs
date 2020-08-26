@@ -21,14 +21,14 @@ namespace PeiuPlatform.Hubbub
         public int FactoryCode { get; set; }
         public int GroupCode { get; set; }
         public ushort BitFlag { get; set; }
-        public DateTime TimeStamp
-        {
-            get
-            {
+        //public DateTime TimeStamp
+        //{
+        //    get
+        //    {
 
-                return new DateTime(1970, 1, 1).AddSeconds(UnixTimestamp).ToLocalTime();
-            }
-        }
+        //        return new DateTime(1970, 1, 1).AddSeconds(UnixTimestamp).ToLocalTime();
+        //    }
+        //}
 
         public bool Value { get; set; }
 

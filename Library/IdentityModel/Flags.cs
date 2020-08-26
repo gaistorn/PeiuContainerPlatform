@@ -83,14 +83,18 @@ namespace PeiuPlatform.Model
         Contrator,
         Aggregator,
         Supervisor,
-        Candidate
+        AccountManager,
+        Hubbub
     }
 
 
     public enum ServiceCodes : int
     {
         NoService = 0,
-        DR = 1,
-        Schedule = 2,
+        TradeSchedule = 1, // 전력거래 스케쥴
+        PPASchedule = 2, // PPA 스케쥴
+        DR = 4,
+        Peakcut = 8,
+
     }
 }

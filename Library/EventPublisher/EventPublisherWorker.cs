@@ -168,7 +168,6 @@ namespace PeiuPlatform.Lib
             record.SiteId =  this._siteId = SiteId;
             record.Status = status;
             record.BitFlag = Value;
-            record.FactoryCode = FactoryCode;
             record.GroupCode = GroupCode;
             string message = JsonConvert.SerializeObject(record);
             await base.PublishMessageAsync(message, token);

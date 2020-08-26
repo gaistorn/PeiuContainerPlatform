@@ -1,0 +1,998 @@
+﻿{
+  "ConnectionInfo": {
+    "Id": 1,
+    "Host": "127.0.0.1",
+    "Port": 502,
+    "Protocolid": 1000,
+    "Baudrate": 9600,
+    "Databits": 8,
+    "Parity": "None",
+    "Stopbits": "One",
+    "Slaveid": 1
+  },
+  "Hubbub": {
+    "Id": 1,
+    "Siteid": 160,
+    "Firmwareversion": 1.0,
+    "Label": "광주 LG화학 BSC 수집장치",
+    "Description": null,
+    "Installationdt": "2020-04-09T00:00:00",
+    "Maintenancedt": null,
+    "Connectionid": 1
+  },
+  "StandardPcsStatuses": [
+    {
+      "Id": 98,
+      "Name": "INITIALIZING"
+    },
+    {
+      "Id": 99,
+      "Name": "READY"
+    },
+    {
+      "Id": 100,
+      "Name": "RUN"
+    },
+    {
+      "Id": 101,
+      "Name": "STOP"
+    },
+    {
+      "Id": 102,
+      "Name": "STAND_BY"
+    },
+    {
+      "Id": 103,
+      "Name": "CHARGE"
+    },
+    {
+      "Id": 104,
+      "Name": "DISCHARGE"
+    },
+    {
+      "Id": 105,
+      "Name": "EMERGENCY"
+    },
+    {
+      "Id": 106,
+      "Name": "RESET"
+    },
+    {
+      "Id": 107,
+      "Name": "RELAY_CLOSE"
+    },
+    {
+      "Id": 108,
+      "Name": "RELAY_OPEN"
+    },
+    {
+      "Id": 109,
+      "Name": "BSC_EVENT_CLEAR"
+    },
+    {
+      "Id": 110,
+      "Name": "BSC_RESTART"
+    },
+    {
+      "Id": 111,
+      "Name": "ISOLATION"
+    },
+    {
+      "Id": 112,
+      "Name": "STOP_ISOLATION"
+    },
+    {
+      "Id": 113,
+      "Name": "HEART_BEAT"
+    },
+    {
+      "Id": 114,
+      "Name": "FR_CHARGE"
+    },
+    {
+      "Id": 115,
+      "Name": "FR_DISCHARGE"
+    },
+    {
+      "Id": 116,
+      "Name": "AC_CB"
+    },
+    {
+      "Id": 117,
+      "Name": "AC_MC"
+    },
+    {
+      "Id": 118,
+      "Name": "DC_CB"
+    },
+    {
+      "Id": 119,
+      "Name": "FAULT"
+    },
+    {
+      "Id": 120,
+      "Name": "COMM"
+    },
+    {
+      "Id": 121,
+      "Name": "LOCAL_MODE"
+    },
+    {
+      "Id": 122,
+      "Name": "REMOTE_MODE"
+    },
+    {
+      "Id": 123,
+      "Name": "MANUAL_MODE"
+    },
+    {
+      "Id": 124,
+      "Name": "AUTO_MODE"
+    },
+    {
+      "Id": 125,
+      "Name": "WARNING"
+    },
+    {
+      "Id": 126,
+      "Name": "IDLE"
+    }
+  ],
+  "StandardAnalogPoints": [
+    {
+      "Id": 100,
+      "Typeid": 105,
+      "Fieldname": "freq",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 102,
+      "Typeid": 105,
+      "Fieldname": "acGridVlt",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 103,
+      "Typeid": 105,
+      "Fieldname": "acGridPwr",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 104,
+      "Typeid": 105,
+      "Fieldname": "actPwrKw",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 105,
+      "Typeid": 105,
+      "Fieldname": "rctPwrKw",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 106,
+      "Typeid": 105,
+      "Fieldname": "pwrFact",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 107,
+      "Typeid": 105,
+      "Fieldname": "acGridVltR",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 108,
+      "Typeid": 105,
+      "Fieldname": "acGridVltS",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 109,
+      "Typeid": 105,
+      "Fieldname": "acGridVltT",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 110,
+      "Typeid": 105,
+      "Fieldname": "acGridCrtR",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 111,
+      "Typeid": 105,
+      "Fieldname": "acGridCrtS",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 112,
+      "Typeid": 105,
+      "Fieldname": "acGridCrtT",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 113,
+      "Typeid": 105,
+      "Fieldname": "actCmdLimitLowChg",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 114,
+      "Typeid": 105,
+      "Fieldname": "actCmdLimitHighChg",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 115,
+      "Typeid": 105,
+      "Fieldname": "actCmdLimitLowDhg",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 116,
+      "Typeid": 105,
+      "Fieldname": "actCmdLimitHighDhg",
+      "Deviceid": 0,
+      "Disable": 0
+    },
+    {
+      "Id": 200,
+      "Typeid": 105,
+      "Fieldname": "bms_soc",
+      "Deviceid": 1,
+      "Disable": 0
+    },
+    {
+      "Id": 201,
+      "Typeid": 105,
+      "Fieldname": "bms_soh",
+      "Deviceid": 1,
+      "Disable": 0
+    },
+    {
+      "Id": 202,
+      "Typeid": 105,
+      "Fieldname": "soc_min",
+      "Deviceid": 1,
+      "Disable": 0
+    },
+    {
+      "Id": 203,
+      "Typeid": 105,
+      "Fieldname": "soc_max",
+      "Deviceid": 1,
+      "Disable": 0
+    },
+    {
+      "Id": 204,
+      "Typeid": 105,
+      "Fieldname": "dcCellPwr",
+      "Deviceid": 1,
+      "Disable": 0
+    },
+    {
+      "Id": 205,
+      "Typeid": 105,
+      "Fieldname": "dcCellVlt",
+      "Deviceid": 1,
+      "Disable": 0
+    },
+    {
+      "Id": 206,
+      "Typeid": 105,
+      "Fieldname": "dcCellCrt",
+      "Deviceid": 1,
+      "Disable": 0
+    },
+    {
+      "Id": 207,
+      "Typeid": 105,
+      "Fieldname": "dcCellTmpMx",
+      "Deviceid": 1,
+      "Disable": 0
+    },
+    {
+      "Id": 208,
+      "Typeid": 105,
+      "Fieldname": "dcCellTmpMn",
+      "Deviceid": 1,
+      "Disable": 0
+    },
+    {
+      "Id": 209,
+      "Typeid": 105,
+      "Fieldname": "dcCellVltMx",
+      "Deviceid": 1,
+      "Disable": 0
+    },
+    {
+      "Id": 210,
+      "Typeid": 105,
+      "Fieldname": "dcCellVltMn",
+      "Deviceid": 1,
+      "Disable": 0
+    },
+    {
+      "Id": 300,
+      "Typeid": 105,
+      "Fieldname": "TotalActivePower",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 301,
+      "Typeid": 105,
+      "Fieldname": "TotalReactivePower",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 302,
+      "Typeid": 105,
+      "Fieldname": "ReverseActivePower",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 303,
+      "Typeid": 105,
+      "Fieldname": "ReverseReactivePower",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 304,
+      "Typeid": 105,
+      "Fieldname": "vltR",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 305,
+      "Typeid": 105,
+      "Fieldname": "vltS",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 306,
+      "Typeid": 105,
+      "Fieldname": "vltT",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 307,
+      "Typeid": 105,
+      "Fieldname": "crtR",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 308,
+      "Typeid": 105,
+      "Fieldname": "crtS",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 309,
+      "Typeid": 105,
+      "Fieldname": "crtT",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 310,
+      "Typeid": 105,
+      "Fieldname": "Frequency",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 311,
+      "Typeid": 105,
+      "Fieldname": "EnergyTotalActivePower",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 312,
+      "Typeid": 105,
+      "Fieldname": "EnergyTodayActivePower",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 313,
+      "Typeid": 105,
+      "Fieldname": "EnergyTotalReactivePower",
+      "Deviceid": 2,
+      "Disable": 0
+    },
+    {
+      "Id": 314,
+      "Typeid": 105,
+      "Fieldname": "EnergyTotalReverseActivePower",
+      "Deviceid": 2,
+      "Disable": 0
+    }
+  ],
+  "ModbusDigitalStatusPoints": [
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Pcsstatusid": 98,
+      "Functioncode": 4,
+      "Offset": 25,
+      "Match": 1,
+      "Bitflag": 8
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Pcsstatusid": 99,
+      "Functioncode": 4,
+      "Offset": 25,
+      "Match": 1,
+      "Bitflag": 32
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Pcsstatusid": 102,
+      "Functioncode": 4,
+      "Offset": 25,
+      "Match": 1,
+      "Bitflag": 16
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Pcsstatusid": 103,
+      "Functioncode": 4,
+      "Offset": 25,
+      "Match": 0,
+      "Bitflag": 512
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Pcsstatusid": 104,
+      "Functioncode": 4,
+      "Offset": 25,
+      "Match": 1,
+      "Bitflag": 512
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Pcsstatusid": 119,
+      "Functioncode": 4,
+      "Offset": 25,
+      "Match": 1,
+      "Bitflag": 128
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Pcsstatusid": 120,
+      "Functioncode": 4,
+      "Offset": 25,
+      "Match": 1,
+      "Bitflag": 256
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Pcsstatusid": 123,
+      "Functioncode": 4,
+      "Offset": 29,
+      "Match": 1,
+      "Bitflag": 64
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Pcsstatusid": 124,
+      "Functioncode": 4,
+      "Offset": 29,
+      "Match": 0,
+      "Bitflag": 64
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Pcsstatusid": 125,
+      "Functioncode": 4,
+      "Offset": 25,
+      "Match": 1,
+      "Bitflag": 64
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Pcsstatusid": 126,
+      "Functioncode": 4,
+      "Offset": 25,
+      "Match": 1,
+      "Bitflag": 1024
+    }
+  ],
+  "ModbusDigitalOutputPoints": [
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1200,
+      "Commandcode": 1000,
+      "Commandorder": 0,
+      "Commandname": "RUN",
+      "Commanddesc": null,
+      "Outputvalue": 1,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": true,
+      "Description": "",
+      "Scalefactor": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1200,
+      "Commandcode": 1001,
+      "Commandorder": 0,
+      "Commandname": "STOP",
+      "Commanddesc": null,
+      "Outputvalue": 2,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": true,
+      "Description": "",
+      "Scalefactor": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1200,
+      "Commandcode": 1002,
+      "Commandorder": 0,
+      "Commandname": "STAND BY",
+      "Commanddesc": null,
+      "Outputvalue": 4,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": true,
+      "Description": "",
+      "Scalefactor": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1200,
+      "Commandcode": 1003,
+      "Commandorder": 0,
+      "Commandname": "CHARGE",
+      "Commanddesc": null,
+      "Outputvalue": 8,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": true,
+      "Description": "",
+      "Scalefactor": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1200,
+      "Commandcode": 1004,
+      "Commandorder": 0,
+      "Commandname": "DISCHARGE",
+      "Commanddesc": null,
+      "Outputvalue": 16,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": true,
+      "Description": "",
+      "Scalefactor": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1200,
+      "Commandcode": 1005,
+      "Commandorder": 0,
+      "Commandname": "EMERGENCY STOP",
+      "Commanddesc": null,
+      "Outputvalue": 32,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": true,
+      "Description": "",
+      "Scalefactor": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1200,
+      "Commandcode": 1006,
+      "Commandorder": 0,
+      "Commandname": "RESET",
+      "Commanddesc": null,
+      "Outputvalue": 64,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": true,
+      "Description": "",
+      "Scalefactor": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1200,
+      "Commandcode": 1007,
+      "Commandorder": 0,
+      "Commandname": "RELAY_CLOSE",
+      "Commanddesc": null,
+      "Outputvalue": 128,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": true,
+      "Description": "",
+      "Scalefactor": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1200,
+      "Commandcode": 1008,
+      "Commandorder": 0,
+      "Commandname": "RELAY_OPEN",
+      "Commanddesc": null,
+      "Outputvalue": 256,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": true,
+      "Description": "",
+      "Scalefactor": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1201,
+      "Commandcode": 1003,
+      "Commandorder": 1,
+      "Commandname": "CHARGE",
+      "Commanddesc": null,
+      "Outputvalue": null,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": true,
+      "Description": "",
+      "Scalefactor": 10.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1201,
+      "Commandcode": 1004,
+      "Commandorder": 1,
+      "Commandname": "DISCHARGE",
+      "Commanddesc": null,
+      "Outputvalue": null,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": true,
+      "Description": "",
+      "Scalefactor": -10.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 6,
+      "Offset": 1201,
+      "Commandcode": 1015,
+      "Commandorder": 0,
+      "Commandname": "ACTIVE_POWER",
+      "Commanddesc": null,
+      "Outputvalue": null,
+      "Datatypeid": 102,
+      "Datatypename": "UINT16",
+      "Devicetypeid": 0,
+      "Devicetype": "PCS",
+      "Disable": false,
+      "Description": null,
+      "Scalefactor": 10.0
+    }
+  ],
+  "ModbusInputPointList": [
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 1,
+      "Offset": 2,
+      "Aigroupid": -1,
+      "Name": "Operation Warning Code",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 1.0,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 1,
+      "Offset": 3,
+      "Aigroupid": -1,
+      "Name": "Operation Fault Code",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 1.0,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 1,
+      "Offset": 4,
+      "Aigroupid": -1,
+      "Name": "BPU Fault Code",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 1.0,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 1,
+      "Offset": 5,
+      "Aigroupid": -1,
+      "Name": "Communication Loss Fault Code",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 1.0,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 0,
+      "Offset": 9,
+      "Aigroupid": 200,
+      "Name": "bms_soc",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 0.5,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 0,
+      "Offset": 10,
+      "Aigroupid": 201,
+      "Name": "bms_soh",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 0.5,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 0,
+      "Offset": 11,
+      "Aigroupid": 205,
+      "Name": "dcCellVlt",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 0.1,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 0,
+      "Offset": 12,
+      "Aigroupid": 206,
+      "Name": "dcCellCrt",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 0.1,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 0,
+      "Offset": 17,
+      "Aigroupid": 209,
+      "Name": "dcCellVltMx",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 0.001,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 0,
+      "Offset": 19,
+      "Aigroupid": 210,
+      "Name": "dcCellVltMn",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 0.001,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 0,
+      "Offset": 21,
+      "Aigroupid": 207,
+      "Name": "dcCellTmpMx",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 0.5,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 0,
+      "Offset": 23,
+      "Aigroupid": 208,
+      "Name": "dcCellTmpMn",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 0.5,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 2,
+      "Offset": 25,
+      "Aigroupid": -1,
+      "Name": "Battery Status",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 1.0,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 0,
+      "Offset": 28,
+      "Aigroupid": 104,
+      "Name": "actPwrKw",
+      "Deviceid": 0,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 0.1,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    },
+    {
+      "Hubbubid": 1,
+      "Deviceindex": 1,
+      "Functioncode": 4,
+      "Pointtypeid": 1,
+      "Offset": 29,
+      "Aigroupid": -1,
+      "Name": "Fail ack. For request of pcs",
+      "Deviceid": 1,
+      "Datatypeid": 102,
+      "Sizebyword": 1,
+      "Scalefactor": 1.0,
+      "Byteindex": -1,
+      "Disable": false,
+      "Defaultvalue": 0.0
+    }
+  ]
+}

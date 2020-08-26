@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>dotnet-PongServer-DD245CC6-C3F1-4AA6-B29C-09F2C54693FF</UserSecretsId>
+    <Configurations>Debug;Release;EventRelease</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

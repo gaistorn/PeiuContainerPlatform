@@ -47,11 +47,17 @@ namespace PongServer
                         IsConnected = true;
                     }
 
-                    var existState = await zk.existsAsync("/master");
+                    var existState = await zk.existsAsync("/hubbub/160");
                     if (existState == null)
                     {
+                        await zk.createAsync("/hubbub/160", BitConverter.GetBytes(666), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+                        break;
                         //Environment.OSVersion
-                        //await zk.createAsync("/master", )
+                        
+                    }
+                    else
+                    {
+
                     }
                     
                     

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiuhubbub" assembly="HubhubSharedLib" namespace="Hubbub" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="VwStandardAnalogPoint" table="vwStandardAnalogPoints">
+    <id name="Id" type="Int32">
+      <column name="id" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      <generator class="assigned" />
+    </id>
+    <property name="Typeid" type="Int32">
+      <column name="typeid" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Fieldname" type="String">
+      <column name="fieldname" not-null="true" length="45" sql-type="VARCHAR(45)" />
+    </property>
+    <property name="Deviceid" type="Int32">
+      <column name="deviceid" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Disable" type="SByte">
+      <column name="disable" not-null="true" scale="0" sql-type="TINYINT" />
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+{
+  "topic": "hubbub/{siteid}/PCS{deviceindex}/AI",
+  "qos": 0,
+  "devicetype": 0,
+  "category": "AI",
+  "template": {
+    "groupid": 1,
+    "groupname": "PCS_SYSTEM",
+    "deviceId": "PCS{deviceindex}",
+    "normalizedeviceid": "PCS{deviceindex}",
+    "siteId": "{siteid}",
+    "rcc": "{rcc}",
+    "inJeju": "{injeju}"
+  }
+}

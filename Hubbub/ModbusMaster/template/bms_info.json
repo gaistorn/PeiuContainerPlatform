@@ -1,0 +1,15 @@
+{
+  "topic": "hubbub/{siteid}/BMS{deviceindex}/AI",
+  "qos": 0,
+  "devicetype": 1,
+  "category": "AI",
+  "template": {
+    "groupid": 1,
+    "groupname": "PCS_BATTERY",
+    "deviceId": "BMS{deviceindex}",
+    "normalizedeviceid": "BMS{deviceindex}",
+    "siteId": "{siteid}",
+    "rcc": "{rcc}",
+    "inJeju": "{injeju}"
+  }
+}

@@ -70,6 +70,39 @@ namespace PeiuPlatform.Model.ExchangeModel
 
     }
 
+    public class BasicRegistModel
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "email")]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(10, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 1)]
+        [Display(Name = "firstname")]
+        public string FirstName { get; set; }
+
+        //[Required]
+        //[StringLength(10, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 1)]
+        [Display(Name = "lastname")]
+        public string LastName { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "password")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "confirmpassword")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
+
+
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "phonenumber")]
+        public string PhoneNumber { get; set; }
+    }
+
     public class AggregatorGroupRegistModel
     {
         [Required]
@@ -82,7 +115,7 @@ namespace PeiuPlatform.Model.ExchangeModel
         /// </summary>
         [Required]
         [Display(Name = "representation")]
-        
+
         public string Represenation { get; set; }
 
         [Display(Name = "address")]

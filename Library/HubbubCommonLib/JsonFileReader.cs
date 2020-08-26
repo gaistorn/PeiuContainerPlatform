@@ -17,7 +17,6 @@ namespace PeiuPlatform.Hubbub
             {
                 try
                 {
-
                     T model = JsonConvert.DeserializeObject<T>(File.ReadAllText(file, Encoding.UTF8));
                     result.Add(model);
                 }

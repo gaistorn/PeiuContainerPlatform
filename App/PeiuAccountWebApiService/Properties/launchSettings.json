@@ -1,0 +1,47 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:36008",
+      "sslPort": 44326
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "weatherforecast",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "PeiuAccountWebApiService": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "weatherforecast",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "environmentVariables": {
+        "JWT_SECRET": "{101BA593-325E-458B-BC51-4B415FD14C64}",
+        "MYSQL_PASSWORD": "123qwe",
+        "ENV_MQTT_PORT": "2084",
+        "MYSQL_USERNAME": "power21",
+        "MYSQL_PORT": "3306",
+        "ENV_MQTT_BINDADDRESS": "www.peiu.co.kr",
+        "MYSQL_HOST": "192.168.0.40",
+        "JWT_REFRESH_SECRET": "Big things have small beginnings"
+      },
+      "publishAllPorts": true,
+      "useSSL": true
+    }
+  }
+}

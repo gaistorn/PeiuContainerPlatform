@@ -16,6 +16,6 @@ namespace PeiuPlatform.Hubbub
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) => ServiceInitializer.Configuration(args, hostContext, services));
+                .ConfigureServices((hostContext, services) => ServiceInitializer.Configuration(args, hostContext.Configuration, services));
     }
 }

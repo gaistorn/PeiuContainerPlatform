@@ -98,9 +98,15 @@ namespace PongServer
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            using(var runTime = new NetMQRuntime())
+            //using(var runTime = new NetMQRuntime())
+            //{
+            //    //runTime.Run(SubAsync(stoppingToken), PubSync(stoppingToken));
+            //}
+
+            while (!stoppingToken.IsCancellationRequested)
             {
-                runTime.Run(SubAsync(stoppingToken), PubSync(stoppingToken));
+                _logger.LogInformation("[V2] Worker running at: {time}", DateTimeOffset.Now);
+                await Task.Delay(1000, stoppingToken);
             }
 
         }        

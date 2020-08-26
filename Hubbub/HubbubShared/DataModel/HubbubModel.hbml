@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiuhubbub" assembly="HubhubSharedLib" namespace="Hubbub" p1:Guid="3a1f58e9-7a88-4b78-86eb-ed9587e15b3e" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="StandardPcsStatusPoint" table="StandardPcsStatusPoints" p1:Guid="f0e89b3f-2551-42ca-816c-720bbf7f6572">
+    <id name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="35ca9eb0-ea90-4011-a4a0-4ea69b0bd2bb">
+      <column name="id" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      <generator class="identity" />
+    </id>
+    <property name="Name" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="0a4110bb-0272-455a-a72d-43d4a9ac6b47">
+      <column name="name" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Description" type="String" p1:nullable="true" p1:ValidateMaxLength="45" p1:ValidateRequired="false" p1:Guid="d9f2d515-8a00-46aa-a565-f6a1ec793114">
+      <column name="description" not-null="false" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+  </class>
+  <class name="StandardAnalogPoint" table="StandardAnalogPoints" p1:Guid="536f7066-f7af-484c-903d-e3ba8071e199">
+    <id name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="1b74e083-3a9c-4b81-9e6b-a69480c42af3">
+      <column name="id" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </id>
+    <property name="Typeid" type="Int32" p1:ValidateRequired="true" p1:Guid="f8ba7a91-e688-49bb-8abe-4cad45e9aa10">
+      <column name="typeid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Fieldname" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="1b1b2202-7c4d-4d13-8188-3b5e2934b6df">
+      <column name="fieldname" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Deviceid" type="Int32" p1:ValidateRequired="true" p1:Guid="246c2fe0-f100-4b2b-8d7c-122c4aefcdad">
+      <column name="deviceid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Description" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="5523040c-27a5-4ad8-b9b8-e56409868eaa">
+      <column name="description" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Createdt" type="DateTime" p1:ValidateRequired="true" p1:Guid="a4294acd-3538-451e-afc4-d4424d90097f">
+      <column name="createdt" not-null="true" sql-type="date" p1:unicode="false" />
+    </property>
+    <property name="Disable" type="SByte" p1:ValidateRequired="true" p1:Guid="f60e5c39-3f8e-449c-b812-33d7d3db83e4">
+      <column name="disable" not-null="true" scale="0" sql-type="tinyint" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="ProtocolType" table="ProtocolType" p1:Guid="8f1872ca-e111-4eec-8158-b3c7bebfff29">
+    <id name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="9ca191b1-2fcc-49e9-aa52-20486e32ef12">
+      <column name="id" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </id>
+    <property name="Name" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="30e5e03d-9fbb-42a3-b917-2caa988774d8">
+      <column name="name" not-null="true" length="45" sql-type="varchar" p1:unicode="false" />
+    </property>
+    <property name="Description" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="671b7ad7-7ec8-4e6c-9e3c-d4d18085571f">
+      <column name="description" not-null="false" sql-type="mediumtext" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="ModbusHubbub" table="ModbusHubbub" p1:Guid="4c249456-5e9e-4b4d-9a07-8b443363a836">
+    <composite-id>
+      <key-property name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="cbcaed22-87a5-4c1b-9c99-f2589ea9e2cb">
+        <column name="id" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="c3fd5c58-2462-4d99-b932-354f3069381d">
+        <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Firmwareversion" type="Single" p1:ValidateRequired="true" p1:Guid="734d7509-6b98-495f-96c6-9afb8e222792">
+      <column name="firmwareversion" default="1" not-null="true" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Label" type="String" p1:nullable="true" p1:ValidateMaxLength="45" p1:ValidateRequired="false" p1:Guid="2a389c48-4029-43e2-87db-754cc0d06157">
+      <column name="label" not-null="false" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Description" type="String" p1:nullable="true" p1:ValidateMaxLength="45" p1:ValidateRequired="false" p1:Guid="f54024f3-b377-4c22-a447-5030df820c21">
+      <column name="description" not-null="false" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Installationdt" type="DateTime" p1:ValidateRequired="true" p1:Guid="156ee1bf-f0a2-4812-be95-360011d02e62">
+      <column name="installationdt" not-null="true" sql-type="date" p1:unicode="false" />
+    </property>
+    <property name="Maintenancedt" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="ac91c57f-8ba6-47c7-af55-aac4f1b23a58">
+      <column name="maintenancedt" not-null="false" sql-type="date" p1:unicode="false" />
+    </property>
+    <property name="Connectionid" type="Int32" p1:ValidateRequired="true" p1:Guid="34df5e2d-a389-4a84-acf3-01d79046da50">
+      <column name="connectionid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="ModbusConnectionInfo" table="ModbusConnectionInfo" p1:Guid="3265ad02-fa9f-4e9f-8008-5454fecf9ff5">
+    <id name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="3a27f184-97be-4b42-8ddd-0d87cad2c7d8">
+      <column name="id" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      <generator class="identity" />
+    </id>
+    <property name="Host" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="65a35065-d9d3-48c3-b970-f5967f042456">
+      <Documentation>
+        <Summary>TCP : 127.0.0.1
+RTU : COM1</Summary>
+      </Documentation>
+      <column name="host" default="'127.0.0.1'" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Port" type="Int32" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="a29732df-4606-45cc-8e77-8985b6f1de4c">
+      <column name="port" default="502" not-null="false" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Protocolid" type="Int32" p1:ValidateRequired="true" p1:Guid="ff7c1d62-573b-4f55-9375-5e3f1dcecd68">
+      <Documentation>
+        <Summary>1000	Modbus tcp slave
+1001	DNP3
+1002	Mqtt
+1003	Twincat ADS
+1004	Modbus rtu slave</Summary>
+      </Documentation>
+      <column name="protocolid" default="1000" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Baudrate" type="Int32" p1:ValidateRequired="true" p1:Guid="b637002f-0db7-4d74-8f56-7ec8438b50bb">
+      <column name="baudrate" default="9600" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Databits" type="Int32" p1:ValidateRequired="true" p1:Guid="0d57a30a-825a-4bec-abf2-77511362ba16">
+      <column name="databits" default="8" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Parity" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="46e94a32-86ff-4095-8317-7fc2e4cf62c2">
+      <column name="parity" default="'None'" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Stopbits" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="1f0406ed-fdfe-44c1-9f8e-242879a67947">
+      <column name="stopbits" default="'One'" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Slaveid" type="Int32" p1:ValidateRequired="true" p1:Guid="458b7375-4e29-466a-bb1d-e160f6465c88">
+      <column name="slaveid" default="1" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="DeviceType" table="DeviceType" p1:Guid="b2dc10c7-4cad-4222-bfe5-8f76d1b33d16">
+    <id name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="4e958306-c4d2-416c-8838-10c2647cb7b5">
+      <column name="id" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </id>
+    <property name="Name" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="ee71eeab-47c9-4b5a-bdda-cafd51e6498e">
+      <column name="name" not-null="true" length="45" sql-type="varchar" p1:unicode="false" />
+    </property>
+    <property name="Description" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="d571bae6-4f67-47fc-835f-758f6f1d0555">
+      <column name="description" not-null="false" sql-type="mediumtext" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="DataType" table="DataTypes" p1:Guid="fe929fd1-04f3-4b82-9ef0-ffbe169e84e5">
+    <id name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="4caf1c3f-2b1f-4b19-8ff9-ff174fe108a1">
+      <column name="id" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </id>
+    <property name="Name" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="e5b7c3cf-1f35-45e0-9304-6ef3b3583d15">
+      <column name="name" not-null="true" length="45" sql-type="varchar" p1:unicode="false" />
+    </property>
+    <property name="Description" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="d55df1f5-68d3-404a-9d83-0a47c47c2041">
+      <column name="description" not-null="false" sql-type="mediumtext" p1:unicode="false" />
+    </property>
+    <property name="Sizebyword" type="Int16" p1:ValidateRequired="true" p1:Guid="39b4828a-e46b-4882-b4f0-59c0b6523f17">
+      <column name="sizebyword" not-null="true" precision="6" scale="0" sql-type="smallint" p1:unicode="false" />
+    </property>
+    <property name="Isunsigned" type="Boolean" p1:ValidateRequired="true" p1:Guid="4b6bef3e-5fe3-43f9-96f5-0305fde6ca2d">
+      <column name="isunsigned" not-null="true" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="CommandCode" table="CommandCodes" p1:Guid="3b1771d8-1398-462c-9230-da42278c8c58">
+    <composite-id>
+      <key-property name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="2c5713d6-4be3-4791-8319-158e9a90691d">
+        <column name="id" not-null="true" precision="11" scale="0" sql-type="int" unique="true" p1:unicode="false" />
+      </key-property>
+      <key-property name="Name" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="73cca934-c99c-4718-90f9-5acc28a8864c">
+        <column name="name" not-null="true" length="45" sql-type="varchar" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Description" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="2e0bed0c-f786-4a66-8576-9710c6403236">
+      <column name="description" not-null="false" sql-type="mediumtext" p1:unicode="false" />
+    </property>
+    <property name="Isrequireintput" type="Boolean" p1:ValidateRequired="true" p1:Guid="c6c3fdc6-c4dd-4ec2-a1e6-6bd1354ead37">
+      <column name="isrequireintput" default="b'0'" not-null="true" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="ModbusDigitalStatusPoint" table="ModbusDigitalStatusPoints" p1:Guid="bd6bf39a-d671-48de-b720-67df5f28e888">
+    <composite-id>
+      <key-property name="Hubbubid" type="Int32" p1:ValidateRequired="true" p1:Guid="f4958dfc-538c-42e3-9c78-d416ce2da75f">
+        <column name="hubbubid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Deviceindex" type="Int32" p1:ValidateRequired="true" p1:Guid="ce14c402-e94b-4d47-8572-8c72ba05f2c9">
+        <column name="deviceindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Pcsstatusid" type="Int32" p1:ValidateRequired="true" p1:Guid="192fb745-ac32-4bce-a2d4-56b7f1dfc370">
+        <column name="pcsstatusid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Functioncode" type="Int32" p1:ValidateRequired="true" p1:Guid="15ed3374-46a9-4e5a-9cec-1a16e6de283f">
+      <column name="functioncode" default="3" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Offset" type="Int32" p1:ValidateRequired="true" p1:Guid="8375ebdc-1c5d-4749-ab42-41c18d3c46ea">
+      <column name="`offset`" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Match" type="SByte" p1:ValidateRequired="true" p1:Guid="182819b3-9af9-467b-8426-a3800dd12825">
+      <Documentation>
+        <Summary>?? ?? ??? TRUE ? ???? FALSE? ????</Summary>
+      </Documentation>
+      <column name="`match`" default="1" not-null="true" scale="0" sql-type="tinyint" p1:unicode="false" />
+    </property>
+    <property name="Bitflag" type="Int16" p1:ValidateRequired="true" p1:Guid="2827a15d-a052-410b-806a-7caf98bdc99f">
+      <column name="bitflag" default="0" not-null="true" precision="6" scale="0" sql-type="smallint" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="VwDigitalStatusPoint" table="vwDigitalStatusPoints" p1:Guid="682da4e5-7d2b-4ec0-bf8b-07ae277b5bf4">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <composite-id>
+      <key-property name="Hubbubid" type="Int32" p1:ValidateRequired="true" p1:Guid="03531885-16c5-450d-a7a9-c63c70a6a4f5">
+        <column name="hubbubid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Deviceindex" type="Int32" p1:ValidateRequired="true" p1:Guid="d724c8a9-ef01-44c8-b29d-e13e4d5cfc99">
+        <column name="deviceindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Pcsstatusid" type="Int32" p1:ValidateRequired="true" p1:Guid="080cf8ee-ca43-4983-b127-995d6106ea5d">
+        <column name="pcsstatusid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Functioncode" type="Int32" p1:ValidateRequired="true" p1:Guid="2888f1b9-2fa6-48b0-af3f-88cafbaf9cb6">
+      <column name="functioncode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Offset" type="Int32" p1:ValidateRequired="true" p1:Guid="3f1e9ca2-6911-4096-8a2a-1283416cea52">
+      <column name="`offset`" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Match" type="SByte" p1:ValidateRequired="true" p1:Guid="a3399389-5e64-4b5d-8192-0715fd608ba5">
+      <Documentation>
+        <Summary>?? ?? ??? TRUE ? ???? FALSE? ????</Summary>
+      </Documentation>
+      <column name="`match`" not-null="true" scale="0" sql-type="tinyint" p1:unicode="false" />
+    </property>
+    <property name="Bitflag" type="Int16" p1:ValidateRequired="true" p1:Guid="421826c5-538d-4866-92ab-0765fcf759f4">
+      <column name="bitflag" not-null="true" precision="6" scale="0" sql-type="smallint" p1:unicode="false" />
+    </property>
+    <property name="Pcsstatusname" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="c8e7e2bf-f36f-418c-80fa-d711b650ad51">
+      <column name="pcsstatusname" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Pcsstatusdesc" type="String" p1:nullable="true" p1:ValidateMaxLength="45" p1:ValidateRequired="false" p1:Guid="fc311d5b-294a-470e-81e4-0c0e0cd91c30">
+      <column name="pcsstatusdesc" not-null="false" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+  </class>
+  <class name="ModbusInputPoint" table="ModbusInputPoints" p1:Guid="135765eb-0108-425a-8740-896054e709c6">
+    <composite-id>
+      <key-property name="Hubbubid" type="Int32" p1:ValidateRequired="true" p1:Guid="1c6b9c13-10c6-4d53-841a-bdf873dfaada">
+        <column name="hubbubid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Deviceindex" type="Int32" p1:ValidateRequired="true" p1:Guid="186a62a4-04dd-4e11-b3b0-ade18a2e5e6b">
+        <column name="deviceindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Functioncode" type="Int32" p1:ValidateRequired="true" p1:Guid="2cee8146-da6e-41c5-bd5e-b2f3e7fd362a">
+        <column name="functioncode" default="3" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Offset" type="Int32" p1:ValidateRequired="true" p1:Guid="978b31e0-3dc0-480d-ba8d-3ed07c374c1d">
+        <column name="`offset`" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Pointtypeid" type="Int32" p1:ValidateRequired="true" p1:Guid="8674e65e-f692-42da-a89f-79090c21dbfc">
+      <Documentation>
+        <Summary>0 : AI
+1 : DI
+2 : ST</Summary>
+      </Documentation>
+      <column name="pointtypeid" default="0" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Deviceid" type="Int32" p1:ValidateRequired="true" p1:Guid="a838c276-ea97-44cc-82e2-c776955f22c9">
+      <column name="deviceid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Aigroupid" type="Int32" p1:ValidateRequired="true" p1:Guid="d75aaaff-d852-4c18-b837-a1e4bf67cc4d">
+      <column name="aigroupid" default="-1" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Datatypeid" type="Int32" p1:ValidateRequired="true" p1:Guid="d9fed8ab-c0e2-4ba5-8336-61472bc9e9e0">
+      <column name="datatypeid" default="102" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Scalefactor" type="Single" p1:ValidateRequired="true" p1:Guid="74ffefe4-b42e-46a8-9684-bb84609e1a64">
+      <column name="scalefactor" default="1" not-null="true" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Byteindex" type="Int32" p1:ValidateRequired="true" p1:Guid="5ef25d28-0c15-4e99-a491-b84dde6cce7a">
+      <column name="byteindex" default="-1" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Name" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="2dcddfd7-589e-4215-853d-fd98f3d27b77">
+      <column name="name" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Disable" type="Boolean" p1:ValidateRequired="true" p1:Guid="eab523be-cf22-4624-bcb9-de53106f569c">
+      <column name="disable" not-null="true" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="Defaultvalue" type="Single" p1:ValidateRequired="true" p1:Guid="bbfa6228-a1ca-4df9-8d02-3f5350dc1f78">
+      <column name="defaultvalue" default="0" not-null="true" sql-type="float" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="VwModbusInputPoint" table="vwModbusInputPoints" p1:Guid="cc6b792d-e935-4d0f-98b9-b1644200c32c">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <composite-id>
+      <key-property name="Hubbubid" type="Int32" p1:ValidateRequired="true" p1:Guid="7957ce86-eabd-43d5-ac6f-1e7d4fb06036">
+        <column name="hubbubid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Deviceindex" type="Int32" p1:ValidateRequired="true" p1:Guid="8796bed3-ce15-4d8a-8b1b-610648c1fc01">
+        <column name="deviceindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Functioncode" type="Int32" p1:ValidateRequired="true" p1:Guid="40139f51-5f82-45f2-96fe-fcaca8973fa6">
+        <column name="functioncode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Pointtypeid" type="Int32" p1:ValidateRequired="true" p1:Guid="ca05fa1a-8a64-4931-9b4d-31beb656918e">
+        <Documentation>
+          <Summary>0 : AI
+1 : DI
+2 : ST</Summary>
+        </Documentation>
+        <column name="pointtypeid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Offset" type="Int32" p1:ValidateRequired="true" p1:Guid="c2af2be5-26e3-4754-8587-b51981f6f5e2">
+        <column name="`offset`" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Aigroupid" type="Int32" p1:ValidateRequired="true" p1:Guid="77170b74-862f-4147-94a1-182f0e561615">
+      <column name="aigroupid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Name" type="String" p1:nullable="true" p1:ValidateMaxLength="45" p1:ValidateRequired="false" p1:Guid="85f2f13c-ed11-4243-b342-2e52f5f71904">
+      <column name="name" not-null="false" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Deviceid" type="Int64" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="1d69e8e1-728a-428d-b4f2-98373a647632">
+      <column name="deviceid" not-null="false" precision="11" scale="0" sql-type="bigint" p1:unicode="false" />
+    </property>
+    <property name="Datatypeid" type="Int32" p1:ValidateRequired="true" p1:Guid="1f63b519-1e78-49b6-9e74-94f5cfef4edb">
+      <column name="datatypeid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Sizebyword" type="Int16" p1:ValidateRequired="true" p1:Guid="7242b05f-9d54-4947-95cb-3eb4d10dbf6d">
+      <column name="sizebyword" not-null="true" precision="6" scale="0" sql-type="smallint" p1:unicode="false" />
+    </property>
+    <property name="Scalefactor" type="Single" p1:ValidateRequired="true" p1:Guid="dcb961ea-d611-4dca-a105-aa4b76c340d7">
+      <column name="scalefactor" not-null="true" sql-type="float" p1:unicode="false" />
+    </property>
+    <property name="Byteindex" type="Int32" p1:ValidateRequired="true" p1:Guid="0ac8cbac-af54-4ce8-b999-e5fd9978f6b6">
+      <column name="byteindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Disable" type="Boolean" p1:ValidateRequired="true" p1:Guid="639e88a4-4d18-4047-87e5-dce56382d2d6">
+      <column name="disable" not-null="true" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="Defaultvalue" type="Single" p1:ValidateRequired="true" p1:Guid="156833de-0429-4c9c-bd28-d29a8733d90a">
+      <column name="defaultvalue" not-null="true" sql-type="float" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="VwStandardAnalogPoint" table="vwStandardAnalogPoints" p1:Guid="56c4ec8f-94ed-402a-8977-8d94e0e6acba">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <id name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="b7a9a1dc-374b-41ab-8955-ed72fa44666b">
+      <column name="id" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </id>
+    <property name="Typeid" type="Int32" p1:ValidateRequired="true" p1:Guid="0cdfeb6f-2b19-4ea9-a32a-a36f69320186">
+      <column name="typeid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Fieldname" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="45829bdc-b1ca-4b3a-9369-691ee2d49260">
+      <column name="fieldname" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Deviceid" type="Int32" p1:ValidateRequired="true" p1:Guid="566424be-66b0-49fe-9c3b-9c6b40789834">
+      <column name="deviceid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Disable" type="SByte" p1:ValidateRequired="true" p1:Guid="c76df13b-99dd-404b-883d-1da2ded95318">
+      <column name="disable" not-null="true" scale="0" sql-type="tinyint" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="VwStandardPcsStatusPoint" table="vwStandardPcsStatusPoints" p1:Guid="553884eb-ff30-40ad-b39d-d02f0db560e8">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <id name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="ac9221be-12e9-4155-96d2-c76246d94354">
+      <column name="id" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </id>
+    <property name="Name" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="0282b2c4-38a0-4c75-a973-4d764c97dd45">
+      <column name="name" not-null="true" length="45" sql-type="varchar" p1:unicode="true" />
+    </property>
+  </class>
+  <class name="VwDigitalOutputPoint" table="vwDigitalOutputPoints" p1:Guid="28b08fee-4293-45a4-848d-55b60cc4b58a">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <composite-id>
+      <key-property name="Hubbubid" type="Int32" p1:ValidateRequired="true" p1:Guid="50bbb8f7-8dc0-4917-b409-a70928ceac70">
+        <column name="hubbubid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Deviceindex" type="Int32" p1:ValidateRequired="true" p1:Guid="154f489d-0ddc-4280-ba02-1c0cb33e4426">
+        <column name="deviceindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Functioncode" type="Int32" p1:ValidateRequired="true" p1:Guid="1fe93dd3-6cd0-4d8b-a4e3-3bc5b3fa5c2b">
+        <Documentation>
+          <Summary>3  : Holding Register</Summary>
+        </Documentation>
+        <column name="functioncode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Offset" type="Int32" p1:ValidateRequired="true" p1:Guid="46ae1a66-9e39-41fa-8602-9bf822a73bda">
+        <column name="`offset`" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Commandcode" type="Int32" p1:ValidateRequired="true" p1:Guid="c656e34e-7b37-42e7-a35f-041e357d664a">
+        <column name="commandcode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Commandorder" type="Int16" p1:ValidateRequired="true" p1:Guid="f0c19ebf-f67b-45d7-9103-f91abc41fe96">
+      <column name="commandorder" not-null="true" precision="6" scale="0" sql-type="smallint" p1:unicode="false" />
+    </property>
+    <property name="Commandname" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="a0b9a4c6-50a4-4452-8b20-41aaa64baee2">
+      <column name="commandname" not-null="true" length="45" sql-type="varchar" p1:unicode="false" />
+    </property>
+    <property name="Commanddesc" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="04b97a92-665c-42ab-86e7-9c4032ec5d3c">
+      <column name="commanddesc" not-null="false" sql-type="mediumtext" p1:unicode="false" />
+    </property>
+    <property name="Outputvalue" type="Int16" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="552a28c2-0916-4e57-b488-1ba17e475544">
+      <Documentation>
+        <Summary>value * scale</Summary>
+      </Documentation>
+      <column name="outputvalue" not-null="false" precision="6" scale="0" sql-type="smallint" p1:unicode="false" />
+    </property>
+    <property name="Datatypeid" type="Int32" p1:ValidateRequired="true" p1:Guid="47ec930a-428e-4ee6-8f82-3cef9bcca161">
+      <column name="datatypeid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Datatypename" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="1e8170de-d025-4567-a84b-15d5153fc7ef">
+      <column name="datatypename" not-null="true" length="45" sql-type="varchar" p1:unicode="false" />
+    </property>
+    <property name="Devicetypeid" type="Int32" p1:ValidateRequired="true" p1:Guid="ca148e7d-15e7-4dcb-817c-38689f47d4c0">
+      <Documentation>
+        <Summary>1 : PCS\n2 : BMS\n3 : PV</Summary>
+      </Documentation>
+      <column name="devicetypeid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Devicetype" type="String" p1:ValidateMaxLength="7" p1:ValidateRequired="true" p1:Guid="e670cbaa-676f-4f4f-93e8-6be1c281fdfd">
+      <column name="devicetype" not-null="true" length="7" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Disable" type="Boolean" p1:ValidateRequired="true" p1:Guid="9f07a1c6-daf1-46b9-950e-983ac97980a1">
+      <column name="disable" not-null="true" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="Description" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="43d91a3c-94aa-478f-a1b0-5a0ba97c6302">
+      <column name="description" not-null="false" length="255" sql-type="varchar" p1:unicode="false" />
+    </property>
+    <property name="Scalefactor" type="Single" p1:ValidateRequired="true" p1:Guid="19b8cfd3-36ff-4db9-938a-bcc0aabe6570">
+      <Documentation>
+        <Summary>value / scalefactor</Summary>
+      </Documentation>
+      <column name="scalefactor" not-null="true" sql-type="float" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="ModbusDigitalOutputPoint" table="ModbusDigitalOutputPoints" p1:Guid="1bc5232f-907d-46fb-99ac-7cc033c4ab54">
+    <composite-id>
+      <key-property name="Hubbubid" type="Int32" p1:ValidateRequired="true" p1:Guid="34298efd-380e-4e71-a9cb-009abf04dcb6">
+        <column name="hubbubid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Deviceindex" type="Int32" p1:ValidateRequired="true" p1:Guid="a20b5ce9-a762-4012-8916-09bebf116389">
+        <column name="deviceindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Functioncode" type="Int32" p1:ValidateRequired="true" p1:Guid="44334473-a529-4d5d-8d9c-d014db0cf51e">
+        <Documentation>
+          <Summary>3  : Holding Register</Summary>
+        </Documentation>
+        <column name="functioncode" default="3" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Offset" type="Int32" p1:ValidateRequired="true" p1:Guid="5a828231-6ad0-4ed7-a8a1-8eb70726ff07">
+        <column name="`offset`" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+      <key-property name="Commandcode" type="Int32" p1:ValidateRequired="true" p1:Guid="ac8ee6eb-7f2f-4005-b7b4-a79b6e705ea8">
+        <column name="commandcode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      </key-property>
+    </composite-id>
+    <property name="Commandorder" type="Int16" p1:ValidateRequired="true" p1:Guid="2d5ffb31-25a2-4926-842c-705c731ba9ba">
+      <column name="commandorder" default="0" not-null="true" precision="6" scale="0" sql-type="smallint" p1:unicode="false" />
+    </property>
+    <property name="Outputvalue" type="Int16" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="3441ec0d-dc43-4f68-8d8f-35de24d99ccb">
+      <Documentation>
+        <Summary>value * scale</Summary>
+      </Documentation>
+      <column name="outputvalue" default="-1" not-null="false" precision="6" scale="0" sql-type="smallint" p1:unicode="false" />
+    </property>
+    <property name="Datatypeid" type="Int32" p1:ValidateRequired="true" p1:Guid="e720a035-4660-4b83-b155-545fbdde0786">
+      <column name="datatypeid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Devicetypeid" type="Int32" p1:ValidateRequired="true" p1:Guid="d2e3628f-8d1b-411a-8ab8-15900c98707f">
+      <Documentation>
+        <Summary>1 : PCS\n2 : BMS\n3 : PV</Summary>
+      </Documentation>
+      <column name="devicetypeid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Disable" type="Boolean" p1:ValidateRequired="true" p1:Guid="41ef041b-b548-42fb-aeef-ca9c095b82d7">
+      <column name="disable" not-null="true" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="Description" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="e39c1e3d-7797-4fc9-9fe3-c08c536f80c7">
+      <column name="description" not-null="false" length="255" sql-type="varchar" p1:unicode="false" />
+    </property>
+    <property name="Scalefactor" type="Single" p1:ValidateRequired="true" p1:Guid="ecf4e59b-3778-4850-80d7-3eb559e62753">
+      <Documentation>
+        <Summary>value / scalefactor</Summary>
+      </Documentation>
+      <column name="scalefactor" default="1" not-null="true" sql-type="float" p1:unicode="false" />
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="JeochoenEtriService" namespace="PeiuPlatform.Hubbub" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="TbStatus" table="tb_status" schema="etri">
+    <id name="Date" type="DateTime">
+      <column name="`date`" not-null="true" sql-type="DATETIME" />
+      <generator class="assigned" />
+    </id>
+    <property name="Pv" type="Single">
+      <column name="pv" default="0" not-null="true" sql-type="FLOAT" />
+    </property>
+    <property name="PvEng" type="Double">
+      <column name="pv_eng" default="0" not-null="true" sql-type="DOUBLE" />
+    </property>
+    <property name="Ess" type="Single">
+      <column name="ess" default="0" not-null="true" sql-type="FLOAT" />
+    </property>
+    <property name="EssCh" type="Single">
+      <column name="ess_ch" default="0" not-null="true" sql-type="FLOAT" />
+    </property>
+    <property name="EssDch" type="Single">
+      <column name="ess_dch" default="0" not-null="true" sql-type="FLOAT" />
+    </property>
+    <property name="Soc1" type="Single">
+      <column name="soc1" default="0" not-null="true" sql-type="FLOAT" />
+    </property>
+    <property name="Soc2" type="Single">
+      <column name="soc2" default="0" not-null="true" sql-type="FLOAT" />
+    </property>
+    <property name="Soc3" type="Single">
+      <column name="soc3" default="0" not-null="true" sql-type="FLOAT" />
+    </property>
+    <property name="Soc4" type="Single">
+      <column name="soc4" default="0" not-null="true" sql-type="FLOAT" />
+    </property>
+    <property name="Stat1" type="String">
+      <column name="stat1" not-null="true" length="50" sql-type="VARCHAR(50)" />
+    </property>
+    <property name="Stat2" type="String">
+      <column name="stat2" not-null="true" length="50" sql-type="VARCHAR(50)" />
+    </property>
+    <property name="Stat3" type="String">
+      <column name="stat3" not-null="true" length="50" sql-type="VARCHAR(50)" />
+    </property>
+    <property name="Stat4" type="String">
+      <column name="stat4" not-null="true" length="50" sql-type="VARCHAR(50)" />
+    </property>
+    <property name="Pcs1ActPwr" type="Single">
+      <column name="pcs1_actPwr" default="NULL" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Pcs2ActPwr" type="Single">
+      <column name="pcs2_actPwr" default="NULL" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Pcs3ActPwr" type="Single">
+      <column name="pcs3_actPwr" default="NULL" not-null="false" sql-type="FLOAT" />
+    </property>
+    <property name="Pcs4ActPwr" type="Single">
+      <column name="pcs4_actPwr" default="NULL" not-null="false" sql-type="FLOAT" />
+    </property>
+  </class>
+</hibernate-mapping>

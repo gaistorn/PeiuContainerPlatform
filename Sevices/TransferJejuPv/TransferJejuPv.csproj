@@ -4,6 +4,7 @@
     <UserSecretsId>dotnet-TransferJejuPv-C9907BCF-0237-418F-AD1B-03C4E266FA8E</UserSecretsId>
     <StartupObject>
     </StartupObject>
+    <Configurations>Debug;Release;EventRelease</Configurations>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="nlog.config" />

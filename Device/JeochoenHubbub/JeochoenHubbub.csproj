@@ -4,6 +4,15 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>dotnet-JeochoenHubbub-0931FC7B-6AD3-4FB4-B53F-38363D8DF3C2</UserSecretsId>
     <RootNamespace>PeiuPlatform.Hubbub</RootNamespace>
+    <Configurations>Debug;Release;EventRelease</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='EventRelease|AnyCPU'">
+    <DefineConstants>TRACE;EVENT</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,6 +39,7 @@
     <PackageReference Include="MQTTnet" Version="3.0.9" />
     <PackageReference Include="NLog.Extensions.Logging" Version="1.6.2" />
     <PackageReference Include="NModbus" Version="3.0.61" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="6.1.5" />
   </ItemGroup>
 
   <ItemGroup>

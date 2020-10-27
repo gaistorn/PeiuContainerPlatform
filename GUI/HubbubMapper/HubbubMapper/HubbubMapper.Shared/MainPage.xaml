@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="HubbubMapper.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HubbubMapper"
+    xmlns:wasm="http://uno.ui/wasm"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <CommandBar Grid.ColumnSpan="2" IsOpen="True">
+            <CommandBar.Content>
+                <TextBlock Text="Hubbub Modbus Mapper" Margin="12,14" FontSize="17"/>                
+            </CommandBar.Content>
+            <AppBarButton Icon="ClosePane" Label="ClosePane"/>
+            <AppBarButton x:Name="btnUpload" Icon="Upload" Label="Upload" ToolTipService.ToolTip="편집중인 현재 정보를 서버에 업로드합니다" Click="UpdateButton_Click"/>
+            <AppBarButton Icon="Download" Label="Import" ToolTipService.ToolTip="Import modbus mapping configuration from PEIU Server" Click="ImportButton_Click"/>
+
+
+
+        </CommandBar>
+        <NavigationView x:Name="NaviView" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" PaneDisplayMode="LeftCompact" ExpandedModeThresholdWidth="120" CompactModeThresholdWidth="250" ItemInvoked="NavView_ItemInvoked"
+                        PaneTitle="사용자 메뉴" AlwaysShowHeader="True"
+                        >
+            <NavigationView.MenuItems>
+                <NavigationViewItemHeader Content="Hubbub"/>
+                <NavigationViewItem Content="Device Configuration" Icon="MapDrive" Tag="HubbubConfiguration" />
+            </NavigationView.MenuItems>
+            <Frame x:Name="ContentFrame" />
+        </NavigationView>
+    </Grid>
+</Page>

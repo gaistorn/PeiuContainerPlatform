@@ -231,7 +231,8 @@ namespace PeiuPlatform.Hubbub
         {
             try
             {
-                evt.UnixTimestamp = DateTimeOffset.Now.ToUniversalTime().ToUnixTimeSeconds();
+                evt.SetTimestamp(DateTime.Now);
+                //evt.UnixTimestamp = DateTimeOffset.Now.ToUniversalTime().ToUnixTimeSeconds();
                 JObject obj = JObject.FromObject(evt);
                 //string message = JsonConvert.SerializeObject(evt);
 

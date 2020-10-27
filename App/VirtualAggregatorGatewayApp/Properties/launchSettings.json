@@ -1,0 +1,21 @@
+{
+  "profiles": {
+    "VirtualAggregatorGatewayApp": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "environmentVariables": {
+        "ENV_RCC_ID": "4",
+        "ENV_MQTT_PORT": "2084",
+        "ENV_PEIU_CONTROL_TOPIC": "hubbub/160/+/+/control",
+        "ENV_SITE_ID": "160",
+        "ENV_MQTT_BINDADDRESS": "www.peiu.co.kr",
+        "ENV_MODBUSES": "192.168.0.215:503,192.168.0.215:504,192.168.0.215:505,192.168.0.215:506"
+      }
+    }
+  }
+}

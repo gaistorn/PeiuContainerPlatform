@@ -13,17 +13,20 @@ using PeiuPlatform.App;
 
 namespace PeiuPlatform.Lib
 {
+    public interface IEventPublisher
+    {
+        Task UpdateDigitalPoint(int SiteId, int DeviceType, int DeviceIndex, int FactoryCode, int GroupCode, UInt32 BitValue, CancellationToken token);
+    }
+
     public class EventPublisherWorker : AbsMqttPublisher
     {
-        public int FactoryCode { get;  }
         private int _siteId = 0;
         private string _deviceId = "0";
         private readonly string DBPath;
         
 
-        public EventPublisherWorker(int FactoryCode)
+        public EventPublisherWorker()
         {
-            this.FactoryCode = FactoryCode;
             DBPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
             //DBFilePath = Path.Combine(DBPath, "eventdata.db");
@@ -38,12 +41,12 @@ namespace PeiuPlatform.Lib
             return topic;
         }
 
-        public async Task UpdateDigitalPoint(int SiteId, int DeviceType, int DeviceIndex, int GroupCode, ushort BitValue, CancellationToken token)
+        public async Task UpdateDigitalPoint(int SiteId, int DeviceType, int DeviceIndex, int FactoryCode, int GroupCode, ushort BitValue, CancellationToken token)
         {
 
             try
             {
-                await PublishEvent(SiteId, DeviceType, DeviceIndex, 2, GroupCode, BitValue, EventStatus.New, token);
+                await PublishEvent(SiteId, DeviceType, DeviceIndex, FactoryCode, GroupCode, BitValue, EventStatus.New, token);
 
             }
             catch(Exception ex)
@@ -157,15 +160,17 @@ namespace PeiuPlatform.Lib
             return CreateIdValue(map.GroupCode, map.Value, map.FactoryCode);
         }
 
-        private async Task PublishEvent(int SiteId, int DeviceType, int DeviceIndex, int FactoryCode, int GroupCode, ushort Value, EventStatus status, CancellationToken token)
+        private async Task PublishEvent(int SiteId, int DeviceType, int DeviceIndex, int FactoryCode, int GroupCode, UInt32 Value, EventStatus status, CancellationToken token)
         {
 
             EventModel record = new EventModel();
-            record.UnixTimestamp = DateTimeOffset.Now.ToUniversalTime().ToUnixTimeSeconds();
+            record.SetTimestamp(DateTime.Now);
+            //record.UnixTimestamp = DateTimeOffset.Now.ToUniversalTime().ToUnixTimeSeconds();
             record.DeviceType = DeviceType;
             record.DeviceIndex = DeviceIndex;
             this._deviceId = $"{DeviceType}/{DeviceIndex}";
             record.SiteId =  this._siteId = SiteId;
+            record.FactoryCode = FactoryCode;
             record.Status = status;
             record.BitFlag = Value;
             record.GroupCode = GroupCode;

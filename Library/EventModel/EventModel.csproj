@@ -11,12 +11,16 @@
     <None Remove="Models\PeiuEventModel.DeviceFactory.hbm.xml" />
     <None Remove="Models\PeiuEventModel.EventMap.hbm.xml" />
     <None Remove="Models\PeiuEventModel.EventRecord.hbm.xml" />
+    <None Remove="Models\PeiuEventModel.Vwcontractorsite.hbm.xml" />
+    <None Remove="Models\PeiuEventModel.VwEventRecord.hbm.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Models\PeiuEventModel.DeviceFactory.hbm.xml" />
     <EmbeddedResource Include="Models\PeiuEventModel.EventMap.hbm.xml" />
     <EmbeddedResource Include="Models\PeiuEventModel.EventRecord.hbm.xml" />
+    <EmbeddedResource Include="Models\PeiuEventModel.Vwcontractorsite.hbm.xml" />
+    <EmbeddedResource Include="Models\PeiuEventModel.VwEventRecord.hbm.xml" />
   </ItemGroup>
 
   <ItemGroup>

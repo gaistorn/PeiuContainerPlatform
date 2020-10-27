@@ -67,5 +67,7 @@
     </None>
   </ItemGroup>
 
+  <Import Project="..\..\Library\SharedDataModels\SharedDataModels.projitems" Label="Shared" />
+
 
 </Project>

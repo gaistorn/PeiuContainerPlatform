@@ -1,0 +1,25 @@
+{
+  "profiles": {
+    "DaegunPmsSubscribe": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "environmentVariables": {
+        "ENV_RCC_ID": "10",
+        "ENV_MQTT_TOPIC": "site_31",
+        "ENV_MQTT_PORT": "2084",
+        "ENV_PEIU_CONTROL_TOPIC": "hubbub/161/+/+/control",
+        "ENV_SITE_ID": "161",
+        "ENV_PEIU_MQTT_HOST": "www.peiu.co.kr",
+        "ENV_MQTT_BINDADDRESS": "www.peiu.co.kr",
+        "ENV_PEIU_MQTT_PORT": "2084",
+        "ENV_PCS_COUNT": "1",
+        "ENV_PMS_CONTROL_TOPIC": "site_31_pms_test"
+      }
+    }
+  }
+}

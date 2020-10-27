@@ -143,7 +143,8 @@ namespace PeiuPlatform.Hubbub
         private EventModel CreateEventModel(int DeviceType, int DeviceIndex, int GroupCode, ushort Value)
         {
             EventModel record = new EventModel();
-            record.UnixTimestamp = DateTimeOffset.Now.ToUniversalTime().ToUnixTimeSeconds();
+            record.SetTimestamp(DateTime.Now);
+            //record.UnixTimestamp = DateTimeOffset.Now.ToUniversalTime().ToUnixTimeSeconds();
             record.DeviceType = DeviceType;
             record.DeviceIndex = DeviceIndex;
             record.SiteId = 6;

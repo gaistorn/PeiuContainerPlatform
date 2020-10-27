@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping schema="peiuoperation" assembly="EventModel" namespace="PeiuPlatform.App" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="VwEventRecord" table="vwEventRecord">
+    <id name="EventRecordId" type="Int32">
+      <column name="EventRecordId" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+      <generator class="assigned" />
+    </id>
+    <property name="Eventcode" type="Int32">
+      <column name="eventcode" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Createts" type="DateTime">
+      <column name="createts" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="Recoveryts" type="DateTime">
+      <column name="Recoveryts" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="Ackts" type="DateTime">
+      <column name="Ackts" not-null="false" sql-type="DATETIME" />
+    </property>
+    <property name="AckUserName" type="String">
+      <column name="AckUserName" not-null="false" length="50" sql-type="VARCHAR(50)" />
+    </property>
+    <property name="AckUserEmail" type="String">
+      <column name="AckUserEmail" not-null="false" length="128" sql-type="VARCHAR(128)" />
+    </property>
+    <property name="SiteId" type="Int32">
+      <column name="SiteId" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="AggName" type="StringClob">
+      <column name="AggName" not-null="false" sql-type="LONGTEXT" />
+    </property>
+    <property name="AggGroupId" type="StringClob">
+      <column name="AggGroupId" not-null="false" sql-type="LONGTEXT" />
+    </property>
+    <property name="SiteName" type="StringClob">
+      <column name="SiteName" not-null="false" sql-type="LONGTEXT" />
+    </property>
+    <property name="DeviceType" type="Int32">
+      <column name="DeviceType" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="DeviceIndex" type="Int32">
+      <column name="DeviceIndex" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Level" type="SByte">
+      <column name="Level" not-null="true" scale="0" sql-type="TINYINT" />
+    </property>
+    <property name="FactoryCode" type="Int32">
+      <column name="FactoryCode" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="BitFlag" type="Int32">
+      <column name="BitFlag" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
+    <property name="Name" type="String">
+      <column name="Name" not-null="true" length="128" sql-type="VARCHAR(128)" />
+    </property>
+    <property name="FaultDurationMin" type="Int64">
+      <column name="FaultDurationMin" not-null="false" precision="21" scale="0" sql-type="BIGINT(21)" />
+    </property>
+  </class>
+</hibernate-mapping>

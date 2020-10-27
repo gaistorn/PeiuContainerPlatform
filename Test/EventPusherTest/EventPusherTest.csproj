@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Library\EventPublisher\EventPublisher.csproj" />
+    <ProjectReference Include="..\..\Library\ToastNotification\ToastNotification.csproj" />
   </ItemGroup>
 
   <ItemGroup>

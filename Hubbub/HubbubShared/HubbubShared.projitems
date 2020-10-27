@@ -27,6 +27,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwModbusInputPoint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwStandardAnalogPoint.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.VwStandardPcsStatusPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HubbubMappingTempate.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataModel\HubbubModel.CommandCode.hbm.xml" />

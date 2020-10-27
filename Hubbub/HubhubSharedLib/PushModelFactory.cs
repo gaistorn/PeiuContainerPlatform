@@ -90,6 +90,9 @@ namespace Hubbub
             IDictionary<int, ushort> values)
         {
             JObject model = CreateDefaultModel(11, "PCS_STATUS", DeviceTypes.PCS, deviceIndex, siteid, rcc);
+            model.Add("ditype", 1);
+            model.Add("devicetype", 0);
+            model.Add("deviceindex", deviceIndex);
             ValidationStatusModel(model, pcsStatusPoints, modbusDigitalStatuses, values);
             return model;
             //ValidationStatusModel

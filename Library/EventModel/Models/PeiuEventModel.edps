@@ -5,11 +5,11 @@
     <Generation>
       <GeneratedFiles>
         <File Name="PeiuEventModel.DeviceFactory.cs" />
-        <File Name="PeiuEventModel.EventRecord.cs" />
         <File Name="PeiuEventModel.EventMap.cs" />
+        <File Name="PeiuEventModel.EventRecord.cs" />
         <File Name="PeiuEventModel.DeviceFactory.hbm.xml" />
-        <File Name="PeiuEventModel.EventRecord.hbm.xml" />
         <File Name="PeiuEventModel.EventMap.hbm.xml" />
+        <File Name="PeiuEventModel.EventRecord.hbm.xml" />
       </GeneratedFiles>
     </Generation>
     <generator class="assigned" />

@@ -32,7 +32,7 @@ namespace PeiuPlatform.App
         {
             services.AddSingleton<IPacketQueue, PacketQueue>();
 
-            EventPublisherWorker eventPublisher = new EventPublisherWorker(2);
+            EventPublisherWorker eventPublisher = new EventPublisherWorker();
             eventPublisher.Initialize();
             services.AddSingleton(eventPublisher);
             services.AddSingleton<Microsoft.Extensions.Hosting.IHostedService, ConsumeDataService>();

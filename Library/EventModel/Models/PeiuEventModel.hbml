@@ -18,104 +18,39 @@
       <column name="description" not-null="false" length="128" sql-type="varchar" p1:unicode="true" />
     </property>
   </class>
-  <class name="EventRecord" table="EventRecord" p1:Guid="a146e8aa-b2ce-463d-94a1-0d9a12267d84">
-    <Documentation>
-      <Summary>??? ??? ?? ??</Summary>
-    </Documentation>
-    <id name="Eventrecordindex" type="Int32" p1:ValidateRequired="true" p1:Guid="c4e3f9ea-d9b1-4d0e-b033-9ee1e5084611">
-      <Documentation>
-        <Summary>??? ??? ?? ID</Summary>
-      </Documentation>
-      <column name="eventrecordindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
-      <generator class="identity" />
-    </id>
-    <property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="f62580c7-6694-4e30-9079-9682e232ebea">
-      <Documentation>
-        <Summary>siteid</Summary>
-      </Documentation>
-      <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
-    </property>
-    <property name="Eventcode" type="Int32" p1:ValidateRequired="true" p1:Guid="4e8a1065-f545-4652-b449-aedc8bdb8ba9">
-      <Documentation>
-        <Summary>EventMap-eventcode(?????ID)</Summary>
-      </Documentation>
-      <column name="eventcode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
-    </property>
-    <property name="Createts" type="DateTime" p1:ValidateRequired="true" p1:Guid="1766f5a0-9589-47dd-866c-e27b028781d8">
-      <Documentation>
-        <Summary>??? ?? ??</Summary>
-      </Documentation>
-      <column name="createts" not-null="true" sql-type="datetime" p1:unicode="false" />
-    </property>
-    <property name="Recoveryts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="8a4c9005-98ba-4929-9978-60624e29b8df">
-      <column name="recoveryts" not-null="false" sql-type="datetime" p1:unicode="false" />
-    </property>
-    <property name="Ackts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="87f8dcf0-4387-4cc0-b98a-21337a2e9b86">
-      <Documentation>
-        <Summary>??? ??(ack)? ??</Summary>
-      </Documentation>
-      <column name="ackts" not-null="false" sql-type="datetime" p1:unicode="false" />
-    </property>
-    <property name="Ackuser" type="String" p1:nullable="true" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="765402b3-974f-4d8b-9f26-09d49e791eee">
-      <Documentation>
-        <Summary>??(ack)? ???</Summary>
-      </Documentation>
-      <column name="ackuser" not-null="false" length="50" sql-type="varchar" p1:unicode="true" />
-    </property>
-    <property name="Devicetype" type="Int32" p1:ValidateRequired="true" p1:Guid="e966b748-e018-4158-8eed-c0584f812d93">
-      <Documentation>
-        <Summary>1 : PCS,
-2 : BMS
-3 : PV</Summary>
-      </Documentation>
-      <column name="devicetype" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
-    </property>
-    <property name="Deviceindex" type="Int32" p1:ValidateRequired="true" p1:Guid="6c8c6d13-7c0a-4b12-ad8a-ebbad0ae2a38">
-      <Documentation>
-        <Summary>?? ??</Summary>
-      </Documentation>
-      <column name="deviceindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
-    </property>
-    <property name="Ackemail" type="String" p1:nullable="true" p1:ValidateMaxLength="128" p1:ValidateRequired="false" p1:Guid="e095f7f2-52f0-4621-b607-b7fe0edeefd0">
-      <Documentation>
-        <Summary>??(ack)? ?? ???</Summary>
-      </Documentation>
-      <column name="ackemail" not-null="false" length="128" sql-type="varchar" p1:unicode="true" />
-    </property>
-  </class>
-  <class name="EventMap" table="EventMap" p1:Guid="898e37e5-0ef6-4eec-8849-9e1fa1f215e6">
+  <class name="EventMap" table="EventMap" p1:Guid="fac33c8e-24e6-437f-aeae-87dbef884034">
     <Documentation>
       <Summary>??? ?? ??</Summary>
     </Documentation>
-    <id name="Eventcode" type="Int32" p1:ValidateRequired="true" p1:Guid="2eb1a4b1-3228-47a2-894d-394ebece0fd6">
+    <id name="Eventcode" type="Int32" p1:ValidateRequired="true" p1:Guid="92e7d53a-536f-4aed-b77f-e65b8be92fb7">
       <Documentation>
         <Summary>????? ID</Summary>
       </Documentation>
       <column name="eventcode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
       <generator class="identity" />
     </id>
-    <property name="Factorycode" type="Int32" p1:ValidateRequired="true" p1:Guid="e81acfe2-e3d2-4f49-b6b7-3b815a2a04ee">
+    <property name="Factorycode" type="Int32" p1:ValidateRequired="true" p1:Guid="41a54329-5cb8-412b-9f98-12e39543e06a">
       <column name="factorycode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
     </property>
-    <property name="Bitflag" type="Int32" p1:ValidateRequired="true" p1:Guid="5410aed4-82b6-405b-bc59-4cc341699874">
+    <property name="Bitflag" type="UInt32" p1:ValidateRequired="true" p1:Guid="09a49d99-58d7-44ea-9a07-41e6aca69f56">
       <Documentation>
         <Summary>?????(2??(bit)-&gt;10??)</Summary>
       </Documentation>
-      <column name="bitflag" not-null="true" length="9" sql-type="mediumint" p1:unicode="false" />
+      <column name="bitflag" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
     </property>
-    <property name="Name" type="String" p1:ValidateMaxLength="128" p1:ValidateRequired="true" p1:Guid="318ae47c-3c57-4428-911b-1aa68663b2d2">
+    <property name="Name" type="String" p1:ValidateMaxLength="128" p1:ValidateRequired="true" p1:Guid="b15e0cae-13cc-4255-be22-f77ddd953c54">
       <Documentation>
         <Summary>????</Summary>
       </Documentation>
       <column name="name" not-null="true" length="128" sql-type="varchar" p1:unicode="true" />
     </property>
-    <property name="Groupcode" type="Int32" p1:ValidateRequired="true" p1:Guid="bbcd3a94-1d8b-49fe-a667-c95df9220107">
+    <property name="Groupcode" type="Int32" p1:ValidateRequired="true" p1:Guid="eb8ed8f9-fc95-44d9-9479-f4b393788290">
       <Documentation>
         <Summary>?????</Summary>
       </Documentation>
       <column name="groupcode" not-null="true" length="9" sql-type="mediumint" p1:unicode="false" />
     </property>
-    <property name="Level" type="SByte" p1:ValidateRequired="true" p1:Guid="6894d403-2649-448e-aef0-59bb4f726f15">
+    <property name="Level" type="SByte" p1:ValidateRequired="true" p1:Guid="e934750f-b317-4c4c-851b-c455ce81bc79">
       <Documentation>
         <Summary>??? ??
 0 : ??
@@ -123,6 +58,341 @@
 4 ~ : ??</Summary>
       </Documentation>
       <column name="level" default="4" not-null="true" scale="0" sql-type="tinyint" p1:unicode="false" />
+    </property>
+    <property name="Devicetype" type="Int32" p1:ValidateRequired="true" p1:Guid="1cc2dbd6-f265-4bab-9e86-96af6cc30f12">
+      <column name="devicetype" default="0" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="EventRecord" table="EventRecord" p1:Guid="299e33b5-c873-43fe-9874-1a3189313b9c">
+    <Documentation>
+      <Summary>??? ??? ?? ??</Summary>
+    </Documentation>
+    <id name="Eventrecordindex" type="Int32" p1:ValidateRequired="true" p1:Guid="54586346-d897-4a7f-8c70-b16f7b070f48">
+      <Documentation>
+        <Summary>??? ??? ?? ID</Summary>
+      </Documentation>
+      <column name="eventrecordindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+      <generator class="identity" />
+    </id>
+    <property name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="0452cb46-ba18-4d8d-ad4d-63001bdfb666">
+      <Documentation>
+        <Summary>siteid</Summary>
+      </Documentation>
+      <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Eventcode" type="Int32" p1:ValidateRequired="true" p1:Guid="3fa38de0-d58d-4649-b793-c21d656edf48">
+      <Documentation>
+        <Summary>EventMap-eventcode(?????ID)</Summary>
+      </Documentation>
+      <column name="eventcode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Createts" type="DateTime" p1:ValidateRequired="true" p1:Guid="bc869393-2d8d-4ec1-a35e-efff30798895">
+      <Documentation>
+        <Summary>??? ?? ??</Summary>
+      </Documentation>
+      <column name="createts" not-null="true" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Recoveryts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="38268d97-2977-4fc3-be5b-fe472101bdb9">
+      <column name="recoveryts" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Ackts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="2e2db940-9cf7-41dd-83a0-ffdf5b9dcb3d">
+      <Documentation>
+        <Summary>??? ??(ack)? ??</Summary>
+      </Documentation>
+      <column name="ackts" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Ackuser" type="String" p1:nullable="true" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="6a7bdb57-74db-4f4a-9c4c-6c7c5919a475">
+      <Documentation>
+        <Summary>??(ack)? ???</Summary>
+      </Documentation>
+      <column name="ackuser" not-null="false" length="50" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Devicetype" type="Int32" p1:ValidateRequired="true" p1:Guid="954e5d28-5bdc-4898-b67c-b5b72743a194">
+      <Documentation>
+        <Summary>1 : PCS,
+2 : BMS
+3 : PV</Summary>
+      </Documentation>
+      <column name="devicetype" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Deviceindex" type="Int32" p1:ValidateRequired="true" p1:Guid="d59e7ee1-46b9-4916-81d9-3e0917593881">
+      <Documentation>
+        <Summary>?? ??</Summary>
+      </Documentation>
+      <column name="deviceindex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Ackemail" type="String" p1:nullable="true" p1:ValidateMaxLength="128" p1:ValidateRequired="false" p1:Guid="6cbf2e40-999b-4e9a-8ca6-58367d0c681d">
+      <Documentation>
+        <Summary>??(ack)? ?? ???</Summary>
+      </Documentation>
+      <column name="ackemail" not-null="false" length="128" sql-type="varchar" p1:unicode="true" />
+    </property>
+  </class>
+  <class name="VwEventRecord" table="vwEventRecord" p1:Guid="fda6318b-74ae-4096-93b5-6b8f7728f68d">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <id name="EventRecordId" type="Int32" p1:ValidateRequired="true" p1:Guid="17b46a96-acdb-4cf7-9921-fd511fe29631">
+      <Documentation>
+        <Summary>??? ??? ?? ID</Summary>
+      </Documentation>
+      <column name="EventRecordId" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </id>
+    <property name="Eventcode" type="Int32" p1:ValidateRequired="true" p1:Guid="73e8e826-47a9-44de-92af-aa974b2ba6f1">
+      <Documentation>
+        <Summary>EventMap-eventcode(?????ID)</Summary>
+      </Documentation>
+      <column name="eventcode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Createts" type="DateTime" p1:ValidateRequired="true" p1:Guid="f2535c22-91ea-432a-a0f5-769fca272185">
+      <Documentation>
+        <Summary>??? ?? ??</Summary>
+      </Documentation>
+      <column name="createts" not-null="true" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Recoveryts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="94742fdb-ef4a-4125-b51e-7e6806902c1e">
+      <column name="Recoveryts" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Ackts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="346b79fd-4188-448c-b3f8-0f6965cd9a44">
+      <Documentation>
+        <Summary>??? ??(ack)? ??</Summary>
+      </Documentation>
+      <column name="Ackts" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="AckUserName" type="String" p1:nullable="true" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="e9430dac-f031-42fa-b355-d14866efb16c">
+      <Documentation>
+        <Summary>??(ack)? ???</Summary>
+      </Documentation>
+      <column name="AckUserName" not-null="false" length="50" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="AckUserEmail" type="String" p1:nullable="true" p1:ValidateMaxLength="128" p1:ValidateRequired="false" p1:Guid="3044a0c7-ec1d-4ed4-8529-ca88c9033b61">
+      <Documentation>
+        <Summary>??(ack)? ?? ???</Summary>
+      </Documentation>
+      <column name="AckUserEmail" not-null="false" length="128" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="SiteId" type="Int32" p1:ValidateRequired="true" p1:Guid="feac8304-693a-4522-8067-ec0ebc9ee69b">
+      <Documentation>
+        <Summary>siteid</Summary>
+      </Documentation>
+      <column name="SiteId" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="AggName" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="9d20186e-166f-4566-9d3a-378ba8d0806c">
+      <column name="AggName" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="AggGroupId" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="3a24e1bb-3fd0-4b38-ab95-00f469c1b2c1">
+      <column name="AggGroupId" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="SiteName" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="68760ca2-ff52-492c-a624-37cc02cf839c">
+      <column name="SiteName" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="DeviceType" type="Int32" p1:ValidateRequired="true" p1:Guid="28a462f8-9060-4445-906f-7be031dbe8b6">
+      <Documentation>
+        <Summary>1 : PCS,
+2 : BMS
+3 : PV</Summary>
+      </Documentation>
+      <column name="DeviceType" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="DeviceIndex" type="Int32" p1:ValidateRequired="true" p1:Guid="d8f670e9-8bea-4a25-b177-7ced68117973">
+      <Documentation>
+        <Summary>?? ??</Summary>
+      </Documentation>
+      <column name="DeviceIndex" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Level" type="SByte" p1:ValidateRequired="true" p1:Guid="4ed44ab9-589a-4883-bde5-d50822ddd966">
+      <Documentation>
+        <Summary>??? ??
+0 : ??
+1 ~ 3 : ??
+4 ~ : ??</Summary>
+      </Documentation>
+      <column name="Level" not-null="true" scale="0" sql-type="tinyint" p1:unicode="false" />
+    </property>
+    <property name="FactoryCode" type="Int32" p1:ValidateRequired="true" p1:Guid="08dfbc2a-d76b-4983-8fa8-2b0846b563c6">
+      <column name="FactoryCode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="BitFlag" type="Int32" p1:ValidateRequired="true" p1:Guid="b9d050e7-5090-4627-8b48-ec50b810513b">
+      <Documentation>
+        <Summary>?????(2??(bit)-&gt;10??)</Summary>
+      </Documentation>
+      <column name="BitFlag" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Name" type="String" p1:ValidateMaxLength="128" p1:ValidateRequired="true" p1:Guid="7c5a4672-c0db-4d37-9f1c-06e977d95e58">
+      <Documentation>
+        <Summary>????</Summary>
+      </Documentation>
+      <column name="Name" not-null="true" length="128" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="FaultDurationMin" type="Int64" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="84d6d4ab-8bbd-4df1-afb9-2809028f84ac">
+      <column name="FaultDurationMin" not-null="false" precision="21" scale="0" sql-type="bigint" p1:unicode="false" />
+    </property>
+  </class>
+  <class name="Vwcontractorsite" table="vwcontractorsites" p1:Guid="b036ddce-16f8-4efc-a13a-5c033d64e5fe">
+    <Documentation>
+      <Summary>VIEW</Summary>
+    </Documentation>
+    <id name="Siteid" type="Int32" p1:ValidateRequired="true" p1:Guid="0290ce48-e36a-4e0e-bc0d-4bc3a2629bdd">
+      <Documentation>
+        <Summary>siteid</Summary>
+      </Documentation>
+      <column name="siteid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </id>
+    <property name="Agggroupid" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="5a00cbcb-78e3-44ec-bfd1-5fdee5ca384d">
+      <Documentation>
+        <Summary>????????ID</Summary>
+      </Documentation>
+      <column name="agggroupid" not-null="false" length="255" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Aggname" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="c1c6aa07-e480-42af-a89e-dcf5104b9144">
+      <Documentation>
+        <Summary>?????? ??</Summary>
+      </Documentation>
+      <column name="aggname" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Aggrepresentation" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="ba78951e-2ed6-4c8f-93db-a62eb795a2a1">
+      <Documentation>
+        <Summary>??</Summary>
+      </Documentation>
+      <column name="Aggrepresentation" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Email" type="String" p1:nullable="true" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="ec5d925c-7659-4618-844c-75f14cef829a">
+      <Documentation>
+        <Summary>???</Summary>
+      </Documentation>
+      <column name="email" not-null="false" length="256" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Firstname" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="64638b15-55ae-43bb-9143-6f4fa6a78786">
+      <Documentation>
+        <Summary>??</Summary>
+      </Documentation>
+      <column name="firstname" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Lastname" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="1088772a-914b-4d51-af7d-20597672b987">
+      <Documentation>
+        <Summary>?(??)</Summary>
+      </Documentation>
+      <column name="lastname" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Company" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="08c5338e-cf7a-4776-a922-f6633ea97c50">
+      <Documentation>
+        <Summary>???</Summary>
+      </Documentation>
+      <column name="company" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Lng" type="Double" p1:ValidateRequired="true" p1:Guid="168de776-ad25-4cbb-8e5c-6e95e4f4540d">
+      <Documentation>
+        <Summary>??</Summary>
+      </Documentation>
+      <column name="lng" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Lat" type="Double" p1:ValidateRequired="true" p1:Guid="ff192d8d-192a-473a-9bba-ae675395d704">
+      <Documentation>
+        <Summary>??</Summary>
+      </Documentation>
+      <column name="lat" not-null="true" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Rcc" type="Int32" p1:ValidateRequired="true" p1:Guid="8717f4aa-8ddf-4bc5-8d1d-a08b28e874e4">
+      <Documentation>
+        <Summary>rccid</Summary>
+      </Documentation>
+      <column name="rcc" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Devicegroupcode" type="Int32" p1:ValidateRequired="true" p1:Guid="2de11ab0-b2c5-4d09-b5b3-d5b3b56a4263">
+      <Documentation>
+        <Summary>??????</Summary>
+      </Documentation>
+      <column name="devicegroupcode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Lawfirstcode" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="0d238aa0-f2c8-46ea-9427-0ca82e942838">
+      <Documentation>
+        <Summary>????? ??(2??)</Summary>
+      </Documentation>
+      <column name="lawfirstcode" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Lawmiddlecode" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="5744c6cf-e432-4525-9eda-d563ffbe0c08">
+      <Documentation>
+        <Summary>????? ???(2??)</Summary>
+      </Documentation>
+      <column name="lawmiddlecode" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Lawlastcode" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="f2e4c50c-088a-4127-8a4e-3d6f91358a67">
+      <Documentation>
+        <Summary>????? ????( 6??,DB? ??? ???? ??0???? 5??? ???)</Summary>
+      </Documentation>
+      <column name="lawlastcode" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Address1" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="c3b48c13-639a-4a9d-bc26-6a023ea78fa2">
+      <Documentation>
+        <Summary>??1</Summary>
+      </Documentation>
+      <column name="address1" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Address2" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="d2d19d96-7d63-4fcd-acc3-603daee21fe9">
+      <Documentation>
+        <Summary>??2</Summary>
+      </Documentation>
+      <column name="address2" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Userid" type="String" p1:nullable="true" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="247cd642-004f-420b-be90-2403e6f2def8">
+      <Documentation>
+        <Summary>?????ID</Summary>
+      </Documentation>
+      <column name="userid" not-null="false" length="255" sql-type="varchar" p1:unicode="true" />
+    </property>
+    <property name="Represenation" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="92317a8b-366c-4cb6-a66d-dc9ce3261427">
+      <Documentation>
+        <Summary>????</Summary>
+      </Documentation>
+      <column name="represenation" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Servicecode" type="Int32" p1:ValidateRequired="true" p1:Guid="2c0cd221-d30a-4894-86d6-32f9ca470a59">
+      <Documentation>
+        <Summary>1 : ??
+2 : SCHEDULE
+4 : DR,
+</Summary>
+      </Documentation>
+      <column name="servicecode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
+    <property name="Comment" type="StringClob" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="ffe1e8f4-d5dd-4539-b9c1-02849240521b">
+      <Documentation>
+        <Summary>???</Summary>
+      </Documentation>
+      <column name="`comment`" not-null="false" sql-type="longtext" p1:unicode="true" />
+    </property>
+    <property name="Restrictsite" type="Boolean" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="22b881eb-601c-41ab-92c6-6ba8e0cbe75a">
+      <column name="restrictsite" not-null="false" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="Inisland" type="Boolean" p1:ValidateRequired="true" p1:Guid="6976f222-a125-4766-a5e1-be0eed635c80">
+      <Documentation>
+        <Summary>???(0:??|1:?)</Summary>
+      </Documentation>
+      <column name="inisland" not-null="true" precision="1" sql-type="bit" p1:unicode="false" />
+    </property>
+    <property name="Createts" type="DateTime" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="b001e63b-79ff-430a-aab7-55bfcf185d1e">
+      <Documentation>
+        <Summary>????</Summary>
+      </Documentation>
+      <column name="createts" not-null="false" sql-type="datetime" p1:unicode="false" />
+    </property>
+    <property name="Totalpcscapacity" type="Double" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="a103a665-b92a-4b73-b840-630e2d2de721">
+      <column name="totalpcscapacity" not-null="false" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Pcscount" type="Decimal" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="d432c279-c3bc-4465-ad69-4b93e610d4ff">
+      <column name="pcscount" not-null="false" precision="23" scale="0" sql-type="decimal" p1:unicode="false" />
+    </property>
+    <property name="Totalbmscapacity" type="Double" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="e3dfbaf5-c963-43ca-9e32-023add705822">
+      <column name="totalbmscapacity" not-null="false" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Bmscount" type="Decimal" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="3b864551-3a0f-4190-9a2b-9ccd72dd8c26">
+      <column name="bmscount" not-null="false" precision="23" scale="0" sql-type="decimal" p1:unicode="false" />
+    </property>
+    <property name="Totalpvcapacity" type="Double" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="b496aec3-e2c0-45a5-8dc6-ba6adf18db7e">
+      <column name="totalpvcapacity" not-null="false" sql-type="double" p1:unicode="false" />
+    </property>
+    <property name="Pvcount" type="Decimal" p1:nullable="true" p1:ValidateRequired="false" p1:Guid="8a39c942-1ab9-4b9e-b867-03b260d7c132">
+      <column name="pvcount" not-null="false" precision="23" scale="0" sql-type="decimal" p1:unicode="false" />
     </property>
   </class>
 </hibernate-mapping>

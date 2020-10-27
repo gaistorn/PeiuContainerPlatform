@@ -73,6 +73,9 @@
     <property name="Connectionid" type="Int32" p1:ValidateRequired="true" p1:Guid="34df5e2d-a389-4a84-acf3-01d79046da50">
       <column name="connectionid" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
     </property>
+    <property name="Factorycode" type="Int32" p1:ValidateRequired="true" p1:Guid="d88e609c-adc3-4e1a-b86b-cf2e41977879">
+      <column name="factorycode" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
+    </property>
   </class>
   <class name="ModbusConnectionInfo" table="ModbusConnectionInfo" p1:Guid="3265ad02-fa9f-4e9f-8008-5454fecf9ff5">
     <id name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="3a27f184-97be-4b42-8ddd-0d87cad2c7d8">
@@ -183,8 +186,8 @@ RTU : COM1</Summary>
       </Documentation>
       <column name="`match`" default="1" not-null="true" scale="0" sql-type="tinyint" p1:unicode="false" />
     </property>
-    <property name="Bitflag" type="Int16" p1:ValidateRequired="true" p1:Guid="2827a15d-a052-410b-806a-7caf98bdc99f">
-      <column name="bitflag" default="0" not-null="true" precision="6" scale="0" sql-type="smallint" p1:unicode="false" />
+    <property name="Bitflag" type="Int32" p1:ValidateRequired="true" p1:Guid="2827a15d-a052-410b-806a-7caf98bdc99f">
+      <column name="bitflag" default="0" not-null="true" precision="11" scale="0" sql-type="int" p1:unicode="false" />
     </property>
   </class>
   <class name="VwDigitalStatusPoint" table="vwDigitalStatusPoints" p1:Guid="682da4e5-7d2b-4ec0-bf8b-07ae277b5bf4">

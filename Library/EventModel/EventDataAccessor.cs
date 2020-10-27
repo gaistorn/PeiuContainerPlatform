@@ -64,7 +64,7 @@ namespace PeiuPlatform.App
                             {"hibernate.connection.useUnicode", "true" },
 
 #if DEBUG
-                            {NHibernate.Cfg.Environment.ShowSql, "true" }
+                            //{NHibernate.Cfg.Environment.ShowSql, "true" }
 #endif
 
                         })

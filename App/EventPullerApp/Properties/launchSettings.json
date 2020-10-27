@@ -11,6 +11,7 @@
       "environmentVariables": {
         "ENV_MQTT_TOPIC": "hubbub/+/+/+/Event",
         "MYSQL_PASSWORD": "123qwe",
+        "TOAST_API_KEY": "4ERp0UUnWCuDzwnv",
         "ENV_MQTT_PORT": "2084",
         "MYSQL_USERNAME": "power21",
         "DOTNET_ENVIRONMENT": "Development",

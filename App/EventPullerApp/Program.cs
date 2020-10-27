@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PeiuPlatform.DataAccessor;
 using NLog.Extensions.Logging;
+using PeiuPlatform.Notification;
 
 namespace PeiuPlatform.App
 {
@@ -14,6 +15,7 @@ namespace PeiuPlatform.App
     {
         static void Main(string[] args)
         {
+            //Notificator.API_KEY = Environment.GetEnvironmentVariable("TOAST_API_KEY");
             var logger = NLog.LogManager.GetCurrentClassLogger();
             try
             {
@@ -41,6 +43,11 @@ namespace PeiuPlatform.App
                     });
                     services.AddEventDataAccessor();
                     services.AddRedisDataAccess(hostContext.Configuration);
+
+                    Notificator notificator = new Notificator(Environment.GetEnvironmentVariable("TOAST_API_KEY"));
+                    var logger = NLog.LogManager.GetCurrentClassLogger();
+                    notificator.Logger = logger;
+                    services.AddSingleton(notificator);
                     services.AddSingleton<EventSubscribeWorker>();
                     services.AddHostedService<Worker>();
 

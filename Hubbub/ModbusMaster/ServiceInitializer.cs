@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NLog.Extensions.Logging;
 using PeiuPlatform.Model.ExchangeModel;
+using PeiuPlatform.Models;
 using RestSharp;
 using StackExchange.Redis;
 using StackExchange.Redis.Extensions.Core.Configuration;

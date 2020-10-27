@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Collections.Concurrent;
+using PeiuPlatform.Notification;
 
 namespace EventPusherTest
 {
@@ -16,6 +17,26 @@ namespace EventPusherTest
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            int caseNo = 0;
+
+            switch(caseNo)
+            {
+                case 0:
+                    Console.WriteLine("0");
+                    break;
+                case 1:
+                    Console.WriteLine("1");
+                    break;
+                case 3:
+                    break;
+            }
+
+            Notificator notificator = new Notificator("4ERp0UUnWCuDzwnv");
+
+            Task t_sms = notificator.SendingMMS("제목", "Test M\nInline", "01063671293", "01063671293");
+            t_sms.Wait();
+
 
             ConcurrentDictionary<int, int> keyValuePairs = new ConcurrentDictionary<int, int>();
             keyValuePairs.AddOrUpdate(3, 10, (newValue, oldValue) =>
@@ -41,7 +62,7 @@ namespace EventPusherTest
             Char c = Convert.ToChar(ascii);
 
             AbsMqttBase.SetDefaultLoggerName("nlog.config", true);
-            EventPublisherWorker worker = new EventPublisherWorker(1);
+            EventPublisherWorker worker = new EventPublisherWorker();
             worker.Initialize();
             CancellationTokenSource tk = new CancellationTokenSource();
             while (true)
@@ -50,7 +71,7 @@ namespace EventPusherTest
                 string code = Console.ReadLine();
                 if (ushort.TryParse(code, out ushort EventCode))
                 {
-                    Task t = worker.UpdateDigitalPoint(6, DeviceTypes.BMS, 1, 40132, EventCode, tk.Token);
+                    Task t = worker.UpdateDigitalPoint(6, DeviceTypes.BMS, 1, 1, 40132, EventCode, tk.Token);
                     t.Wait();
                 }
             }

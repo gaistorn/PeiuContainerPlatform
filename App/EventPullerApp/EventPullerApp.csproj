@@ -26,5 +26,6 @@
     <ProjectReference Include="..\..\Library\EventModel\EventModel.csproj" />
     <ProjectReference Include="..\..\Library\MqttDataAccessor\MqttDataAccessor.csproj" />
     <ProjectReference Include="..\..\Library\RedisDataAccessor\RedisDataAccessor.csproj" />
+    <ProjectReference Include="..\..\Library\ToastNotification\ToastNotification.csproj" />
   </ItemGroup>
 </Project>

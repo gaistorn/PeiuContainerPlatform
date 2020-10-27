@@ -149,6 +149,7 @@
       <Exclude Name="byteindex" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
       <Exclude Name="disable" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
       <Exclude Name="defaultvalue" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
+      <Exclude Name="bitflag" Table="peiuhubbub.vwDigitalStatusPoints" Type="Column" />
       <Exclude Name="PK_vwdigitalstatuspoints" Table="peiuhubbub.vwdigitalstatuspoints" Type="Constraint" />
       <Exclude Name="pointtypeid" Table="peiuhubbub.vwModbusInputPoints" Type="Column" />
       <Exclude Name="PK_vwmodbusinputpoints" Table="peiuhubbub.vwmodbusinputpoints" Type="Constraint" />

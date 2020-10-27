@@ -1,5 +1,6 @@
 ﻿using FireworksFramework.Mqtt;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using PEIU.Hubbub;
 using PeiuPlatform.Models;
 using System;
@@ -14,10 +15,12 @@ namespace PeiuPlatform.App
     {
         private DaegunSubscriberWorker DaegunSubscriberWorker = null;
         private readonly IPacketQueue queue;
+        readonly ILogger<MqttHostService> logger;
 
-        public MqttHostService(IPacketQueue packetQueue )
+        public MqttHostService(IPacketQueue packetQueue, ILogger<MqttHostService> logger)
         {
             queue = packetQueue;
+            this.logger = logger;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -27,9 +30,16 @@ namespace PeiuPlatform.App
             DaegunSubscriberWorker.MessageReceived += DaegunSubscriberWorker_MessageReceived;
             while (stoppingToken.IsCancellationRequested == false)
             {
-                await DaegunSubscriberWorker.MqttSubscribeAsync(stoppingToken);
-                await Task.Delay(500);
-                stoppingToken.ThrowIfCancellationRequested();
+                try
+                {
+                    await DaegunSubscriberWorker.MqttSubscribeAsync(stoppingToken);
+                    await Task.Delay(500);
+                    stoppingToken.ThrowIfCancellationRequested();
+                }
+                catch(Exception ex)
+                {
+                    logger.LogError(ex, ex.Message);
+                }
             }
         }
 
@@ -37,9 +47,15 @@ namespace PeiuPlatform.App
 
         private void DaegunSubscriberWorker_MessageReceived(object sender, MQTTnet.MqttApplicationMessageReceivedEventArgs e)
         {
-
-            DaegunPacket packet = PacketParser.ByteToStruct<DaegunPacket>(e.ApplicationMessage.Payload);
-            queue.QueueBackgroundWorkItem(packet);
+            try
+            {
+                DaegunPacket packet = PacketParser.ByteToStruct<DaegunPacket>(e.ApplicationMessage.Payload);
+                queue.QueueBackgroundWorkItem(packet);
+            }
+            catch(Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+            }
         }
 
         public override Task StopAsync(CancellationToken cancellationToken)

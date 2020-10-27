@@ -27,5 +27,8 @@
     <property name="Connectionid" type="Int32">
       <column name="connectionid" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
     </property>
+    <property name="Factorycode" type="Int32">
+      <column name="factorycode" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
+    </property>
   </class>
 </hibernate-mapping>

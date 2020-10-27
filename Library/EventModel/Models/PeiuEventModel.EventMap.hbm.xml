@@ -8,8 +8,8 @@
     <property name="Factorycode" type="Int32">
       <column name="factorycode" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
     </property>
-    <property name="Bitflag" type="Int32">
-      <column name="bitflag" not-null="true" length="9" sql-type="MEDIUMINT" />
+    <property name="Bitflag" type="UInt32">
+      <column name="bitflag" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
     </property>
     <property name="Name" type="String">
       <column name="name" not-null="true" length="128" sql-type="VARCHAR(128)" />
@@ -19,6 +19,9 @@
     </property>
     <property name="Level" type="SByte">
       <column name="level" default="4" not-null="true" scale="0" sql-type="TINYINT" />
+    </property>
+    <property name="Devicetype" type="Int32">
+      <column name="devicetype" default="0" not-null="true" precision="11" scale="0" sql-type="INT(11)" />
     </property>
   </class>
 </hibernate-mapping>

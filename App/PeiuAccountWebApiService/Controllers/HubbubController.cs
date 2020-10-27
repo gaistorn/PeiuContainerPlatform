@@ -18,6 +18,7 @@ using NHibernate;
 using NHibernate.Criterion;
 using PeiuPlatform.Model.ExchangeModel;
 using PeiuPlatform.Model.IdentityModel;
+using PeiuPlatform.Models;
 
 namespace PeiuPlatform.App.App.Controllers
 {
@@ -199,6 +200,7 @@ namespace PeiuPlatform.App.App.Controllers
         /// <param name="groupid">포인트 그룹 ID</param>
         /// <returns></returns>
         [HttpGet, Route("download/modbusinputpoint")]
+        [AllowAnonymous]
         public async Task<IActionResult> ExportInputPoints(int groupid)
         {
             return await ExportPoints<ModbusInputPoint>(groupid);
@@ -210,6 +212,7 @@ namespace PeiuPlatform.App.App.Controllers
         /// <param name="groupid"></param>
         /// <returns></returns>
         [HttpGet, Route("download/digitaloutputpoint")]
+        [AllowAnonymous]
         public async Task<IActionResult> ExportDigitalOutputPoints(int groupid)
         {
             return await ExportPoints<ModbusDigitalOutputPoint>(groupid);
@@ -220,6 +223,7 @@ namespace PeiuPlatform.App.App.Controllers
         /// </summary>
         /// <param name="groupid"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         [HttpGet, Route("download/digitalstatuspoint")]
         public async Task<IActionResult> ExportDigitalStatusPoints(int groupid)
         {
@@ -419,7 +423,8 @@ namespace PeiuPlatform.App.App.Controllers
         /// <param name="hubbubid">대상 전력수집장치 ID</param>
         /// <param name="compress">GZIP으로 압축해서 전송할지 또는 Json으로 내보낼지<G/param>
         /// <returns></returns>
-        [Authorize(Policy = UserPolicyTypes.HubbubManager)]
+        //[Authorize(Policy = UserPolicyTypes.HubbubManager)]
+        [AllowAnonymous]
         [HttpGet, Route("information/{hubbubid}")]
         public async Task<IActionResult> GetHubbubInformation(int hubbubid, bool compress = false)
         {
@@ -428,6 +433,21 @@ namespace PeiuPlatform.App.App.Controllers
                 return await GetTemplateCompress(hubbubid, compress, session);
             }
         }
+
+        //[Authorize(Policy = UserPolicyTypes.HubbubManager)]
+        [AllowAnonymous]
+        [HttpGet, Route("information")]
+        public async Task<IActionResult> GetHubbubDeviceInformation()
+        {
+            using (IStatelessSession session = sessionFactory.OpenStatelessSession())
+            {
+                var hubbub = await session.CreateCriteria<ModbusHubbub>().ListAsync<ModbusHubbub>();
+                return Ok(hubbub);
+                
+            }
+        }
+
+
 
         ///// <summary>
         ///// 특정 사이트 내의 모든 장치의 아날로그 포인트 템플릿을 가져온다. (복수)

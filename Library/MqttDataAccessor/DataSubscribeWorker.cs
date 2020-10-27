@@ -31,6 +31,8 @@ namespace PeiuPlatform.DataAccessor
         const string ENV_MQTT_PORT = "ENV_MQTT_PORT";
         const string ENV_MQTT_TOPIC = "ENV_MQTT_TOPIC";
 
+        protected IMqttClient GetMqttClient() => mqtt_client;
+
         public async Task<bool> ConnectionAsync()
         {
             string bindAddress = Environment.GetEnvironmentVariable(ENV_MQTT_BINDADDRESS);

@@ -8,6 +8,7 @@ using MQTTnet.Client.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PeiuPlatform.Model.ExchangeModel;
+using PeiuPlatform.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -323,6 +324,8 @@ namespace Hubbub
                 .WithQualityOfServiceLevel((MQTTnet.Protocol.MqttQualityOfServiceLevel)Qos)
                 .WithPayload(buffers)
                 .Build();
+
+            
             return applicationMessage;
         }
     }

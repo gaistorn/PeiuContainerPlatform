@@ -19,6 +19,7 @@ using NModbus;
 using NModbus.Serial;
 using NModbus.Utility;
 using PeiuPlatform.Model.ExchangeModel;
+using PeiuPlatform.Models;
 using RestSharp;
 using StackExchange.Redis;
 
@@ -182,7 +183,31 @@ namespace Hubbub
         {
             while(globalControlQueue.TryDequeue(out ModbusControlModel result))
             {
-                var commmands = HubbubTemaplte.ModbusDigitalOutputPoints.Where(x => x.Devicetypeid == result.devicetype && x.Deviceindex == result.deviceindex && x.Commandcode == (int)result.commandcode).OrderBy(x=>x.Commandorder);
+
+                IEnumerable<VwDigitalOutputPoint> commmands = null;
+                if(result.commandcode == ModbusCommandCodes.ACTIVE_POWER)
+                {
+                    int commandCode = 0;
+                    if(result.commandvalue.HasValue == false || result.commandvalue == 0)
+                    {
+                        commandCode = (int)ModbusCommandCodes.STANDBY;
+                    }
+                    else if(result.commandvalue > 0)
+                    {
+                        commandCode = (int)ModbusCommandCodes.DISCHARGE;
+                    }
+                    else if(result.commandvalue < 0)
+                    {
+                        commandCode = (int)ModbusCommandCodes.CHARGE;
+                    }
+
+                    commmands = HubbubTemaplte.ModbusDigitalOutputPoints.Where(x => x.Devicetypeid == result.devicetype && x.Deviceindex == result.deviceindex && x.Commandcode == commandCode).OrderBy(x => x.Commandorder);
+                }
+                else
+                {
+                    commmands = HubbubTemaplte.ModbusDigitalOutputPoints.Where(x => x.Devicetypeid == result.devicetype && x.Deviceindex == result.deviceindex && x.Commandcode == (int)result.commandcode).OrderBy(x => x.Commandorder);
+
+                }
                 foreach(var command in commmands)
                 {
                     ushort write_value = 0;
@@ -330,6 +355,7 @@ namespace Hubbub
                                 model = DI_MODELS[point.Deviceindex, deviceTypes];
                             }
                             DI_ST_Values.AddValueOrUpdate(point.Deviceindex, point.GetGroupCode(), (ushort)readValue);
+                            EnqueueEventModel(deviceTypes, point.Deviceindex, (ushort)readValue, point.Offset);
                             AddOrUpdateModelValue(model, point.GetGroupCode().ToString(), readValue);
                             break;
 
@@ -364,8 +390,10 @@ namespace Hubbub
                 {
                     PushModel pushModel = PushModel.CreateDigitalInputPushModel(DI_MODELS[deviceindex, t], HubbubTemaplte.Hubbub.Siteid, (int)t, deviceindex);
                     globalQueue.Enqueue(pushModel);
-                    //if (deviceindex == 3)
-                    //    Console.WriteLine(AI_Models[t]);
+
+
+
+                        
                 }
 
                 foreach (int deviceindex in DI_ST_Values.GetKeys())
@@ -425,6 +453,21 @@ namespace Hubbub
 
 
             //_logger.LogInformation($"[Worker:{deviceid}] READ MODBUS FC({functionCode}) reading at: {DateTimeOffset.Now}");
+        }
+
+        private void EnqueueEventModel(DeviceTypes t, int deviceindex, ushort bitFlag, int groupcode)
+        {
+            //string topicName = $"hubbub/{SiteId}/{DeviceType}/{DeviceIndex}/Event";
+            EventModel record = new EventModel();
+            record.UnixTimestamp = DateTimeOffset.Now.AddHours(9).ToFileTime();
+            record.DeviceType = (int)t;
+            record.DeviceIndex = deviceindex;
+            record.SiteId = HubbubTemaplte.Hubbub.Siteid;
+            record.FactoryCode = HubbubTemaplte.Hubbub.Factorycode;
+            record.Status = EventStatus.New;
+            record.BitFlag = bitFlag;
+            record.GroupCode = groupcode;
+            globalEventQueue.Enqueue(record);
         }
 
         private void FIllPcsStatus(JObject obj, int groupCode, ushort StatValue)

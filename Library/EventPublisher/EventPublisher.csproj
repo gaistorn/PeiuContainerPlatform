@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="FireworksFramework.NetStandard.Mqtt" Version="1.0.2" />
     <PackageReference Include="LiteDB" Version="4.1.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 
   <ItemGroup>
